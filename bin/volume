@@ -1,0 +1,10 @@
+#!/bin/bash
+
+MUTED=$(pactl list sinks | grep "Mute: " | head -1 | awk "{print \$2}")
+
+if [ "$MUTED" == "yes" ]
+then
+	echo "0%"
+else
+	echo $(pactl list sinks | grep "Volume: f" | head -1 | awk "{print \$5}")
+fi
