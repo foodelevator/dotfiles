@@ -10,11 +10,17 @@ set number
 set title
 set tabstop=4 shiftwidth=4 softtabstop=0 noexpandtab
 set nowrap
+set incsearch
+set ignorecase
+set smartcase
+set nohlsearch
 
 noremap ; l
 noremap l k
 noremap k j
 noremap j h
+
+noremap Y y$
 
 " Spell checking
 map <F1> :set nospell<Return>

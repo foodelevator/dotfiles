@@ -16,10 +16,13 @@ exec_always --no-startup-id feh --bg-fill /home/mathias/Pictures/backgrounds/mat
 exec --no-startup-id "xset r rate 250 50"
 exec --no-startup-id "setxkbmap us altgr-intl -option caps:escape"
 exec --no-startup-id "xset b 0"
+exec --no-startup-id "xautolock -time 10 -locker \"lock\""
 
 # ,------------------------------------------.
 # |            BASIC CONFIGURATION           |
 # `------------------------------------------´
+
+for_window [class="URxvt"] border pixel 1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -35,7 +38,7 @@ bindsym $mod+q kill
 
 bindsym button3 floating toggle
 
-bindsym $mod+x exec --no-startup-id lock
+bindsym $mod+e exec --no-startup-id i3quit
 
 # change focus
 bindsym $mod+j focus left
@@ -70,7 +73,7 @@ bindsym $mod+space floating toggle
 bindsym $mod+Shift+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+p focus parent
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -86,13 +89,10 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym $mod+Return exec $TERMINAL
 bindsym $mod+d exec --no-startup-id dmenu_run
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
+bindsym $mod+a exec $TERMINAL -e ranger
+bindsym $mod+s exec firefox
+bindsym $mod+z exec spotify
+bindsym $mod+c exec --no-startup-id code
 
 # ,------------------------------------------.
 # |                WORKSPACES                |
@@ -183,8 +183,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+s scratchpad show
-bindsym $mod+shift+s move scratchpad
+bindsym $mod+w scratchpad show
+bindsym $mod+shift+w move scratchpad
 
 bar {
 	font pango:Liberation Sans, FontAwesome 14
@@ -192,3 +192,11 @@ bar {
 	position bottom
 	strip_workspace_numbers yes
 }
+
+
+
+
+
+# Vim workaround thing
+# bindsym --release a exec --no-startup-id xdotool key w
+

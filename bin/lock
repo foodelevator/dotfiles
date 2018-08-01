@@ -6,7 +6,7 @@ TMPBG=/tmp/screen.png
 playerctl pause 2>/dev/null
 
 scrot "$TMPBG"
-convert "$TMPBG" -scale 10% -scale 1000% -modulate 33,20 "$TMPBG"
+convert "$TMPBG" -scale 10% -scale 1000% -modulate 100,40 "$TMPBG"
 convert "$TMPBG" "$ICON" -gravity center -composite -matte "$TMPBG"
 i3lock -u -i "$TMPBG"
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 case $BLOCK_BUTTON in
-	1) auddiomanager pause ;;
+	1) audiomanager pause ;;
 	4) audiomanager next ;;
 	5) audiomanager prev ;;
 esac

@@ -1,7 +1,7 @@
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 export PATH=$PATH:$HOME/bin
-export EDITOR="vim"
+export EDITOR="nvim"
 export TERMINAL="urxvt"
 export BROWSER="firefox"
 
