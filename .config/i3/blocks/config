@@ -34,7 +34,7 @@ label=
 
 [pm]
 label=
-interval=600
+interval=60
 signal=8
 
 [playingsong]

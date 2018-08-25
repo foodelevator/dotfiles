@@ -39,7 +39,7 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['/usr/bin/rustup', 'run', 'stable', 'rls'],
 	\ }
 
-" Rust Language Server:
+" Language Server:
 let g:LanguageClient_loggingFile = '/tmp/LanguageClient.log'
 let g:LanguageClient_loggingLevel = 'INFO'
 let g:LanguageClient_serverStderr = '/tmp/LanguageServer.log'
@@ -47,10 +47,6 @@ let g:LanguageClient_serverStderr = '/tmp/LanguageServer.log'
 " Function Paramater Helper:
 let g:echodoc#enable_at_startup = 1
 set cmdheight=2
-
-" Rusty Tags:
-autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi
-autocmd BufWritePost *.rs :silent! exec "!rusty-tags vi --quiet --start-dir=" . expand('%:p:h') . "&" | redraw!
 
 " Common Sense:
 set ignorecase
@@ -65,9 +61,6 @@ set tabstop=4 shiftwidth=4 softtabstop=0 noexpandtab
 set title
 
 let mapleader = ","
-
-" Hard Tabs Fix For Rust:
-autocmd FileType rust set tabstop=4 shiftwidth=4 softtabstop=0 noexpandtab
 
 " More Common Sense:
 noremap ; l
@@ -126,4 +119,20 @@ imap <c-v> <c-r>+
 vmap <leader>s :sort<CR>
 imap <c-k> <c-n>
 imap <c-l> <c-p>
+
+" Rust Specific:
+
+" Tags:
+autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi
+autocmd BufWritePost *.rs :silent! exec "!rusty-tags vi --quiet --start-dir=" . expand('%:p:h') . "&" | redraw!
+
+" Hard Tabs Fix:
+autocmd FileType rust set tabstop=4 shiftwidth=4 softtabstop=0 noexpandtab
+
+" Cargo Commands:
+autocmd FileType rust map <F5> :!cargo run<CR>
+autocmd FileType rust imap <F5> <Esc>:!cargo run<CR>
+
+autocmd FileType rust map <F6> :!cargo doc --open<CR>
+autocmd FileType rust imap <F6> <Esc>:!cargo doc --open<CR>
 

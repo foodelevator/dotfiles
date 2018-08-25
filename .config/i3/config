@@ -144,10 +144,10 @@ hide_edge_borders both
 
 set $default_gaps 15
 
-gaps inner $default_gaps 
+gaps inner $default_gaps
 
 bindsym $mod+shift+minus gaps inner all set 0
-bindsym $mod+shift+plus gaps inner all set $default_gaps 
+bindsym $mod+shift+plus gaps inner all set $default_gaps
 bindsym $mod+minus gaps inner all minus 5
 bindsym $mod+plus gaps inner all plus 5
 
@@ -192,9 +192,6 @@ bar {
 	position bottom
 	strip_workspace_numbers yes
 }
-
-
-
 
 
 # Vim workaround thing

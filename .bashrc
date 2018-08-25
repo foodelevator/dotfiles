@@ -3,8 +3,9 @@
 
 alias ls='ls --color=auto'
 alias grep='grep --color'
-alias notes='vim ~/notes.md'
+alias notes='nvim ~/notes.md'
 alias v='nvim'
+alias nv='nvim'
 
 export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src/
 
