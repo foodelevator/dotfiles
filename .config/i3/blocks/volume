@@ -6,8 +6,8 @@ case $BLOCK_BUTTON in
 	5) audiomanager down 5 ;;
 esac
 
-muted=$(pactl list sinks | grep "Mute: " | head -1 | awk "{print \$2}")
-volume=$(pactl list sinks | grep "Volume: f" | head -1 | awk "{print \$5}")
+muted=$(pactl list sinks | grep "Mute: " | head "-$(($ACTIVE_SINK + 1))" | awk "{print \$2}")
+volume=$(pactl list sinks | grep "Volume: f" | head "-$(($ACTIVE_SINK + 1))" | awk "{print \$5}")
 
 if [ "$muted" == "yes" ] || [ "$volume" == "0%" ];
 then

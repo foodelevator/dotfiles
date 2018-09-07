@@ -132,7 +132,7 @@
       <name>9</name>
       <name>10</name>
     </names>
-    <popupTime>200</popupTime>
+    <popupTime>0</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
        desktops.  Set this to 0 to disable the popup. -->
   </desktops>
@@ -311,6 +311,16 @@
         <command>urxvt</command>
       </action>
     </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute">
+        <command>audiomanager down 5</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute">
+        <command>audiomanager up 5</command>
+      </action>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
@@ -384,7 +394,7 @@
         <action name="Move"/>
       </mousebind>
       <mousebind button="Left" action="DoubleClick">
-        <action name="ToggleShade"/>
+        <action name="ToggleMaximizeFull"/>
       </mousebind>
       <mousebind button="Up" action="Click">
         <action name="if">

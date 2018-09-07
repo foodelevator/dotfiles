@@ -2,10 +2,12 @@
 # These things are run when an Openbox X Session is started.
 #
 
-compton --fade-delta=16 --fade-in-step=0.1 --fade-out-step=0.1 &
-feh --bg-fill ~/Pictures/backgrounds/arch_dark.jpg &
+tint2 -c ~/.themes/Numix_tint2/dark_taskbar/tint2rc &
+feh --bg-fill ~/Pictures/backgrounds/arch_light.png &
 
 xset r rate 250 50 &
 setxkbmap us altgr-intl -option caps:escape &
 xset b 0 &
+
+compton --fade-delta=16 --fade-in-step=0.1 --fade-out-step=0.1 &
 
