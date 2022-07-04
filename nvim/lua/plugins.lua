@@ -15,7 +15,7 @@ require "paq" {
 
     "ap/vim-css-color",
     "bronson/vim-trailing-whitespace",
-    "glacambre/firenvim",
+    -- "glacambre/firenvim",
     "junegunn/vim-easy-align",
     "kyazdani42/nvim-web-devicons",
     "morhetz/gruvbox",
