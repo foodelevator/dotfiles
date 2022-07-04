@@ -1,0 +1,38 @@
+# vim: ft=conf
+#
+# i3blocks configuration file
+#
+# The i3blocks man page describes the usage of the binary,
+# and its website describes the configuration:
+#
+#     https://vivien.github.io/i3blocks
+
+
+# Global properties
+separator=true
+separator_block_width=15
+
+[ip]
+color=#fabd2f
+command=ip a show enp4s0 | grep 'inet ' | awk '{print "IP: "$2}' | sed -E 's/\/.*//'
+interval=once
+
+[cpu]
+color=#fb4934
+command=mpstat 1 1 | grep Average | awk '{print $3"%"}'
+interval=10
+
+[mem]
+color=#689d6a
+command=free -h | grep Mem | awk '{print "RAM: "$3" / "$2}'
+interval=10
+
+[disk]
+color=#8ec07c
+command=df -h | grep sda2 | awk '{print "Disk space: "$4}'
+interval=10
+
+[time]
+color=#ebdbb2
+command=date +'%a %d %B(%m) %Y %H:%M:%S'
+interval=1

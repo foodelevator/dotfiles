@@ -1,0 +1,5 @@
+set disassembly-flavor intel
+# alias da = disassemble
+set detach-on-fork off
+set follow-fork-mode child
+source /usr/share/pwndbg/gdbinit.py
