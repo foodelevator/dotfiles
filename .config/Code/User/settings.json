@@ -1,8 +1,0 @@
-{
-    "editor.fontFamily": "'Liberation Mono', monospace",
-    "editor.fontSize": 15,
-    "editor.insertSpaces": false,
-    "explorer.confirmDelete": false,
-    "explorer.confirmDragAndDrop": false,
-    "extensions.ignoreRecommendations": true
-}

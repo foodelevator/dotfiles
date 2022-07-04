@@ -1,7 +1,0 @@
-#!/bin/bash
-case $BLOCK_BUTTON in
-	1) $TERMINAL -e bash -c "sudo pacman -Syu && pkill -RTMIN+8 i3blocks && echo \"Done updating!\" && read" ;;
-esac
-
-echo "$(pacman -Qu | wc -l | sed -e '/^0$/d')"
-
