@@ -47,6 +47,8 @@ bindsym XF86AudioNext exec --no-startup-id dbus-send --print-reply=literal --des
 
 bindsym Print exec --no-startup-id screenshot
 
+bindsym $mod+u exec pavucontrol --tab=3
+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -105,16 +107,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "ett"
-set $ws2 "två"
-set $ws3 "tre"
-set $ws4 "fyra"
-set $ws5 "fem"
-set $ws6 "sex"
-set $ws7 "sju"
-set $ws8 "åtta"
-set $ws9 "nio"
-set $ws10 "tio"
+set $ws1 "1:ett"
+set $ws2 "2:två"
+set $ws3 "3:tre"
+set $ws4 "4:fyra"
+set $ws5 "5:fem"
+set $ws6 "6:sex"
+set $ws7 "7:sju"
+set $ws8 "8:åtta"
+set $ws9 "9:nio"
+set $ws10 "10:tio"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -174,6 +176,7 @@ client.focused          #4c7899 #285577 #ffffff #e5af64   #e08506
 # finds out, if available)
 bar {
     status_command i3blocks
+    strip_workspace_numbers yes
 }
 
 for_window [class=".*"] border pixel 1
