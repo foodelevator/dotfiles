@@ -9,7 +9,7 @@ PATH="$GOPATH/bin:$PATH"
 
 export JULIA_DEPOT_PATH="$HOME/.local/share/julia"
 
-PATH="$HOME/.local/share/zig:$PATH"
+PATH="$HOME/opt/zig:$PATH"
 
 PATH="$HOME/.local/share/wolfram/bin:$PATH"
 
@@ -17,6 +17,8 @@ export RLWRAP_HOME="$HOME/.local/share/rlwrap"
 
 export VISUAL="nvim"
 export EDITOR="nvim"
+
+export GNUPG_HOME="$HOME/.local/share/gnupg"
 
 # Makes java be able to render stuff
 export _JAVA_AWT_WM_NONREPARENTING=1
