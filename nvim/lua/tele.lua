@@ -9,6 +9,9 @@ telescope.setup {
                 ["<c-n>"] = telescope_actions.move_selection_next,
             },
         },
+        file_ignore_patterns = {
+            "vendor"
+        },
     },
     pickers = {
         buffers = {
