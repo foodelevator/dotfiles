@@ -17,10 +17,10 @@ color=#fabd2f
 command=ip a show enp4s0 | grep 'inet ' | awk '{print "IP: "$2}' | sed -E 's/\/.*//'
 interval=once
 
-[cpu]
-color=#fb4934
-command=mpstat 1 1 | grep Average | awk '{print $3"%"}'
-interval=10
+# [cpu]
+# color=#fb4934
+# command=mpstat 1 1 | grep Average | awk '{print $3"%"}'
+# interval=10
 
 [mem]
 color=#689d6a
@@ -29,7 +29,7 @@ interval=10
 
 [disk]
 color=#8ec07c
-command=df -h | grep sda2 | awk '{print "Disk space: "$4}'
+command=df -h | grep nvme0n1p1 | awk '{print "Disk space: "$4}'
 interval=10
 
 [time]

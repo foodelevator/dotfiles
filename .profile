@@ -9,10 +9,6 @@ PATH="$GOPATH/bin:$PATH"
 
 export JULIA_DEPOT_PATH="$HOME/.local/share/julia"
 
-PATH="$HOME/opt/zig:$PATH"
-
-PATH="$HOME/.local/share/wolfram/bin:$PATH"
-
 export RLWRAP_HOME="$HOME/.local/share/rlwrap"
 
 export VISUAL="nvim"
