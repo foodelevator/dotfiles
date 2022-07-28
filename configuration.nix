@@ -127,7 +127,7 @@
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
 
-  services.udev.extraRules = (builtins.readFile ./60-openrgb.rules);
+  services.udev.extraRules = (builtins.readFile ./programs/openrgb/60-openrgb.rules);
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
