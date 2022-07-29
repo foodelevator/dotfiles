@@ -1,6 +1,7 @@
 # Resources
 # https://www.youtube.com/watch?v=AGVXJ-TIv3Y
 # https://serokell.io/blog/practical-nix-flakes
+# https://nixos.org/guides/nix-pills/generic-builders.html
 # To look into:
 # nixos-rebuild build-vm
 
