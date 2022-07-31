@@ -14,9 +14,9 @@
 
   outputs = { self, nixpkgs }: {
     nixosConfigurations = {
-      pingupc = nixpkgs.lib.nixosSystem {
+      chonk = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./configuration.nix ];
+        modules = [ ./hosts/chonk/configuration.nix ];
       };
     };
   };

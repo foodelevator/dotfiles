@@ -75,7 +75,6 @@
     excludePackages = [ pkgs.xterm ];
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mathias = {
     isNormalUser = true;
     description = "mathias";
@@ -99,17 +98,15 @@
       i3blocks
 
       firefox
-      (discord.override { nss = nss_latest; }) # needed open links
+      (discord.override { nss = nss_latest; }) # needed to open links
       spotify
       openrgb
       pavucontrol
     ];
   };
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
     neovim
     git
@@ -129,7 +126,7 @@
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
 
-  services.udev.extraRules = (builtins.readFile ./programs/openrgb/60-openrgb.rules);
+  services.udev.extraRules = (builtins.readFile ../../programs/openrgb/60-openrgb.rules);
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
