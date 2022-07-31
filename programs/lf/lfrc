@@ -2,4 +2,4 @@ map I :set hidden!
 map D delete
 set incsearch
 
-set previewer '~/.config/lf/preview'
+# set previewer '~/.config/lf/preview'

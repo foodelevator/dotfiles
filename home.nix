@@ -1,6 +1,16 @@
 { config, pkgs, ... }:
 {
-  xdg.configFile."dunst/dunstrc".source = ./programs/dunst/dunstrc;
+  imports = [
+    ./programs/cargo
+    ./programs/dunst
+    ./programs/fish
+    # ./programs/gdb
+    ./programs/git
+    ./programs/i3
+    ./programs/kitty
+    ./programs/lf
+    ./programs/nvim
+  ];
 
   home.homeDirectory = "/home/mathias";
   home.username = "mathias";

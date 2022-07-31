@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../programs/openrgb
     ];
 
   # Bootloader.
@@ -15,7 +16,7 @@
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.useOSProber = true;
 
-  networking.hostName = "pingupc";
+  networking.hostName = "chonk";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -125,8 +126,6 @@
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
-
-  services.udev.extraRules = (builtins.readFile ../../programs/openrgb/60-openrgb.rules);
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
