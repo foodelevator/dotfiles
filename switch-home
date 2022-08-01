@@ -1,0 +1,7 @@
+#!/bin/sh
+
+set -ex
+
+nix build .#homeConfigurations.mathias.activationPackage
+./result/activate
+rm result

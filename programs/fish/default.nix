@@ -1,4 +1,8 @@
 { config, pkgs, ... }:
 {
-  xdg.configFile."fish/config.fish".source = ./config.fish;
+  programs.fish = {
+    enable = true;
+
+    shellInit = builtins.readFile ./config.fish;
+  };
 }

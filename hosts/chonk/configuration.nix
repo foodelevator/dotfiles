@@ -115,14 +115,6 @@
     gcc
   ];
 
-  environment.variables = rec {
-    CARGO_HOME = "\${HOME}/.local/share/cargo";
-    RUSTUP_HOME = "\${HOME}/.local/share/rustup";
-    VISUAL = "nvim";
-    EDITOR = "nvim";
-    XCOMPOSECACHE = "\${HOME}/.cache/compose-cache";
-  };
-
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];

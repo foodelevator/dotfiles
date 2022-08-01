@@ -25,4 +25,4 @@ end
 function fish_greeting
 end
 
-abbr e nvim
+alias e nvim
