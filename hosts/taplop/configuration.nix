@@ -8,28 +8,26 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../programs/openrgb
     ];
 
-  # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/nvme0n1";
-  boot.loader.grub.useOSProber = true;
+  # Use the systemd-boot EFI boot loader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "chonk";
+  networking.hostName = "taplop";
+  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+
+  hardware.system76.enableAll = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-
   # Set your time zone.
-  time.timeZone = "Europe/Stockholm";
+  # time.timeZone = "Europe/Stockholm";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.utf8";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "sv_SE.utf8";
@@ -43,10 +41,6 @@
     LC_TIME = "sv_SE.utf8";
   };
 
-  hardware.i2c.enable = true;
-  hardware.opengl.enable = true;
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
-
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -57,13 +51,8 @@
     enable = true;
     layout = "us";
     xkbVariant = "altgr-intl";
-    videoDrivers = [ "nvidia" ];
-    displayManager = {
-      lightdm.enable = true;
-      setupCommands = ''
-        ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-1 --mode 1920x1080 --rate 60 --output DP-0 --mode 1920x1080 --rate 166 --right-of HDMI-1
-      '';
-    };
+    xkbOptions = "caps:escape";
+    displayManager.lightdm.enable = true;
     windowManager.i3 = {
       enable = true;
       package = pkgs.i3-gaps;
@@ -84,7 +73,6 @@
     shell = pkgs.fish;
     packages = with pkgs; [
       alacritty
-      kitty
       feh
       lf
       xclip
@@ -92,17 +80,15 @@
       ripgrep
       fd
 
-      zig
-      rustup
       go
+      zig
 
       dunst
       i3blocks
 
       firefox
-      (discord.override { nss = nss_latest; }) # needed to open links
+      discord
       spotify
-      openrgb
       pavucontrol
     ];
   };
@@ -149,3 +135,4 @@
     experimental-features = nix-command flakes
   '';
 }
+

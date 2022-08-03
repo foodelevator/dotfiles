@@ -28,6 +28,10 @@
         inherit system pkgs;
         modules = [ ./hosts/chonk/configuration.nix ];
       };
+      taplop = nixpkgs.lib.nixosSystem {
+        inherit system pkgs;
+        modules = [ ./hosts/taplop/configuration.nix ];
+      };
     };
     homeConfigurations.mathias = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
