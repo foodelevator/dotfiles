@@ -19,5 +19,7 @@ function on_attach(client, b)
     end
 end
 
-require("lspconfig").rust_analyzer.setup { on_attach = on_attach }
-require("lspconfig").gopls.setup { on_attach = on_attach }
+local lspconfig = require("lspconfig")
+
+lspconfig.rust_analyzer.setup    { on_attach = on_attach }
+lspconfig.gopls.setup            { on_attach = on_attach }

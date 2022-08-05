@@ -1,5 +1,4 @@
 local telescope_builtin = require("telescope.builtin")
-local neogit = require("neogit")
 
 local map = function(mode, lhs, rhs, opts)
     if not opts then opts = {} end
@@ -35,8 +34,6 @@ nmap("<leader>lf", telescope_builtin.find_files)
 nmap("<leader>lg", telescope_builtin.live_grep)
 nmap("<leader>lb", telescope_builtin.buffers)
 nmap("<leader>lt", telescope_builtin.builtin)
-
-nmap("<leader>g", neogit.open)
 
 function lsp_enabled(b)
     local opts = { buffer = b }

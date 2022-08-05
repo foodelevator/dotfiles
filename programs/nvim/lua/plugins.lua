@@ -13,18 +13,18 @@ end
 require "paq" {
     "savq/paq-nvim",
 
+    "airblade/vim-gitgutter",
     "ap/vim-css-color",
     "bronson/vim-trailing-whitespace",
-    -- "glacambre/firenvim",
     "junegunn/vim-easy-align",
     "kyazdani42/nvim-web-devicons",
+    "moberst/lsp_lines",
     "morhetz/gruvbox",
     "neovim/nvim-lspconfig",
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope-fzy-native.nvim",
     "nvim-telescope/telescope.nvim",
     {"nvim-treesitter/nvim-treesitter", run = function() vim.cmd("TSUpdate") end},
-    "TimUntersberger/neogit",
     "tpope/vim-commentary",
     "tpope/vim-fugitive",
     "tpope/vim-repeat",
@@ -32,17 +32,14 @@ require "paq" {
     "tpope/vim-unimpaired",
     "wsdjeg/vim-fetch",
 
+    -- "glacambre/firenvim",
     -- "evanleck/vim-svelte",
     -- "JuliaEditorSupport/julia-vim",
     -- "ziglang/zig.vim",
 
-    -- "airblade/vim-gitgutter",
-    -- "itchyny/lightline.vim",
-    -- "prabirshrestha/vim-lsp",
-    -- "ctrlpvim/ctrlp.vim",
 }
 
-require "treesitter"
 require "lsp"
+require "lsplines"
 require "tele"
-require "ngit"
+require "treesitter"
