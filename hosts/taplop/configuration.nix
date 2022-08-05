@@ -24,7 +24,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Set your time zone.
-  # time.timeZone = "Europe/Stockholm";
+  time.timeZone = "Europe/Stockholm";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -59,6 +59,10 @@
     };
     libinput = {
       enable = true;
+      touchpad = {
+        naturalScrolling = true;
+        clickMethod = "clickfinger";
+      };
       mouse = {
         accelProfile = "flat";
       };
@@ -69,7 +73,7 @@
   users.users.mathias = {
     isNormalUser = true;
     description = "mathias";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "wheel" "networkmanager" "docker" ];
     shell = pkgs.fish;
     packages = with pkgs; [
       alacritty
@@ -95,6 +99,8 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  virtualisation.docker.enable = true;
+
   environment.systemPackages = with pkgs; [
     neovim
     git
@@ -114,13 +120,13 @@
   # };
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
