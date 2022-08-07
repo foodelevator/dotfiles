@@ -33,10 +33,15 @@
         modules = [ ./hosts/taplop/configuration.nix ];
       };
     };
-    homeConfigurations.mathias = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-
-      modules = [ ./home.nix ];
+    homeConfigurations = {
+      chonk = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./hosts/chonk/home.nix ];
+      };
+      taplop = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./hosts/taplop/home.nix ];
+      };
     };
   };
 }

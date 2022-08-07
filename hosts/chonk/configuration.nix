@@ -22,13 +22,10 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
   time.timeZone = "Europe/Stockholm";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.utf8";
 
   i18n.extraLocaleSettings = {
@@ -74,7 +71,7 @@
         accelProfile = "flat";
       };
     };
-    excludePackages = [ pkgs.xterm ];
+    excludePackages = [ pkgs.xterm ]; # 'tis ugly af
   };
 
   users.users.mathias = {
@@ -82,29 +79,6 @@
     description = "mathias";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.fish;
-    packages = with pkgs; [
-      alacritty
-      kitty
-      feh
-      lf
-      xclip
-      tree-sitter
-      ripgrep
-      fd
-
-      zig
-      rustup
-      go
-
-      dunst
-      i3blocks
-
-      firefox
-      (discord.override { nss = nss_latest; }) # needed to open links
-      spotify
-      openrgb
-      pavucontrol
-    ];
   };
 
   nixpkgs.config.allowUnfree = true;
