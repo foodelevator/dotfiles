@@ -6,6 +6,7 @@ in
   imports = [
     ../../programs/git
     ../../programs/rustup
+    ../../programs/node
 
     ../../programs/dunst
     ../../programs/i3

@@ -1,15 +1,10 @@
 { config, pkgs, ... }:
 {
-  home.sessionVariables = {
-    YARN_CACHE_FOLDER = "$HOME/.cache/yarn";
+  home.shellAliases = {
+    npmg = "npm --prefix=\"$HOME/.local/share/npm\"";
   };
 
-  home.sessionPath = [
-    "$HOME/.yarn/bin"
-  ];
-
   home.packages = with pkgs; [
-    yarn
     nodejs
   ];
 }

@@ -15,7 +15,7 @@ separator_block_width=15
 [ip]
 color=#fabd2f
 command=ip a show enp4s0 | grep 'inet ' | awk '{print "IP: "$2}' | sed -E 's/\/.*//'
-interval=once
+interval=60
 
 # [cpu]
 # color=#fb4934
