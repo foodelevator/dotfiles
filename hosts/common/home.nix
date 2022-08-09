@@ -26,8 +26,6 @@ in
     EDITOR = "nvim";
 
     inherit GOPATH;
-
-    XCOMPOSECACHE = "$HOME/.cache/compose-cache";
   };
 
   home.homeDirectory = "/home/mathias";
@@ -56,5 +54,6 @@ in
     slack
     spotify
     pavucontrol
+    slack
   ];
 }
