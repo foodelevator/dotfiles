@@ -28,8 +28,6 @@ in
     inherit GOPATH;
     CARGO_HOME = "$HOME/.local/share/cargo";
     RUSTUP_HOME = "$HOME/.local/share/rustup";
-
-    XCOMPOSECACHE = "$HOME/.cache/compose-cache";
   };
 
   home.homeDirectory = "/home/mathias";
@@ -58,5 +56,6 @@ in
     (discord.override { nss = nss_latest; }) # needed to open links
     spotify
     pavucontrol
+    slack
   ];
 }
