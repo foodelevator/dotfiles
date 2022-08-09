@@ -10,12 +10,22 @@
       ./hardware-configuration.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
+  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+
+  # Setup keyfile
+  boot.initrd.secrets = {
+    "/crypto_keyfile.bin" = null;
+  };
+
+  # Enable swap on luks
+  boot.initrd.luks.devices."luks-60b63ab5-ed00-450a-8ad1-13c2572dcfd6".device = "/dev/disk/by-uuid/60b63ab5-ed00-450a-8ad1-13c2572dcfd6";
+  boot.initrd.luks.devices."luks-60b63ab5-ed00-450a-8ad1-13c2572dcfd6".keyFile = "/crypto_keyfile.bin";
 
   networking.hostName = "taplop";
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   hardware.system76.enableAll = true;
 
@@ -23,12 +33,9 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Set your time zone.
   time.timeZone = "Europe/Stockholm";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "sv_SE.utf8";
     LC_IDENTIFICATION = "sv_SE.utf8";
@@ -75,26 +82,6 @@
     description = "mathias";
     extraGroups = [ "wheel" "networkmanager" "docker" ];
     shell = pkgs.fish;
-    packages = with pkgs; [
-      alacritty
-      feh
-      lf
-      xclip
-      tree-sitter
-      ripgrep
-      fd
-
-      go
-      zig
-
-      dunst
-      i3blocks
-
-      firefox
-      discord
-      spotify
-      pavucontrol
-    ];
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -120,13 +107,13 @@
   # };
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = false;
+  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  networking.firewall.enable = false;
+  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

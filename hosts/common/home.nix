@@ -4,8 +4,8 @@ let
 in
 {
   imports = [
-    ../../programs/cargo
     ../../programs/git
+    ../../programs/rustup
 
     ../../programs/dunst
     ../../programs/i3
@@ -26,8 +26,6 @@ in
     EDITOR = "nvim";
 
     inherit GOPATH;
-    CARGO_HOME = "$HOME/.local/share/cargo";
-    RUSTUP_HOME = "$HOME/.local/share/rustup";
 
     XCOMPOSECACHE = "$HOME/.cache/compose-cache";
   };
@@ -48,7 +46,6 @@ in
     fd
 
     zig
-    rustup
     go
 
     dunst
@@ -56,6 +53,7 @@ in
 
     firefox
     (discord.override { nss = nss_latest; }) # needed to open links
+    slack
     spotify
     pavucontrol
   ];
