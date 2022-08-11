@@ -7,12 +7,11 @@ in
     ../../programs/git
     ../../programs/rustup
     ../../programs/node
-    ../../programs/flutter
 
     ../../programs/discord
     ../../programs/dunst
     ../../programs/i3
-    ../../programs/kitty
+    ../../programs/alacritty
 
     ../../programs/fish
     # ../../programs/gdb
@@ -36,26 +35,17 @@ in
   home.stateVersion = "22.11";
 
   home.packages = with pkgs; [
-    alacritty
-    kitty
     feh
-    lf
     xclip
-
-    tree-sitter
-    ripgrep
-    fd
+    scrot
+    killall
 
     zig
     go
-
-    dunst
-    i3blocks
 
     firefox
     slack
     spotify
     pavucontrol
-    slack
   ];
 }
