@@ -7,7 +7,9 @@ in
     ../../programs/git
     ../../programs/rustup
     ../../programs/node
+    ../../programs/flutter
 
+    ../../programs/discord
     ../../programs/dunst
     ../../programs/i3
     ../../programs/kitty
@@ -51,7 +53,6 @@ in
     i3blocks
 
     firefox
-    (discord.override { nss = nss_latest; }) # needed to open links
     slack
     spotify
     pavucontrol
