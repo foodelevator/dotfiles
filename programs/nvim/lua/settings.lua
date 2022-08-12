@@ -37,6 +37,7 @@ end
 vim.g.asmsyntax = "nasm"
 
 vim.cmd("colorscheme gruvbox")
+vim.highlight.create("Normal", { guibg="#1d2021" })
 
 u.au("settings", {
     {"TermOpen", "setlocal nonu nornu signcolumn=no"},
