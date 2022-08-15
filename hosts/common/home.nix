@@ -7,6 +7,7 @@ in
     ../../programs/git
     ../../programs/rustup
     ../../programs/node
+    ../../programs/encore
 
     ../../programs/discord
     ../../programs/dunst
@@ -42,6 +43,7 @@ in
 
     zig
     go
+    gcc
 
     firefox
     slack

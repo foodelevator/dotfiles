@@ -1,11 +1,18 @@
 require "nvim-treesitter.configs".setup {
-  ensure_installed = { "rust", "go", "lua", "typescript", "nix" },
+  ensure_installed = {
+      "rust",
+      "go",
+      "lua",
+      "typescript",
+      "nix",
+      "svelte", "javascript", "css",
+  },
   sync_install = false,
+
+  indent = { enable = true },
 
   highlight = {
     enable = true,
-
-    -- disable = { "c", "rust" },
 
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).

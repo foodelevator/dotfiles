@@ -36,19 +36,6 @@
 
   time.timeZone = "Europe/Stockholm";
 
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "sv_SE.utf8";
-    LC_IDENTIFICATION = "sv_SE.utf8";
-    LC_MEASUREMENT = "sv_SE.utf8";
-    LC_MONETARY = "sv_SE.utf8";
-    LC_NAME = "sv_SE.utf8";
-    LC_NUMERIC = "sv_SE.utf8";
-    LC_PAPER = "sv_SE.utf8";
-    LC_TELEPHONE = "sv_SE.utf8";
-    LC_TIME = "sv_SE.utf8";
-  };
-
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -77,27 +64,6 @@
     };
     excludePackages = [ pkgs.xterm ];
   };
-
-  users.users.mathias = {
-    isNormalUser = true;
-    description = "mathias";
-    extraGroups = [ "wheel" "networkmanager" "docker" ];
-    shell = pkgs.fish;
-  };
-
-  nixpkgs.config.allowUnfree = true;
-
-  virtualisation.docker.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    neovim
-    git
-    fish
-  ];
-
-  fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
-  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
