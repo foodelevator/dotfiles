@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
 {
+  imports =
+    [
+      ../../programs/syncthing
+    ];
+
   users.users.mathias = {
     isNormalUser = true;
     description = "mathias";
