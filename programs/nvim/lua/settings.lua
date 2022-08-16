@@ -13,7 +13,7 @@ local opts = {
     "smartcase",
     ts = 4, sw = 4, sts = 0, "et",
     "title",
-    textwidth = 80, colorcolumn = 0,
+    textwidth = 100, colorcolumn = 0,
     "splitbelow", "splitright",
     wildignore = "node_modules,__sapper__,target,vendor",
     signcolumn = "yes",
