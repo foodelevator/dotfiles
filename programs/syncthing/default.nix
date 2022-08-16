@@ -11,11 +11,17 @@
       taplop.id = "JOOVGP7-BNR6OTA-H5W53FT-EUY6O3T-KZSP5MT-EFZR7QL-WOZA6RT-ANKZOQ3";
     };
 
-    folders = {
-      "Documents" = {
-        path = "/home/mathias/Documents";
+    folders = pkgs.lib.genAttrs
+      [
+        "Documents"
+        "Memes"
+        "Music"
+        "Videos"
+        "Pictures"
+      ]
+      (name: {
+        path = "/home/mathias/${name}";
         devices = ["chonk" "taplop"];
-      };
-    };
+      });
   };
 }
