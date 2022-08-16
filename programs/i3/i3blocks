@@ -29,8 +29,13 @@ interval=10
 
 [disk]
 color=#8ec07c
-command=df -h | grep nvme0n1p1 | awk '{print "Disk space: "$4}'
+command=df -h | grep ' /$' | awk '{print "Disk space: "$4}'
 interval=10
+
+[bat]
+color=#d3869b
+command=cat /sys/class/power_supply/BAT0/capacity
+interval=60
 
 [time]
 color=#ebdbb2
