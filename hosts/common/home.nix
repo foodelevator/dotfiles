@@ -14,6 +14,7 @@ in
     ../../programs/i3
     ../../programs/alacritty
 
+    ../../programs/nix
     ../../programs/fish
     # ../../programs/gdb
     ../../programs/lf
