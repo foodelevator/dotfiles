@@ -5,6 +5,7 @@
       ./hardware-configuration.nix
       ../common/configuration.nix
       ../../programs/openrgb
+      ../../programs/steam
     ];
 
   # Bootloader.
