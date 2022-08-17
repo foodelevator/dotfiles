@@ -33,6 +33,7 @@
         modules = [ ./hosts/taplop/configuration.nix ];
       };
     };
+
     homeConfigurations = {
       chonk = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
@@ -42,6 +43,24 @@
         inherit pkgs;
         modules = [ ./hosts/taplop/home.nix ];
       };
+    };
+
+    devShells.${system}.pwn =
+    let
+      pwn-python = pkgs.python3.withPackages (p: [
+        p.pwntools
+      ]);
+    in
+    pkgs.mkShell {
+      buildInputs = [
+        pkgs.fish
+        pkgs.gdb
+        pwn-python
+      ];
+      shellHook = ''
+        PYTHONPATH=${pwn-python}/${pwn-python.sitePackages}
+        exec fish
+      '';
     };
   };
 }
