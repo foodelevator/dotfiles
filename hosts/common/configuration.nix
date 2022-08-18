@@ -30,6 +30,10 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  nix.gc.automatic = true;
+  nix.gc.options = "--delete-older-than 7d";
+  nix.gc.dates = "weekly";
+
   environment.systemPackages = with pkgs; [
     neovim
     git
