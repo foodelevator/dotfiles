@@ -17,10 +17,10 @@ color=#fabd2f
 command=ip a show enp4s0 | grep 'inet ' | awk '{print "IP: "$2}' | sed -E 's/\/.*//'
 interval=60
 
-# [cpu]
-# color=#fb4934
-# command=mpstat 1 1 | grep Average | awk '{print $3"%"}'
-# interval=10
+[cpu]
+color=#fb4934
+command=echo "$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"%
+interval=5
 
 [mem]
 color=#689d6a
