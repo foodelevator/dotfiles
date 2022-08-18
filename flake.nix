@@ -45,7 +45,7 @@
       };
     };
 
-    devShells.${system}.pwn =
+    devShells.${system}.ctf =
     let
       pwn-python = pkgs.python3.withPackages (p: [
         p.pwntools

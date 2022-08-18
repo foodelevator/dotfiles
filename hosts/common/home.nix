@@ -41,6 +41,7 @@ in
     xclip
     scrot
     killall
+    file
 
     zig
     go
