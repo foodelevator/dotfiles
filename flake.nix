@@ -55,6 +55,7 @@
       buildInputs = [
         pkgs.fish
         pkgs.gdb
+        pkgs.ghidra
         pwn-python
       ];
       shellHook = ''
