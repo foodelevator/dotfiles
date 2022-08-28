@@ -27,6 +27,7 @@
   };
 
   virtualisation.docker.enable = true;
+  boot.binfmt.emulatedSystems = [];
 
   nixpkgs.config.allowUnfree = true;
 
