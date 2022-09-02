@@ -2,10 +2,12 @@ require "nvim-treesitter.configs".setup {
   ensure_installed = {
       "rust",
       "go",
+      "c",
       "lua",
       "typescript",
       "nix",
       "svelte", "javascript", "css",
+      "markdown",
   },
   sync_install = false,
 
