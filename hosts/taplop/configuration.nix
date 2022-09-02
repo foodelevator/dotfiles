@@ -27,6 +27,7 @@
 
   networking.hostName = "taplop";
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+  programs.nm-applet.enable = true;
 
   hardware.system76.enableAll = true;
 
