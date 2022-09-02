@@ -4,5 +4,7 @@
     ../common/home.nix
   ];
 
-  home.packages = with pkgs; [];
+  home.packages = with pkgs; [
+    brightnessctl
+  ];
 }
