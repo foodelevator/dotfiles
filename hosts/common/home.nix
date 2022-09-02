@@ -46,6 +46,7 @@ in
     zig
     go
     gcc
+    python3
 
     firefox
     slack
