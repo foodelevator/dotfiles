@@ -62,8 +62,8 @@
       ];
       shellHook = ''
         PYTHONPATH=${pwn-python}/${pwn-python.sitePackages}
-        alias ida='LD_PRELOAD=/nix/store/0m2yih08321iwv5a9yxykgjq8yzwpzd5-xcb-util-wm-0.4.1/lib/libxcb-icccm.so.4:/nix/store/0ij693svsi5bjai490iphwyca9hbch1n-xcb-util-image-0.4.0/lib/libxcb-image.so.0:/nix/store/7sv0qkyz6rc66g85jk54jv7mf17q455f-xcb-util-keysyms-0.4.0/lib/libxcb-keysyms.so.1:/nix/store/2gnvqqzjl629ydi8m50i2i7j06vn5mda-xcb-util-renderutil-0.3.9/lib/libxcb-render-util.so.0 steam-run ./.local/share/idafree-8.0/ida64'
         exec fish
+        alias ida='LD_PRELOAD=/nix/store/0m2yih08321iwv5a9yxykgjq8yzwpzd5-xcb-util-wm-0.4.1/lib/libxcb-icccm.so.4:/nix/store/0ij693svsi5bjai490iphwyca9hbch1n-xcb-util-image-0.4.0/lib/libxcb-image.so.0:/nix/store/7sv0qkyz6rc66g85jk54jv7mf17q455f-xcb-util-keysyms-0.4.0/lib/libxcb-keysyms.so.1:/nix/store/2gnvqqzjl629ydi8m50i2i7j06vn5mda-xcb-util-renderutil-0.3.9/lib/libxcb-render-util.so.0 steam-run ./.local/share/idafree-8.0/ida64'
       '';
     };
 
