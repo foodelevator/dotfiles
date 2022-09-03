@@ -8,7 +8,7 @@
   users.users.mathias = {
     isNormalUser = true;
     description = "mathias";
-    extraGroups = [ "wheel" "networkmanager" "docker" ];
+    extraGroups = [ "wheel" "networkmanager" "docker" "dialout" ];
     shell = pkgs.fish;
   };
 
