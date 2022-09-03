@@ -20,6 +20,7 @@ exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
 exec --no-startup-id openrgb --startminimized
 exec --no-startup-id discord --start-minimized
+exec --no-startup-id slack -u
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
