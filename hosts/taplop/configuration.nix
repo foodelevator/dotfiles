@@ -37,6 +37,10 @@
 
   time.timeZone = "Europe/Stockholm";
 
+  services.logind.extraConfig = ''
+    HandlePowerKey=hibernate
+  '';
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
