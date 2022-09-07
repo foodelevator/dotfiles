@@ -167,6 +167,7 @@ client.focused          #4c7899 #285577 #ffffff #e5af64   #e08506
 # Start i3bar to display a workspace bar (plus the system information i3blocks
 # finds out, if available)
 bar {
+    position top
     status_command i3blocks -c "/home/mathias/.config/i3/i3blocks"
     strip_workspace_numbers yes
 }
