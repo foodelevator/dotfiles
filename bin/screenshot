@@ -1,3 +1,5 @@
 #!/bin/sh
 
+sleep 0.1
+
 scrot "$HOME"'/Pictures/%y%m%d-%H%M%S-$wx$h.png' -s -e 'xclip -selection clipboard -t image/png $f'
