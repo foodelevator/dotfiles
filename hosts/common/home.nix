@@ -42,6 +42,7 @@ in
     scrot
     killall
     file
+    lazygit
 
     zig
     go
