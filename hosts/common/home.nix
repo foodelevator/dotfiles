@@ -43,6 +43,7 @@ in
     killall
     file
     lazygit
+    mullvad
 
     zig
     go
