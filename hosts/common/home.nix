@@ -44,6 +44,7 @@ in
     file
     lazygit
     mullvad
+    jq
 
     zig
     go
