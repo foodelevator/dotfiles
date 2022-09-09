@@ -49,6 +49,7 @@ in
     python3
 
     firefox
+    ungoogled-chromium
     slack
     spotify
     pavucontrol
