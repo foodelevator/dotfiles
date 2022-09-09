@@ -17,6 +17,11 @@ color=#fabd2f
 command=ip a show enp4s0 | grep 'inet ' | awk '{print "IP: "$2}' | sed -E 's/\/.*//'
 interval=60
 
+[global_ip]
+color=#d79921
+command=curl https://am.i.mullvad.net/json | jq -r '"IP: " + .ip + " " + .city + " " + .country'
+interval=60
+
 [cpu]
 color=#fb4934
 command=echo "$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"%

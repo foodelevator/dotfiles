@@ -42,6 +42,9 @@ in
     scrot
     killall
     file
+    lazygit
+    mullvad
+    jq
 
     zig
     go

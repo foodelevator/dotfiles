@@ -35,6 +35,8 @@
   nix.gc.options = "--delete-older-than 7d";
   nix.gc.dates = "weekly";
 
+  services.mullvad-vpn.enable = true;
+
   environment.systemPackages = with pkgs; [
     neovim
     git
