@@ -50,6 +50,7 @@ in
     go
     gcc
     python3
+    jdk
 
     firefox
     ungoogled-chromium
