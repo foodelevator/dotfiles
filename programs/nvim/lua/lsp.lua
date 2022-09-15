@@ -21,11 +21,11 @@ end
 
 local lspconfig = require("lspconfig")
 
-lspconfig.rust_analyzer.setup    { on_attach = on_attach }
-lspconfig.gopls.setup            { on_attach = on_attach }
-lspconfig.dartls.setup           { on_attach = on_attach }
-lspconfig.rnix.setup             { on_attach = on_attach }
-lspconfig.tsserver.setup         {
+lspconfig.rust_analyzer.setup        { on_attach = on_attach }
+lspconfig.gopls.setup                { on_attach = on_attach }
+lspconfig.dartls.setup               { on_attach = on_attach }
+lspconfig.rnix.setup                 { on_attach = on_attach }
+lspconfig.java_language_server.setup {
     on_attach = on_attach,
-    cmd = { "/home/mathias/.local/share/npm/bin/typescript-language-server", "--stdio" }
+    cmd = { "java-language-server" },
 }

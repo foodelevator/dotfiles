@@ -51,6 +51,7 @@ in
     gcc
     python3
     jdk
+    swiProlog
 
     firefox
     ungoogled-chromium
