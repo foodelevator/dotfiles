@@ -58,5 +58,6 @@ in
     slack
     spotify
     pavucontrol
+    obsidian
   ];
 }
