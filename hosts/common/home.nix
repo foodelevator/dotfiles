@@ -59,5 +59,7 @@ in
     spotify
     pavucontrol
     obsidian
+    zoom-us
+    obs-studio
   ];
 }
