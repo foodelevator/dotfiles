@@ -53,6 +53,8 @@ in
     jdk
     swiProlog
 
+    ghidra
+
     firefox
     ungoogled-chromium
     slack

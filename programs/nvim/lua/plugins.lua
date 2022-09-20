@@ -25,6 +25,7 @@ require "paq" {
     "nvim-telescope/telescope-fzy-native.nvim",
     "nvim-telescope/telescope.nvim",
     {"nvim-treesitter/nvim-treesitter", run = function() vim.cmd("TSUpdate") end},
+    "nvim-treesitter/nvim-treesitter-context",
     "tpope/vim-commentary",
     "tpope/vim-fugitive",
     "tpope/vim-repeat",
