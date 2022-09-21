@@ -14,6 +14,7 @@ require "paq" {
     "savq/paq-nvim",
 
     "airblade/vim-gitgutter",
+    "akinsho/bufferline.nvim",
     "ap/vim-css-color",
     "bronson/vim-trailing-whitespace",
     "junegunn/vim-easy-align",
@@ -24,8 +25,8 @@ require "paq" {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope-fzy-native.nvim",
     "nvim-telescope/telescope.nvim",
-    {"nvim-treesitter/nvim-treesitter", run = function() vim.cmd("TSUpdate") end},
     "nvim-treesitter/nvim-treesitter-context",
+    {"nvim-treesitter/nvim-treesitter", run = function() vim.cmd("TSUpdate") end},
     "tpope/vim-commentary",
     "tpope/vim-fugitive",
     "tpope/vim-repeat",
@@ -44,3 +45,4 @@ require "lsp"
 require "lsplines"
 require "tele"
 require "treesitter"
+require "bline"
