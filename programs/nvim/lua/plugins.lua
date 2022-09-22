@@ -17,6 +17,10 @@ require "paq" {
     "akinsho/bufferline.nvim",
     "ap/vim-css-color",
     "bronson/vim-trailing-whitespace",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-vsnip",
+    "hrsh7th/vim-vsnip",
     "junegunn/vim-easy-align",
     "kyazdani42/nvim-web-devicons",
     "moberst/lsp_lines",
@@ -46,3 +50,4 @@ require "lsplines"
 require "tele"
 require "treesitter"
 require "bline"
+require "completion"

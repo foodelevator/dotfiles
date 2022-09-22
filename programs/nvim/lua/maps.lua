@@ -1,4 +1,5 @@
 local telescope_builtin = require("telescope.builtin")
+local completion = require("completion")
 
 local map = function(mode, lhs, rhs, opts)
     if not opts then opts = {} end
@@ -14,6 +15,8 @@ local function imap(lhs, rhs, opts) map('i', lhs, rhs, opts) end
 
 nmap("<space>", "")
 vim.g.mapleader = ' '
+
+imap("<c-l>", completion.complete)
 
 nmap("<c-h>", "<c-w>h")
 nmap("<c-j>", "<c-w>j")

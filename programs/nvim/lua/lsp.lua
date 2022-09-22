@@ -1,5 +1,6 @@
 local maps = require("maps")
 local u = require("utils")
+local completion = require("completion")
 
 function on_attach(client, b)
     vim.api.nvim_buf_set_option(b, "omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -21,11 +22,12 @@ end
 
 local lspconfig = require("lspconfig")
 
-lspconfig.rust_analyzer.setup        { on_attach = on_attach }
-lspconfig.gopls.setup                { on_attach = on_attach }
-lspconfig.dartls.setup               { on_attach = on_attach }
-lspconfig.rnix.setup                 { on_attach = on_attach }
+lspconfig.rust_analyzer.setup        { on_attach = on_attach, capabilities = completion.capabilities }
+lspconfig.gopls.setup                { on_attach = on_attach, capabilities = completion.capabilities }
+lspconfig.dartls.setup               { on_attach = on_attach, capabilities = completion.capabilities }
+lspconfig.rnix.setup                 { on_attach = on_attach, capabilities = completion.capabilities }
 lspconfig.java_language_server.setup {
     on_attach = on_attach,
     cmd = { "java-language-server" },
+    capabilities = completion.capabilities,
 }
