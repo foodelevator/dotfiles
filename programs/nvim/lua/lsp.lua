@@ -22,12 +22,25 @@ end
 
 local lspconfig = require("lspconfig")
 
-lspconfig.rust_analyzer.setup        { on_attach = on_attach, capabilities = completion.capabilities }
-lspconfig.gopls.setup                { on_attach = on_attach, capabilities = completion.capabilities }
-lspconfig.dartls.setup               { on_attach = on_attach, capabilities = completion.capabilities }
-lspconfig.rnix.setup                 { on_attach = on_attach, capabilities = completion.capabilities }
-lspconfig.java_language_server.setup {
-    on_attach = on_attach,
-    cmd = { "java-language-server" },
-    capabilities = completion.capabilities,
-}
+function server(name, cmd)
+    arg = { on_attach = on_attach, capabilities = completion.capabilities }
+    if cmd ~= nil then
+        arg.cmd = cmd
+    end
+    lspconfig[name].setup(arg)
+end
+
+server("rust_analyzer", { "rustup", "run", "nightly", "rust-analyzer" })
+server("gopls")
+server("rnix")
+server("java_language_server", { "java-language-server" })
+
+-- lspconfig.rust_analyzer.setup        { on_attach = on_attach, capabilities = completion.capabilities }
+-- lspconfig.gopls.setup                { on_attach = on_attach, capabilities = completion.capabilities }
+-- lspconfig.dartls.setup               { on_attach = on_attach, capabilities = completion.capabilities }
+-- lspconfig.rnix.setup                 { on_attach = on_attach, capabilities = completion.capabilities }
+-- lspconfig.java_language_server.setup {
+--     on_attach = on_attach,
+--     capabilities = completion.capabilities,
+--     cmd = { "java-language-server" },
+-- }
