@@ -54,6 +54,8 @@ in
     swiProlog
 
     java-language-server
+    gopls
+    rnix-lsp
 
     ghidra
 
