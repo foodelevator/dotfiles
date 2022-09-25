@@ -34,6 +34,7 @@ xmap("<leader>a", "<Plug>(EasyAlign)")
 nmap("<leader>a", "<Plug>(EasyAlign)")
 
 nmap("<leader>lf", telescope_builtin.find_files)
+nmap("<leader>ls", telescope_builtin.lsp_workspace_symbols)
 nmap("<leader>lg", telescope_builtin.live_grep)
 nmap("<leader>lb", telescope_builtin.buffers)
 nmap("<leader>lt", telescope_builtin.builtin)
