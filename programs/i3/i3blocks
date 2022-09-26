@@ -12,9 +12,9 @@
 separator=true
 separator_block_width=15
 
-[ip]
+[local_ip]
 color=#fabd2f
-command=ip a show enp4s0 | grep 'inet ' | awk '{print "IP: "$2}' | sed -E 's/\/.*//'
+command=ip a show $(ip r | awk '/default/{print $5}') | awk '/inet /{print "IP: "$2}' | sed -E 's/\/.*//'
 interval=60
 
 [global_ip]
