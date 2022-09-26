@@ -53,6 +53,10 @@ in
     jdk
     swiProlog
 
+    java-language-server
+    gopls
+    rnix-lsp
+
     ghidra
 
     firefox
