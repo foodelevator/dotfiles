@@ -10,16 +10,25 @@
 
   inputs = {
     nixpkgs.url = github:nixos/nixpkgs/nixos-unstable;
+
     home-manager.url = github:nix-community/home-manager;
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    mixpkgs.url = github:mathiasmagnusson/mixpkgs;
+    mixpkgs.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager }:
+  outputs = { self, nixpkgs, home-manager, mixpkgs }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
+      overlays = [
+        (self: super: {
+          binary-ninja = mixpkgs.packages.${system}.binary-ninja;
+        })
+      ];
     };
   in
   {

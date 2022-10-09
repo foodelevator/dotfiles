@@ -58,6 +58,7 @@ in
     rnix-lsp
 
     ghidra
+    binary-ninja
 
     firefox
     ungoogled-chromium
