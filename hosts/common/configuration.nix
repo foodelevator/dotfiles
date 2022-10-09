@@ -41,6 +41,8 @@
     neovim
     git
     fish
+
+    jdk
   ];
 
   fonts.fonts = with pkgs; [
