@@ -176,3 +176,4 @@ for_window [class=".*"] border pixel 1
 gaps inner 20
 
 for_window [class="^Pavucontrol$"] floating enable
+for_window [class="^.arandr-wrapped$"] floating enable
