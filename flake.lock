@@ -21,6 +21,26 @@
         "type": "github"
       }
     },
+    "mixpkgs": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1665329783,
+        "narHash": "sha256-fOG2NvQ7tVZB8sW6R/2pfpCHmQvmFUkmv3k8bt4eDHE=",
+        "owner": "mathiasmagnusson",
+        "repo": "mixpkgs",
+        "rev": "b5a8790a99001646883a559b7d5a7eb17bdcc71a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mathiasmagnusson",
+        "repo": "mixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1663178737,
@@ -40,6 +60,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "mixpkgs": "mixpkgs",
         "nixpkgs": "nixpkgs"
       }
     },
