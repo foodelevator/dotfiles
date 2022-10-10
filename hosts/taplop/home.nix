@@ -6,6 +6,7 @@
 
   home.packages = with pkgs; [
     brightnessctl
+    vscode
     arandr
   ];
 }
