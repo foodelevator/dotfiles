@@ -15,6 +15,7 @@ require "paq" {
 
     "airblade/vim-gitgutter",
     "akinsho/bufferline.nvim",
+    "akinsho/toggleterm.nvim",
     "ap/vim-css-color",
     "bronson/vim-trailing-whitespace",
     "hrsh7th/cmp-nvim-lsp",
@@ -45,10 +46,11 @@ require "paq" {
 
 }
 
-require "lsp"
-require "lsplines"
-require "tele"
-require "treesitter"
 require "bline"
 require "completion"
+require "lsp"
+require "lsplines"
 require "snippets"
+require "tele"
+require "toggle-term"
+require "treesitter"
