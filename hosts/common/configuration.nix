@@ -3,6 +3,7 @@
   imports =
     [
       ../../programs/syncthing
+      ../../programs/steam
     ];
 
   users.users.mathias = {

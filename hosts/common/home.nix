@@ -49,7 +49,11 @@ in
     zig
     go
     gcc
-    python3
+    (python3.withPackages (p: with p; [
+      numpy
+      matplotlib
+      scipy
+    ]))
     jdk
     swiProlog
 
@@ -68,5 +72,6 @@ in
     obsidian
     zoom-us
     obs-studio
+    logisim-evolution
   ];
 }
