@@ -1,5 +1,6 @@
 local telescope_builtin = require("telescope.builtin")
 local completion = require("completion")
+local toggle_term = require("toggle-term")
 
 local map = function(mode, lhs, rhs, opts)
     if not opts then opts = {} end
@@ -38,6 +39,9 @@ nmap("<leader>ls", telescope_builtin.lsp_workspace_symbols)
 nmap("<leader>lg", telescope_builtin.live_grep)
 nmap("<leader>lb", telescope_builtin.buffers)
 nmap("<leader>lt", telescope_builtin.builtin)
+
+nmap("<leader>t", toggle_term.toggle)
+nmap("<leader>g", toggle_term.toggle_lazygit)
 
 function lsp_enabled(b)
     local opts = { buffer = b }
