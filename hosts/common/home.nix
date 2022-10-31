@@ -61,7 +61,7 @@ in
     rnix-lsp
 
     ghidra
-    binary-ninja
+    # TODO: is broken: binary-ninja
 
     firefox
     ungoogled-chromium
