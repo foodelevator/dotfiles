@@ -8,6 +8,7 @@ in
     ../../programs/rustup
     ../../programs/node
     ../../programs/encore
+    ../../programs/python
 
     ../../programs/discord
     ../../programs/dunst
@@ -45,15 +46,13 @@ in
     lazygit
     mullvad
     jq
+    distrobox
+    ffmpeg
+    mpv
 
     zig
     go
     gcc
-    (python3.withPackages (p: with p; [
-      numpy
-      matplotlib
-      scipy
-    ]))
     jdk
     swiProlog
 
