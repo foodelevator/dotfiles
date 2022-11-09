@@ -49,6 +49,7 @@ in
     distrobox
     ffmpeg
     mpv
+    unzip
 
     zig
     go
