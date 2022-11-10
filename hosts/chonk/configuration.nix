@@ -41,11 +41,12 @@
     layout = "us";
     xkbVariant = "altgr-intl";
     videoDrivers = [ "nvidia" ];
-    displayManager = {
+      displayManager = {
       lightdm.enable = true;
-      setupCommands = ''
-        ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-1 --mode 1920x1080 --rate 60 --output DP-0 --mode 1920x1080 --rate 166 --right-of HDMI-1
-      '';
+      setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr " +
+                      "--output HDMI-1 --mode 1920x1080 --rate 60 " +
+                      "--output DP-0 --mode 1920x1080 --rate 166 --right-of HDMI-1 " +
+                      "--output DP-2 --mode 1920x1080 --rate 144 --right-of DP-0";
     };
     windowManager.i3 = {
       enable = true;
