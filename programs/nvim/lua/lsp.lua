@@ -6,7 +6,7 @@ function on_attach(client, b)
     vim.api.nvim_buf_set_option(b, "omnifunc", "v:lua.vim.lsp.omnifunc")
     maps.lsp_enabled(b)
 
-    if client.resolved_capabilities.document_highlight then
+    if client.server_capabilities.documentHighlightProvider then
         vim.cmd [[
             hi! LspReferenceRead  guibg=#3c3836
             hi! LspReferenceText  guibg=#3c3836
