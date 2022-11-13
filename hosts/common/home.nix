@@ -50,12 +50,14 @@ in
     ffmpeg
     mpv
     unzip
+    helix
 
     zig
     go
     gcc
     jdk
     swiProlog
+    ghc
 
     java-language-server
     gopls
