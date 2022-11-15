@@ -20,6 +20,7 @@ in
     # ../../programs/gdb
     ../../programs/lf
     ../../programs/nvim
+    ../../programs/helix
   ];
 
   home.sessionPath = [
@@ -50,7 +51,6 @@ in
     ffmpeg
     mpv
     unzip
-    helix
 
     zig
     go
