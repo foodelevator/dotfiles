@@ -5,3 +5,4 @@ cursor-shape.insert = "bar"
 
 [keys.normal]
 esc = ["keep_primary_selection", "collapse_selection"]
+space = { q = ":bc" }

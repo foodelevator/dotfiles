@@ -51,6 +51,7 @@ in
     ffmpeg
     mpv
     unzip
+    pgcli
 
     zig
     go
