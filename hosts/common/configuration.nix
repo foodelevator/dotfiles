@@ -14,7 +14,6 @@
   };
 
   i18n.defaultLocale = "en_US.utf8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "sv_SE.utf8";
     LC_IDENTIFICATION = "sv_SE.utf8";
