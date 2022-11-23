@@ -57,7 +57,7 @@ function lsp_enabled(b)
     nmap("<leader>k", vim.lsp.buf.hover,                      opts)
     imap("<c-k>",     vim.lsp.buf.signature_help,             opts)
     nmap("<leader>.", vim.lsp.buf.code_action,                opts)
-    nmap("<leader>i", vim.lsp.buf.formatting,                 opts)
+    nmap("<leader>i", vim.lsp.buf.format,                     opts)
 end
 
 return { lsp_enabled = lsp_enabled }

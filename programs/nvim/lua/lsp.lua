@@ -35,6 +35,7 @@ server("gopls")
 server("rnix")
 server("java_language_server", { "java-language-server" })
 server("astro")
+server("tailwindcss")
 
 -- lspconfig.rust_analyzer.setup        { on_attach = on_attach, capabilities = completion.capabilities }
 -- lspconfig.gopls.setup                { on_attach = on_attach, capabilities = completion.capabilities }
