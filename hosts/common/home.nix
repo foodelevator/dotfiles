@@ -76,5 +76,6 @@ in
     zoom-us
     obs-studio
     logisim-evolution
+    qFlipper
   ];
 }
