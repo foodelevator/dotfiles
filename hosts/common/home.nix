@@ -77,5 +77,6 @@ in
     obs-studio
     logisim-evolution
     qFlipper
+    gimp
   ];
 }
