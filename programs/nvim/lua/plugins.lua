@@ -34,6 +34,7 @@ require "paq" {
     "nvim-telescope/telescope.nvim",
     "nvim-treesitter/nvim-treesitter-context",
     {"nvim-treesitter/nvim-treesitter", run = function() vim.cmd("TSUpdate") end},
+    "tamton-aquib/duck.nvim",
     "tpope/vim-commentary",
     "tpope/vim-fugitive",
     "tpope/vim-repeat",

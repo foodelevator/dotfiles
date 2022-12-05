@@ -42,6 +42,9 @@ nmap("<leader>tt", telescope_builtin.builtin)
 
 nmap("<leader>g", toggle_term.toggle_lazygit)
 
+nmap("<leader>d", function() require("duck").hatch("ඞ", 0.5) end)
+nmap("<leader>c", function() require("duck").cook("ඞ") end)
+
 function lsp_enabled(b)
     local opts = { buffer = b }
 
