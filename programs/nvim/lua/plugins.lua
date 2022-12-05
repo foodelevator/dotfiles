@@ -18,9 +18,11 @@ require "paq" {
     "akinsho/toggleterm.nvim",
     "ap/vim-css-color",
     "bronson/vim-trailing-whitespace",
+    "folke/which-key.nvim",
+    "ggandor/leap.nvim",
     "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-vsnip",
+    "hrsh7th/nvim-cmp",
     "hrsh7th/vim-vsnip",
     "junegunn/vim-easy-align",
     "kyazdani42/nvim-web-devicons",
@@ -54,3 +56,6 @@ require "snippets"
 require "tele"
 require "toggle-term"
 require "treesitter"
+
+require("which-key").setup { }
+require('leap').add_default_mappings()
