@@ -5,5 +5,6 @@
 
   home.packages = with pkgs; [
     i3blocks
+    i3lock-fancy
   ];
 }
