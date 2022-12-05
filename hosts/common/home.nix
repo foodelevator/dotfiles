@@ -52,6 +52,7 @@ in
     mpv
     unzip
     pgcli
+    gnumake
 
     zig
     go
