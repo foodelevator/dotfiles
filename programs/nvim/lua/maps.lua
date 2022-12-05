@@ -63,4 +63,9 @@ function lsp_enabled(b)
     nmap("<leader>i", vim.lsp.buf.format,                     opts)
 end
 
+require('sibling-swap').setup { keymaps = {
+    ['<C-h>'] = 'swap_with_left',
+    ['<C-l>'] = 'swap_with_right',
+} }
+
 return { lsp_enabled = lsp_enabled }

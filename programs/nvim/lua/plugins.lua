@@ -40,13 +40,13 @@ require "paq" {
     "tpope/vim-repeat",
     "tpope/vim-surround",
     "tpope/vim-unimpaired",
+    "Wansmer/sibling-swap.nvim",
     "wsdjeg/vim-fetch",
 
     -- "glacambre/firenvim",
     -- "evanleck/vim-svelte",
     -- "JuliaEditorSupport/julia-vim",
     -- "ziglang/zig.vim",
-
 }
 
 require "bline"
