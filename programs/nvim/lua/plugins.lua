@@ -10,6 +10,8 @@ if vim.fn.empty(vim.fn.glob(paqpath)) > 0 then
     vim.cmd("packadd paq-nvim")
 end
 
+-- https://github.com/rockerBOO/awesome-neovim#comment
+
 require "paq" {
     "savq/paq-nvim",
 
@@ -20,13 +22,13 @@ require "paq" {
     "bronson/vim-trailing-whitespace",
     "folke/which-key.nvim",
     "ggandor/leap.nvim",
+    "github/copilot.vim",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-vsnip",
     "hrsh7th/nvim-cmp",
     "hrsh7th/vim-vsnip",
     "junegunn/vim-easy-align",
     "kyazdani42/nvim-web-devicons",
-    "moberst/lsp_lines",
     "morhetz/gruvbox",
     "neovim/nvim-lspconfig",
     "nvim-lua/plenary.nvim",
@@ -52,7 +54,6 @@ require "paq" {
 require "bline"
 require "completion"
 require "lsp"
-require "lsplines"
 require "snippets"
 require "tele"
 require "toggle-term"
