@@ -60,6 +60,7 @@ in
     jdk
     swiProlog
     ghc
+    gnumake
 
     java-language-server
     gopls

@@ -36,13 +36,4 @@ server("rnix")
 server("java_language_server", { "java-language-server" })
 server("astro")
 server("tailwindcss")
-
--- lspconfig.rust_analyzer.setup        { on_attach = on_attach, capabilities = completion.capabilities }
--- lspconfig.gopls.setup                { on_attach = on_attach, capabilities = completion.capabilities }
--- lspconfig.dartls.setup               { on_attach = on_attach, capabilities = completion.capabilities }
--- lspconfig.rnix.setup                 { on_attach = on_attach, capabilities = completion.capabilities }
--- lspconfig.java_language_server.setup {
---     on_attach = on_attach,
---     capabilities = completion.capabilities,
---     cmd = { "java-language-server" },
--- }
+server("tsserver")
