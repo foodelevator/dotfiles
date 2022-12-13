@@ -53,6 +53,7 @@ in
     unzip
     pgcli
     gnumake
+    htop
 
     zig
     go
