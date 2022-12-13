@@ -9,7 +9,7 @@ local opts = {
     "incsearch",
     "lbr", "bri", sbr = "⏎",
     mouse = "a",
-    "number",
+    "number", "relativenumber",
     "smartcase",
     ts = 4, sw = 4, sts = 0, "et",
     "title",
