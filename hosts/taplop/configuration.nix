@@ -9,6 +9,7 @@
     [
       ../common/configuration.nix
       ./hardware-configuration.nix
+      ../../programs/ssh
     ];
 
   # Bootloader.

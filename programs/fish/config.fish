@@ -26,4 +26,4 @@ function fish_greeting
 end
 
 alias e nvim
-alias agent "eval (ssh-agent | sed 's/\(\S*\) export \S*/export \1/'); ssh-add ~/.ssh/id_ed25519"
+alias sa 'ssh-add ~/.ssh/id_ed25519'
