@@ -4,12 +4,18 @@ AddKeysToAgent yes
 
 Host magnusson.space
     Port 69
-    IdentityFile ~/.ssh/id_ed25519
+    User mathias
+    ServerAliveInterval 60
 
 Host medusa.datasektionen.se
     User mathm
-    IdentityFile ~/.ssh/id_ed25519
 
 Host 34.240.255.211
     User mathm
+
+Host dojo.pwn.college
+    User hacker
+    ServerAliveInterval 60
+
+Host *
     IdentityFile ~/.ssh/id_ed25519
