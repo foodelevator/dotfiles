@@ -4,6 +4,7 @@
     [
       ../../programs/syncthing
       ../../programs/steam
+      ../../programs/ssh
     ];
 
   users.users.mathias = {
