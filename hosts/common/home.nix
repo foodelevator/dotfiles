@@ -11,8 +11,6 @@ in
     ../../programs/python
 
     ../../programs/discord
-    ../../programs/dunst
-    ../../programs/i3
     ../../programs/alacritty
 
     ../../programs/nix
@@ -41,7 +39,6 @@ in
   home.packages = with pkgs; [
     feh
     xclip
-    scrot
     killall
     file
     lazygit
@@ -49,7 +46,6 @@ in
     jq
     distrobox
     ffmpeg
-    mpv
     unzip
     pgcli
     gnumake
@@ -74,7 +70,6 @@ in
     ungoogled-chromium
     slack
     spotify
-    pavucontrol
     obsidian
     zoom-us
     obs-studio

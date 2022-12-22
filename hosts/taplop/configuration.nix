@@ -9,6 +9,9 @@
     [
       ../common/configuration.nix
       ./hardware-configuration.nix
+      # ../../de/i3/configuration.nix
+      # ../../de/kde/configuration.nix
+      ../../de/gnome/configuration.nix
     ];
 
   # Bootloader.
@@ -40,10 +43,7 @@
 
   time.timeZone = "Europe/Stockholm";
 
-  services.logind.extraConfig = ''
-    HandlePowerKey=hibernate
-  '';
-
+  hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -55,11 +55,6 @@
     layout = "us";
     xkbVariant = "altgr-intl";
     xkbOptions = "caps:escape";
-    displayManager.lightdm.enable = true;
-    windowManager.i3 = {
-      enable = true;
-      package = pkgs.i3-gaps;
-    };
     libinput = {
       enable = true;
       touchpad = {
