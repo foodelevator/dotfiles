@@ -5,6 +5,7 @@ let
     numpy
     matplotlib
     scipy
+    gmpy2
   ];
 in
 {
