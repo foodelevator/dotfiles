@@ -15,7 +15,7 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:Fira Code Nerd Font 10
 
-exec --no-startup-id feh --no-fehbg --bg-center '/home/mathias/Pictures/wallpapers/nix-gruvbox.png'
+exec --no-startup-id feh --no-fehbg --bg-tile '/home/mathias/Pictures/wallpapers/gradient.png'
 exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
 exec --no-startup-id openrgb --startminimized
