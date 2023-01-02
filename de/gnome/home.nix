@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    gnome.gnome-tweaks
-    gnomeExtensions.tray-icons-reloaded
-  ];
+  home.packages = [
+    pkgs.gnome.gnome-tweaks
+  ] ++ (with pkgs.gnomeExtensions; [
+    tray-icons-reloaded
+    syncthing-icon
+  ]);
 }
