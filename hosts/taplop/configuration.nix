@@ -13,6 +13,7 @@
       # ../../de/kde/configuration.nix
       ../../de/gnome/configuration.nix
       ../../u2f/configuration.nix
+      ../../programs/vms/configuration.nix
     ];
 
   # Bootloader.
