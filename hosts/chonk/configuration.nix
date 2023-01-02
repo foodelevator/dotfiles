@@ -6,7 +6,7 @@
       ../common/configuration.nix
       ../../programs/openrgb
       ../../programs/adb
-      ../de/i3/configuration.nix
+      ../../de/i3/configuration.nix
     ];
 
   # Bootloader.
