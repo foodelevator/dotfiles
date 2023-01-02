@@ -12,6 +12,7 @@
       # ../../de/i3/configuration.nix
       # ../../de/kde/configuration.nix
       ../../de/gnome/configuration.nix
+      ../../u2f/configuration.nix
     ];
 
   # Bootloader.
