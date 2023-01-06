@@ -181,3 +181,4 @@ gaps inner 20
 
 for_window [class="^Pavucontrol$"] floating enable
 for_window [class="^.arandr-wrapped$"] floating enable
+for_window [title="^Yubico Authenticator$"] floating enable

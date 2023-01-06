@@ -5,6 +5,7 @@
       ../../programs/syncthing
       ../../programs/steam
       ../../programs/ssh
+      ../../u2f/configuration.nix
     ];
 
   users.users.mathias = {

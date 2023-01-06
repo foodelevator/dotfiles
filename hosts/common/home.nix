@@ -12,6 +12,7 @@ in
 
     ../../programs/discord
     ../../programs/alacritty
+    ../../u2f/home.nix
 
     ../../programs/nix
     ../../programs/fish
