@@ -5,6 +5,7 @@
       ../../programs/syncthing
       ../../programs/steam
       ../../programs/ssh
+      ../../programs/flatpak
     ];
 
   users.users.mathias = {
