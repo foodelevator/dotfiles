@@ -32,6 +32,9 @@
   virtualisation.docker.enable = true;
   boot.binfmt.emulatedSystems = [];
 
+  services.printing.enable = true;
+  services.printing.drivers = [ pkgs.hplip ];
+
   nixpkgs.config.allowUnfree = true;
 
   nix.gc.automatic = true;
