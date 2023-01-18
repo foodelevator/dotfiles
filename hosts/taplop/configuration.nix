@@ -12,7 +12,6 @@
       # ../../de/i3/configuration.nix
       # ../../de/kde/configuration.nix
       ../../de/gnome/configuration.nix
-      ../../programs/vms/configuration.nix
     ];
 
   # Bootloader.

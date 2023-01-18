@@ -6,13 +6,14 @@
       ../../programs/steam
       ../../programs/ssh
       ../../programs/flatpak
+      ../../programs/vms/configuration.nix
       ../../u2f/configuration.nix
     ];
 
   users.users.mathias = {
     isNormalUser = true;
     description = "mathias";
-    extraGroups = [ "wheel" "networkmanager" "docker" "dialout" ];
+    extraGroups = [ "wheel" "networkmanager" "docker" "dialout" "libvirtd" ];
     shell = pkgs.fish;
   };
 
@@ -30,7 +31,7 @@
   };
 
   virtualisation.docker.enable = true;
-  boot.binfmt.emulatedSystems = [];
+  boot.binfmt.emulatedSystems = [ "riscv64-linux" "mipsel-linux" ];
 
   services.printing.enable = true;
   services.printing.drivers = [ pkgs.hplip ];
