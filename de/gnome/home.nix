@@ -5,5 +5,6 @@
   ] ++ (with pkgs.gnomeExtensions; [
     tray-icons-reloaded
     syncthing-icon
+    gsconnect
   ]);
 }
