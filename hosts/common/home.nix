@@ -63,6 +63,7 @@ in
     java-language-server
     gopls
     rnix-lsp
+    haskell-language-server
 
     ghidra
     # TODO: is broken: binary-ninja
