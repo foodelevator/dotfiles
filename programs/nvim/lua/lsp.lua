@@ -22,10 +22,13 @@ end
 
 local lspconfig = require("lspconfig")
 
-function server(name, cmd)
+function server(name, cmd, settings)
     arg = { on_attach = on_attach, capabilities = completion.capabilities }
     if cmd ~= nil then
         arg.cmd = cmd
+    end
+    if settings ~= nil then
+        arg.settings = settings
     end
     lspconfig[name].setup(arg)
 end
@@ -37,4 +40,4 @@ server("java_language_server", { "java-language-server" })
 server("astro")
 server("tailwindcss")
 server("tsserver")
-server("hls")
+server("hls", nil, { haskell = { formattingProvider = "fourmolu" } })
