@@ -30,6 +30,8 @@ in
     VISUAL = "nvim";
     EDITOR = "nvim";
 
+    CABAL_DIR = "$HOME/.local/share/cabal";
+
     inherit GOPATH;
   };
 
