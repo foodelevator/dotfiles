@@ -45,7 +45,6 @@ in
     killall
     file
     lazygit
-    mullvad
     jq
     distrobox
     ffmpeg
