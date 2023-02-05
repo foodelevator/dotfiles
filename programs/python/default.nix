@@ -6,6 +6,7 @@ let
     matplotlib
     scipy
     gmpy2
+    jupyter
   ];
 in
 {
