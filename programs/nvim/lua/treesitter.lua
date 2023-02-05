@@ -7,7 +7,7 @@ require "nvim-treesitter.configs".setup {
         "typescript",
         "nix",
         "svelte", "javascript", "css",
-        "astro",
+        "astro", "tsx",
         "markdown",
     },
     sync_install = false,
