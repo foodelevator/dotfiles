@@ -9,6 +9,7 @@ require "nvim-treesitter.configs".setup {
         "svelte", "javascript", "css",
         "astro", "tsx",
         "markdown",
+        "haskell",
     },
     sync_install = false,
 
