@@ -52,6 +52,7 @@ in
     pgcli
     gnumake
     htop
+    xxd
 
     zig
     go
