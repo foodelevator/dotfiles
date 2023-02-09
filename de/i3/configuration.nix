@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
 {
+  programs.kdeconnect.enable = true;
+
   services.logind.extraConfig = ''
     HandlePowerKey=hibernate
   '';
