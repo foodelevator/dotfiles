@@ -31,6 +31,7 @@ in
     EDITOR = "nvim";
 
     CABAL_DIR = "$HOME/.local/share/cabal";
+    GNUPG_HOME="$HOME/.local/share/gnupg";
 
     inherit GOPATH;
   };
