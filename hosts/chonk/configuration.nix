@@ -6,6 +6,7 @@
       ../common/configuration.nix
       ../../programs/openrgb
       ../../programs/adb
+      ../../programs/flatpak
       ../../de/i3/configuration.nix
     ];
 

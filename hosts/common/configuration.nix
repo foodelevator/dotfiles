@@ -5,7 +5,6 @@
       ../../programs/syncthing
       ../../programs/steam
       ../../programs/ssh
-      ../../programs/flatpak
       ../../programs/vms/configuration.nix
       ../../u2f/configuration.nix
     ];
