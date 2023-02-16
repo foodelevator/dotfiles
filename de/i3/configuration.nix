@@ -13,4 +13,17 @@
       package = pkgs.i3-gaps;
     };
   };
+
+  users.users.mathias.packages = with pkgs; [
+    pavucontrol
+    scrot
+    mpv
+    arandr
+    brightnessctl
+
+    dunst
+
+    i3blocks
+    i3lock-fancy
+  ];
 }
