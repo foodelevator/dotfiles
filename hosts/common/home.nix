@@ -4,82 +4,19 @@ let
 in
 {
   imports = [
-    ../../programs/git
-    ../../programs/rustup
-    ../../programs/node
-    ../../programs/encore
-    ../../programs/python
+    ../../programs/rustup/home.nix
 
     ../../programs/discord
     ../../programs/alacritty
-    ../../u2f/home.nix
 
     ../../programs/nix
-    ../../programs/fish
     # ../../programs/gdb
     ../../programs/lf
     ../../programs/nvim
     ../../programs/helix
   ];
 
-  home.sessionPath = [
-    "${GOPATH}/bin"
-  ];
-
-  home.sessionVariables = {
-    VISUAL = "nvim";
-    EDITOR = "nvim";
-
-    CABAL_DIR = "$HOME/.local/share/cabal";
-    GNUPG_HOME="$HOME/.local/share/gnupg";
-
-    inherit GOPATH;
-  };
-
   home.homeDirectory = "/home/mathias";
   home.username = "mathias";
   home.stateVersion = "22.11";
-
-  home.packages = with pkgs; [
-    feh
-    xclip
-    killall
-    file
-    lazygit
-    jq
-    distrobox
-    ffmpeg
-    unzip
-    pgcli
-    gnumake
-    htop
-    xxd
-
-    zig
-    go
-    gcc
-    jdk
-    swiProlog
-    ghc
-    gnumake
-
-    java-language-server
-    gopls
-    rnix-lsp
-    haskell-language-server
-
-    ghidra
-    # TODO: is broken: binary-ninja
-
-    firefox
-    ungoogled-chromium
-    slack
-    spotify
-    obsidian
-    zoom-us
-    obs-studio
-    logisim-evolution
-    qFlipper
-    gimp
-  ];
 }

@@ -1,16 +1,12 @@
 { config, pkgs, ... }:
-let
-  python-packages = p: with p; [
-    pycryptodome
-    numpy
-    matplotlib
-    scipy
-    gmpy2
-    jupyter
-  ];
-in
 {
-  home.packages = with pkgs; [
-    (python3.withPackages python-packages)
+  users.users.mathias.packages = with pkgs; [
+    (python3.withPackages (p: with p; [
+      pycryptodome
+      numpy
+      matplotlib
+      scipy
+      gmpy2
+    ]))
   ];
 }

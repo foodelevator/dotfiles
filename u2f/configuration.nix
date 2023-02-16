@@ -12,4 +12,8 @@
   ];
 
   services.pcscd.enable = true;
+
+  users.users.mathias.packages = with pkgs; [
+    yubioath-flutter
+  ];
 }

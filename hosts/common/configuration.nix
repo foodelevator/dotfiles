@@ -1,13 +1,15 @@
 { config, pkgs, ... }:
 {
-  imports =
-    [
-      ../../programs/syncthing
-      ../../programs/steam
-      ../../programs/ssh
-      ../../programs/vms/configuration.nix
-      ../../u2f/configuration.nix
-    ];
+  imports = [
+    ../../programs/syncthing
+    ../../programs/steam
+    ../../programs/ssh
+    ../../programs/vms/configuration.nix
+    ../../programs/python
+    ../../programs/fish
+    ../../programs/git
+    ../../u2f/configuration.nix
+  ];
 
   users.users.mathias = {
     isNormalUser = true;
@@ -15,6 +17,31 @@
     extraGroups = [ "wheel" "networkmanager" "docker" "dialout" "libvirtd" ];
     shell = pkgs.fish;
   };
+
+  users.users.mathias.packages = with pkgs; [
+    # Command line tools
+    xclip killall file lazygit jq ffmpeg unzip pgcli xxd lf helix
+
+    # Dependencies for some neovim plugins
+    tree-sitter ripgrep fd
+
+    # Command line tools not needed with gnome
+    htop feh
+
+    # Compilers and interpreters
+    zig go gcc swiProlog ghc gnumake nodejs rustup
+
+    # Language servers
+    java-language-server gopls rnix-lsp haskell-language-server
+
+    # CTF
+    ghidra # (BROKEN) binary-ninja
+
+    # Graphical
+    firefox ungoogled-chromium slack spotify obsidian zoom-us
+    obs-studio logisim-evolution qFlipper gimp alacritty
+    (discord.override { nss = nss_latest; }) # override needed to open links
+  ];
 
   i18n.defaultLocale = "en_US.utf8";
   i18n.extraLocaleSettings = {
@@ -44,9 +71,7 @@
   /* services.mullvad-vpn.enable = true; */
 
   environment.systemPackages = with pkgs; [
-    neovim
-    git
-    fish
+    neovim git fish
 
     jdk
   ];
@@ -55,11 +80,29 @@
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
 
-  environment.variables = {
-    XCOMPOSECACHE = "$HOME/.cache/compose-cache";
+  environment.variables = rec {
     XDG_CACHE_HOME = "$HOME/.cache";
     XDG_CONFIG_HOME = "$HOME/.config";
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
+
+    XCOMPOSECACHE = "$HOME/.cache/compose-cache";
+    CABAL_DIR = "$HOME/.local/share/cabal";
+    GNUPG_HOME="$HOME/.local/share/gnupg";
+    GOPATH = "$HOME/.local/share/go";
+    npm_config_prefix = "$HOME/.local/share/npm";
+    npm_config_cache = "$HOME/.cache/npm";
+    CARGO_HOME = "$HOME/.local/share/cargo";
+    RUSTUP_HOME = "$HOME/.local/share/rustup";
+    ENCORE_INSTALL =  "$HOME/.local/share/encore";
+
+    VISUAL = "nvim";
+    EDITOR = "nvim";
+
+    PATH = let paths = [
+      "${GOPATH}/bin"
+      "${npm_config_prefix}/bin"
+      "${ENCORE_INSTALL}/bin"
+    ]; in pkgs.lib.concatStringsSep ":" paths + ":$PATH";
   };
 }
