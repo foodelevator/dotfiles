@@ -15,15 +15,13 @@
   };
 
   users.users.mathias.packages = with pkgs; [
-    pavucontrol
-    scrot
-    mpv
-    arandr
-    brightnessctl
+    # Terminal
+    scrot brightnessctl htop feh
 
-    dunst
+    # Graphical
+    pavucontrol arandr mpv
 
-    i3blocks
-    i3lock-fancy
+    # WM-related
+    dunst i3blocks i3lock-fancy
   ];
 }

@@ -25,9 +25,6 @@
     # Dependencies for some neovim plugins
     tree-sitter ripgrep fd
 
-    # Command line tools not needed with gnome
-    htop feh
-
     # Compilers and interpreters
     zig go gcc swiProlog ghc gnumake nodejs rustup
 
@@ -35,7 +32,7 @@
     java-language-server gopls rnix-lsp haskell-language-server
 
     # CTF
-    ghidra # (BROKEN) binary-ninja
+    ghidra # BROKEN: binary-ninja
 
     # Graphical
     firefox ungoogled-chromium slack spotify obsidian zoom-us

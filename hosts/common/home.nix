@@ -1,7 +1,4 @@
 { config, pkgs, ... }:
-let
-  GOPATH = "$HOME/.local/share/go";
-in
 {
   imports = [
     ../../programs/rustup/home.nix
