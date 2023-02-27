@@ -2,11 +2,17 @@
 
 AddKeysToAgent yes
 
-Host magnusson.space
+Host space
+    Hostname magnusson.space
     Port 69
     User mathias
 
-Host medusa.datasektionen.se
+Host medusa
+    Hostname medusa.datasektionen.se
+    User mathm
+
+Host sips
+    Hostname sips.datasektionen.se
     User mathm
 
 Host 34.240.255.211
