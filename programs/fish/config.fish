@@ -26,4 +26,3 @@ function fish_greeting
 end
 
 alias e nvim
-alias sa 'ssh-add ~/.ssh/id_ed25519'
