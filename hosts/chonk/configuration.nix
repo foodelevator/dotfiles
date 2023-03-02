@@ -20,6 +20,8 @@
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.useOSProber = true;
 
+  boot.supportedFilesystems = [ "ntfs" ];
+
   boot.extraModulePackages = with config.boot.kernelPackages; [
     v4l2loopback
   ];
