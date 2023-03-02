@@ -5,7 +5,6 @@
 
     ../../programs/nix
     # ../../programs/gdb
-    ../../programs/lf
     ../../programs/nvim
   ];
 

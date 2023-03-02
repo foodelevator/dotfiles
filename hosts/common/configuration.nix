@@ -22,7 +22,7 @@
 
   environment.systemPackages = with pkgs; [
     # Command line tools
-    neovim git fish xclip killall file lazygit jq ffmpeg unzip pgcli xxd lf
+    neovim git fish xclip killall file lazygit jq ffmpeg unzip pgcli xxd
 
     # Dependencies for some neovim plugins
     tree-sitter ripgrep fd
