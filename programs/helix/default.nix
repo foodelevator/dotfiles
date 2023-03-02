@@ -1,4 +1,9 @@
 { config, pkgs, ... }:
+let
+  hx = pkgs.writeShellScriptBin "hx" ''
+    ${pkgs.helix}/bin/hx -c ${./config.toml} $@
+  '';
+in
 {
-  xdg.configFile."helix/config.toml".source = ./config.toml;
+  environment.systemPackages = [ hx ];
 }

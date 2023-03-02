@@ -10,7 +10,6 @@
     # ../../programs/gdb
     ../../programs/lf
     ../../programs/nvim
-    ../../programs/helix
   ];
 
   home.homeDirectory = "/home/mathias";

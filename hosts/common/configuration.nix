@@ -8,6 +8,7 @@
     ../../programs/python
     ../../programs/fish
     ../../programs/git
+    ../../programs/helix
     ../../u2f/configuration.nix
   ];
 
@@ -20,7 +21,7 @@
 
   environment.systemPackages = with pkgs; [
     # Command line tools
-    neovim git fish xclip killall file lazygit jq ffmpeg unzip pgcli xxd lf helix
+    neovim git fish xclip killall file lazygit jq ffmpeg unzip pgcli xxd lf
 
     # Dependencies for some neovim plugins
     tree-sitter ripgrep fd
