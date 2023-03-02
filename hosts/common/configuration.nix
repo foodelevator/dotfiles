@@ -87,6 +87,7 @@
     npm_config_prefix = "$HOME/.local/share/npm";
     npm_config_cache = "$HOME/.cache/npm";
     CARGO_HOME = "$HOME/.local/share/cargo";
+    CARGO_TARGET_DIR = "$HOME/.cache/target";
     RUSTUP_HOME = "$HOME/.local/share/rustup";
     ENCORE_INSTALL =  "$HOME/.local/share/encore";
 

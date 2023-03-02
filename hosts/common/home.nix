@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ../../programs/rustup/home.nix
-
     ../../programs/discord
     ../../programs/alacritty
 
