@@ -67,6 +67,8 @@
 
   /* services.mullvad-vpn.enable = true; */
 
+  networking.nameservers = [ "1.1.1.1" ];
+
   environment.systemPackages = with pkgs; [
     neovim git fish
 
