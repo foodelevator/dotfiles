@@ -1,4 +1,9 @@
 { config, pkgs, ... }:
+let
+  alacritty = pkgs.writeShellScriptBin "alacritty" ''
+    ${pkgs.alacritty}/bin/alacritty --config-file ${./alacritty.yml} $@
+  '';
+in
 {
-  xdg.configFile."alacritty/alacritty.yml".source = ./alacritty.yml;
+  environment.systemPackages = [ alacritty ];
 }

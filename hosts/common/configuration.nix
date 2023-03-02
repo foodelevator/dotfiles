@@ -9,6 +9,7 @@
     ../../programs/fish
     ../../programs/git
     ../../programs/helix
+    ../../programs/alacritty
     ../../u2f/configuration.nix
   ];
 
@@ -37,7 +38,7 @@
 
     # Graphical
     firefox ungoogled-chromium slack spotify obsidian zoom-us
-    obs-studio logisim-evolution qFlipper gimp alacritty
+    obs-studio logisim-evolution qFlipper gimp
     (discord.override { nss = nss_latest; }) # override needed to open links
   ];
 

@@ -2,7 +2,6 @@
 {
   imports = [
     ../../programs/discord
-    ../../programs/alacritty
 
     ../../programs/nix
     # ../../programs/gdb
