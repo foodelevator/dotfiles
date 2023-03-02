@@ -15,7 +15,6 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     mixpkgs.url = github:mathiasmagnusson/mixpkgs;
-    mixpkgs.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, home-manager, mixpkgs }:

@@ -32,7 +32,7 @@
     java-language-server gopls rnix-lsp haskell-language-server
 
     # CTF
-    ghidra # BROKEN: binary-ninja
+    ghidra binary-ninja
 
     # Graphical
     firefox ungoogled-chromium slack spotify obsidian zoom-us
@@ -54,7 +54,7 @@
   };
 
   virtualisation.docker.enable = true;
-  boot.binfmt.emulatedSystems = [ "riscv64-linux" "mipsel-linux" ];
+  # boot.binfmt.emulatedSystems = [ "riscv64-linux" "mipsel-linux" ];
 
   services.printing.enable = true;
   services.printing.drivers = [ pkgs.hplip ];
