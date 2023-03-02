@@ -5,7 +5,7 @@
     desktopManager.gnome.enable = true;
   };
 
-  users.users.mathias.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     xwayland
     gnome.gnome-tweaks
   ] ++ (with pkgs.gnomeExtensions; [

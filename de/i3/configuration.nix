@@ -14,7 +14,7 @@
     };
   };
 
-  users.users.mathias.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     # Terminal
     scrot brightnessctl htop feh
 

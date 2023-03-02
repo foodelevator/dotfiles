@@ -10,7 +10,7 @@
       ../../de/i3/configuration.nix
     ];
 
-  users.users.mathias.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     openrgb
     lutris
   ];

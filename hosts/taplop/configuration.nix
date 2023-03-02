@@ -14,7 +14,7 @@
       ../../de/gnome/configuration.nix
     ];
 
-  users.users.mathias.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     vscode
   ];
 

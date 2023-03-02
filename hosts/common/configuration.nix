@@ -18,15 +18,15 @@
     shell = pkgs.fish;
   };
 
-  users.users.mathias.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     # Command line tools
-    xclip killall file lazygit jq ffmpeg unzip pgcli xxd lf helix
+    neovim git fish xclip killall file lazygit jq ffmpeg unzip pgcli xxd lf helix
 
     # Dependencies for some neovim plugins
     tree-sitter ripgrep fd
 
     # Compilers and interpreters
-    zig go gcc swiProlog ghc gnumake nodejs rustup
+    zig go gcc swiProlog ghc gnumake nodejs rustup jdk
 
     # Language servers
     java-language-server gopls rnix-lsp haskell-language-server
@@ -68,12 +68,6 @@
   /* services.mullvad-vpn.enable = true; */
 
   networking.nameservers = [ "1.1.1.1" ];
-
-  environment.systemPackages = with pkgs; [
-    neovim git fish
-
-    jdk
-  ];
 
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
