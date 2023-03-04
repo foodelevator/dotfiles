@@ -2,7 +2,6 @@
 {
   imports = [
     ../../programs/syncthing
-    ../../programs/ssh
     ../../programs/vms/configuration.nix
     ../../programs/python
     ../../programs/fish
@@ -99,5 +98,6 @@
 
   elevate.apps.alacritty.enable = true;
   elevate.apps.steam.enable = true;
+  elevate.cli-apps.ssh.enable = true;
   elevate.compilers.node.enable = true;
 }
