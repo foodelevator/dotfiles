@@ -3,7 +3,6 @@
   imports = [
     ../../programs/syncthing
     ../../programs/vms/configuration.nix
-    ../../programs/fish
     ../../programs/git
     ../../programs/helix
     ../../u2f/configuration.nix
@@ -18,7 +17,7 @@
 
   environment.systemPackages = with pkgs; [
     # Command line tools
-    neovim git fish xclip killall file lazygit jq ffmpeg unzip pgcli xxd
+    neovim git xclip killall file lazygit jq ffmpeg unzip pgcli xxd
 
     # Dependencies for some neovim plugins
     tree-sitter ripgrep fd
@@ -97,6 +96,7 @@
 
   elevate.apps.alacritty.enable = true;
   elevate.apps.steam.enable = true;
+  elevate.cli-apps.fish.enable = true;
   elevate.cli-apps.ssh.enable = true;
   elevate.compilers.node.enable = true;
   elevate.compilers.python.enable = true;
