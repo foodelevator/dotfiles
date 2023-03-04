@@ -3,7 +3,6 @@
   imports = [
     ../../programs/syncthing
     ../../programs/vms/configuration.nix
-    ../../u2f/configuration.nix
   ];
 
   users.users.mathias = {
@@ -100,4 +99,5 @@
   elevate.cli-apps.ssh.enable = true;
   elevate.compilers.node.enable = true;
   elevate.compilers.python.enable = true;
+  elevate.security.yubikey.enable = true;
 }
