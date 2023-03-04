@@ -1,13 +1,16 @@
 { config, pkgs, ... }:
 let
-  hx = pkgs.runCommand "helix" {} ''
-    . ${pkgs.makeWrapper}/nix-support/setup-hook
+  hx = pkgs.runCommand "helix" {
+    buildInputs = [ pkgs.makeWrapper ];
+  } ''
+    mkdir $out
+    ln -s ${pkgs.helix}/* $out
+    rm $out/bin
+    mkdir $out/bin
+    ln -s ${pkgs.helix}/bin/* $out/bin
+    rm $out/bin/hx
 
-    cp -r ${pkgs.helix} $out
-    chown -R $(id -u -n):$(id -g -n) $out
-    chmod -R u+w $out
-
-    wrapProgram $out/bin/hx --add-flags "-c ${./config.toml}"
+    makeWrapper ${pkgs.helix}/bin/hx $out/bin/hx --add-flags "-c ${./config.toml}"
   '';
 in
 {
