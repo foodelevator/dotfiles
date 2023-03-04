@@ -9,7 +9,6 @@
     ../../programs/fish
     ../../programs/git
     ../../programs/helix
-    ../../programs/alacritty
     ../../u2f/configuration.nix
   ];
 
@@ -101,4 +100,6 @@
       "${ENCORE_INSTALL}/bin"
     ]; in pkgs.lib.concatStringsSep ":" paths + ":$PATH";
   };
+
+  elevate.apps.alacritty.enable = true;
 }

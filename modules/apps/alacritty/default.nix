@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
+with lib;
 let
+  cfg = config.elevate.apps.alacritty;
+
   alacritty = pkgs.runCommand "alacritty" {
     buildInputs = [ pkgs.makeWrapper ];
   } ''
@@ -19,5 +22,11 @@ let
   '';
 in
 {
-  environment.systemPackages = [ alacritty ];
+  options.elevate.apps.alacritty = {
+    enable = mkEnableOption "configured alacritty terminal emulator";
+  };
+
+  config = mkIf cfg.enable {
+    environment.systemPackages = [ alacritty ];
+  };
 }
