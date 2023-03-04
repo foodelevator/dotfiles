@@ -29,16 +29,17 @@
         })
       ];
     };
+    lib = import ./lib.nix { inherit pkgs; };
   in
   {
     nixosConfigurations = {
       chonk = nixpkgs.lib.nixosSystem {
         inherit system pkgs;
-        modules = [ ./hosts/chonk/configuration.nix ];
+        modules = [ ./hosts/chonk/configuration.nix ] ++ lib.modules;
       };
       taplop = nixpkgs.lib.nixosSystem {
         inherit system pkgs;
-        modules = [ ./hosts/taplop/configuration.nix ];
+        modules = [ ./hosts/taplop/configuration.nix ] ++ lib.modules;
       };
     };
 
@@ -51,25 +52,6 @@
         inherit pkgs;
         modules = [ ./hosts/taplop/home.nix ];
       };
-    };
-
-    devShells.${system}.ctf =
-    let
-      pwn-python = pkgs.python3.withPackages (p: [
-        p.pwntools
-      ]);
-    in
-    pkgs.mkShell {
-      buildInputs = [
-        pkgs.fish
-        pkgs.gdb
-        pkgs.ghidra
-        pwn-python
-      ];
-      shellHook = ''
-        PYTHONPATH=${pwn-python}/${pwn-python.sitePackages}
-        exec fish
-      '';
     };
   };
 }
