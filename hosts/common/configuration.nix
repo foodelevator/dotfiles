@@ -27,7 +27,7 @@
     tree-sitter ripgrep fd
 
     # Compilers and interpreters
-    zig go gcc swiProlog ghc gnumake nodejs rustup jdk
+    zig go gcc swiProlog ghc gnumake rustup jdk
 
     # Language servers
     java-language-server gopls rnix-lsp haskell-language-server
@@ -84,12 +84,10 @@
     CABAL_DIR = "$HOME/.local/share/cabal";
     GNUPG_HOME="$HOME/.local/share/gnupg";
     GOPATH = "$HOME/.local/share/go";
-    npm_config_prefix = "$HOME/.local/share/npm";
-    npm_config_cache = "$HOME/.cache/npm";
     CARGO_HOME = "$HOME/.local/share/cargo";
     CARGO_TARGET_DIR = "$HOME/.cache/target";
     RUSTUP_HOME = "$HOME/.local/share/rustup";
-    ENCORE_INSTALL =  "$HOME/.local/share/encore";
+    ENCORE_INSTALL = "$HOME/.local/share/encore";
 
     VISUAL = "nvim";
     EDITOR = "nvim";
@@ -101,4 +99,5 @@
   ];
 
   elevate.apps.alacritty.enable = true;
+  elevate.compilers.node.enable = true;
 }
