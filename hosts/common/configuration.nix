@@ -93,13 +93,12 @@
 
     VISUAL = "nvim";
     EDITOR = "nvim";
-
-    PATH = let paths = [
-      "${GOPATH}/bin"
-      "${npm_config_prefix}/bin"
-      "${ENCORE_INSTALL}/bin"
-    ]; in pkgs.lib.concatStringsSep ":" paths + ":$PATH";
   };
+
+  elevate.path = [
+    "$HOME/.local/share/go/bin"
+    "$HOME/.local/share/encore/bin"
+  ];
 
   elevate.apps.alacritty.enable = true;
 }
