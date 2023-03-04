@@ -5,11 +5,12 @@
     ../../programs/vms/configuration.nix
   ];
 
-  users.users.mathias = {
-    isNormalUser = true;
-    description = "mathias";
-    extraGroups = [ "wheel" "networkmanager" "docker" "dialout" "libvirtd" ];
-    shell = pkgs.fish;
+  elevate.user = {
+    enable = true;
+    name = "mathias";
+    email = "mathias@magnusson.space";
+    description = "Mathias";
+    groups = [ "networkmanager" "docker" "dialout" "libvirtd" ];
   };
 
   environment.systemPackages = with pkgs; [
