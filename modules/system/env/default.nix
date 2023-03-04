@@ -18,5 +18,6 @@ in
       XCOMPOSECACHE = "$HOME/.cache/compose-cache";
       GNUPG_HOME = "$HOME/.local/share/gnupg";
     };
+    environment.defaultPackages = with pkgs; [ rsync strace ]; # nano & perl removed
   };
 }
