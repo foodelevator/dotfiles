@@ -20,10 +20,10 @@
     tree-sitter ripgrep fd
 
     # Compilers and interpreters
-    zig gcc swiProlog ghc gnumake jdk
+    zig gcc swiProlog gnumake jdk
 
     # Language servers
-    java-language-server rnix-lsp haskell-language-server
+    java-language-server rnix-lsp
 
     # CTF
     ghidra binary-ninja
@@ -74,7 +74,6 @@
     XDG_STATE_HOME = "$HOME/.local/state";
 
     XCOMPOSECACHE = "$HOME/.cache/compose-cache";
-    CABAL_DIR = "$HOME/.local/share/cabal";
     GNUPG_HOME="$HOME/.local/share/gnupg";
     ENCORE_INSTALL = "$HOME/.local/share/encore";
 
@@ -93,6 +92,7 @@
   elevate.cli-apps.helix.enable = true;
   elevate.cli-apps.ssh.enable = true;
   elevate.compilers.go.enable = true;
+  elevate.compilers.haskell.enable = true;
   elevate.compilers.node.enable = true;
   elevate.compilers.python.enable = true;
   elevate.compilers.rust.enable = true;
