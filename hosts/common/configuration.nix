@@ -3,7 +3,6 @@
   imports = [
     ../../programs/syncthing
     ../../programs/vms/configuration.nix
-    ../../programs/helix
     ../../u2f/configuration.nix
   ];
 
@@ -97,6 +96,7 @@
   elevate.apps.steam.enable = true;
   elevate.cli-apps.fish.enable = true;
   elevate.cli-apps.git.enable = true;
+  elevate.cli-apps.helix.enable = true;
   elevate.cli-apps.ssh.enable = true;
   elevate.compilers.node.enable = true;
   elevate.compilers.python.enable = true;

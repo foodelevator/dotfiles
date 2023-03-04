@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
+with lib;
 let
+  cfg = config.elevate.cli-apps.helix;
+
   hx = pkgs.runCommand "helix" {
     buildInputs = [ pkgs.makeWrapper ];
   } ''
@@ -14,5 +17,11 @@ let
   '';
 in
 {
-  environment.systemPackages = [ hx ];
+  options.elevate.cli-apps.helix = {
+    enable = mkEnableOption "configured helix";
+  };
+
+  config = mkIf cfg.enable {
+    environment.systemPackages = [ hx ];
+  };
 }
