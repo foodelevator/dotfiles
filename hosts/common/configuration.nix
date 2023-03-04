@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ../../programs/syncthing
     ../../programs/vms/configuration.nix
   ];
 
@@ -88,6 +87,7 @@
 
   elevate.apps.alacritty.enable = true;
   elevate.apps.steam.enable = true;
+  elevate.apps.syncthing.enable = true;
   elevate.cli-apps.fish.enable = true;
   elevate.cli-apps.git.enable = true;
   elevate.cli-apps.helix.enable = true;
