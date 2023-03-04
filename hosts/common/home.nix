@@ -1,11 +1,9 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ../../programs/discord
-
-    ../../programs/nix
-    # ../../programs/gdb
-    ../../programs/nvim
+    ../../programs/discord/home.nix
+    ../../programs/nix/home.nix
+    ../../programs/nvim/home.nix
   ];
 
   home.homeDirectory = "/home/mathias";
