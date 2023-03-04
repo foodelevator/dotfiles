@@ -20,10 +20,10 @@
     tree-sitter ripgrep fd
 
     # Compilers and interpreters
-    zig go gcc swiProlog ghc gnumake jdk
+    zig gcc swiProlog ghc gnumake jdk
 
     # Language servers
-    java-language-server gopls rnix-lsp haskell-language-server
+    java-language-server rnix-lsp haskell-language-server
 
     # CTF
     ghidra binary-ninja
@@ -76,7 +76,6 @@
     XCOMPOSECACHE = "$HOME/.cache/compose-cache";
     CABAL_DIR = "$HOME/.local/share/cabal";
     GNUPG_HOME="$HOME/.local/share/gnupg";
-    GOPATH = "$HOME/.local/share/go";
     ENCORE_INSTALL = "$HOME/.local/share/encore";
 
     VISUAL = "nvim";
@@ -84,7 +83,6 @@
   };
 
   elevate.path = [
-    "$HOME/.local/share/go/bin"
     "$HOME/.local/share/encore/bin"
   ];
 
@@ -94,6 +92,7 @@
   elevate.cli-apps.git.enable = true;
   elevate.cli-apps.helix.enable = true;
   elevate.cli-apps.ssh.enable = true;
+  elevate.compilers.go.enable = true;
   elevate.compilers.node.enable = true;
   elevate.compilers.python.enable = true;
   elevate.compilers.rust.enable = true;
