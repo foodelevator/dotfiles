@@ -11,13 +11,10 @@
   inputs = {
     nixpkgs.url = github:nixos/nixpkgs/nixos-unstable;
 
-    home-manager.url = github:nix-community/home-manager;
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
     mixpkgs.url = github:mathiasmagnusson/mixpkgs;
   };
 
-  outputs = { self, nixpkgs, home-manager, mixpkgs }:
+  outputs = { self, nixpkgs, mixpkgs }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -40,17 +37,6 @@
       taplop = nixpkgs.lib.nixosSystem {
         inherit system pkgs;
         modules = [ ./hosts/taplop/configuration.nix ] ++ lib.modules;
-      };
-    };
-
-    homeConfigurations = {
-      chonk = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./hosts/chonk/home.nix ];
-      };
-      taplop = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./hosts/taplop/home.nix ];
       };
     };
   };
