@@ -1,9 +1,5 @@
 { config, pkgs, ... }:
 {
-  imports = [
-    ../../programs/vms/configuration.nix
-  ];
-
 
   environment.systemPackages = with pkgs; [
     # Command line tools
@@ -65,12 +61,13 @@
   elevate.system.fonts.enable = true;
   elevate.system.locale.enable = true;
   elevate.system.nix.enable = true;
+  elevate.virtualisation.virt-manager.enable = true;
 
   elevate.user = {
     enable = true;
     name = "mathias";
     email = "mathias@magnusson.space";
     description = "Mathias";
-    groups = [ "networkmanager" "docker" "dialout" "libvirtd" ];
+    groups = [ "networkmanager" "docker" "dialout" ];
   };
 }
