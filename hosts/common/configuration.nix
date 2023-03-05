@@ -23,7 +23,6 @@
     (discord.override { nss = nss_latest; }) # override needed to open links
   ];
 
-  virtualisation.docker.enable = true;
   # boot.binfmt.emulatedSystems = [ "riscv64-linux" "mipsel-linux" ];
 
   /* services.mullvad-vpn.enable = true; */
@@ -60,12 +59,13 @@
   elevate.system.nix.enable = true;
   elevate.system.printing.enable = true;
   elevate.virtualisation.virt-manager.enable = true;
+  elevate.virtualisation.docker.enable = true;
 
   elevate.user = {
     enable = true;
     name = "mathias";
     email = "mathias@magnusson.space";
     description = "Mathias";
-    groups = [ "networkmanager" "docker" "dialout" ];
+    groups = [ "networkmanager" "dialout" ];
   };
 }
