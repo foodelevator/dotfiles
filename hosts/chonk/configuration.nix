@@ -3,12 +3,13 @@
   imports =
     [
       ./hardware-configuration.nix
-      ../common/configuration.nix
       ../../programs/openrgb
       ../../programs/adb
       ../../programs/flatpak
       ../../de/i3/configuration.nix
     ];
+
+  elevate.archetypes.workstation.enable = true;
 
   environment.systemPackages = with pkgs; [
     openrgb
@@ -31,8 +32,6 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Stockholm";
 

@@ -7,12 +7,13 @@
 {
   imports =
     [
-      ../common/configuration.nix
       ./hardware-configuration.nix
       # ../../de/i3/configuration.nix
       # ../../de/kde/configuration.nix
       ../../de/gnome/configuration.nix
     ];
+
+  elevate.archetypes.workstation.enable = true;
 
   environment.systemPackages = with pkgs; [
     vscode
@@ -34,8 +35,6 @@
   boot.initrd.luks.devices."luks-60b63ab5-ed00-450a-8ad1-13c2572dcfd6".keyFile = "/crypto_keyfile.bin";
 
   networking.hostName = "taplop";
-  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
-  programs.nm-applet.enable = true;
 
   hardware.system76.enableAll = true;
 

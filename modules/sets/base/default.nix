@@ -26,5 +26,12 @@ in
     elevate.system.env.enable = true;
     elevate.system.locale.enable = true;
     elevate.system.nix.enable = true;
+
+    elevate.user = {
+      enable = true;
+      name = "mathias";
+      email = "mathias@magnusson.space";
+      description = "Mathias";
+    };
   };
 }
