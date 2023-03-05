@@ -26,9 +26,6 @@
   virtualisation.docker.enable = true;
   # boot.binfmt.emulatedSystems = [ "riscv64-linux" "mipsel-linux" ];
 
-  services.printing.enable = true;
-  services.printing.drivers = [ pkgs.hplip ];
-
   /* services.mullvad-vpn.enable = true; */
 
   networking.nameservers = [ "1.1.1.1" ];
@@ -61,6 +58,7 @@
   elevate.system.fonts.enable = true;
   elevate.system.locale.enable = true;
   elevate.system.nix.enable = true;
+  elevate.system.printing.enable = true;
   elevate.virtualisation.virt-manager.enable = true;
 
   elevate.user = {
