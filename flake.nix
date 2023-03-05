@@ -14,7 +14,7 @@
     mixpkgs.url = github:mathiasmagnusson/mixpkgs;
   };
 
-  outputs = { self, nixpkgs, mixpkgs }:
+  outputs = { self, nixpkgs, mixpkgs } @ inputs:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -32,11 +32,11 @@
     nixosConfigurations = {
       chonk = nixpkgs.lib.nixosSystem {
         inherit system pkgs;
-        modules = [ ./hosts/chonk/configuration.nix ] ++ lib.modules;
+        modules = [ { _module.args = { inherit inputs; }; } (./hosts + "/chonk/configuration.nix") ] ++ lib.modules;
       };
       taplop = nixpkgs.lib.nixosSystem {
         inherit system pkgs;
-        modules = [ ./hosts/taplop/configuration.nix ] ++ lib.modules;
+        modules = [ { _module.args = { inherit inputs; }; } (./hosts + "/taplop/configuration.nix") ] ++ lib.modules;
       };
     };
   };

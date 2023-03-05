@@ -4,13 +4,6 @@
     ../../programs/vms/configuration.nix
   ];
 
-  elevate.user = {
-    enable = true;
-    name = "mathias";
-    email = "mathias@magnusson.space";
-    description = "Mathias";
-    groups = [ "networkmanager" "docker" "dialout" "libvirtd" ];
-  };
 
   environment.systemPackages = with pkgs; [
     # Command line tools
@@ -34,21 +27,11 @@
     (discord.override { nss = nss_latest; }) # override needed to open links
   ];
 
-  elevate.system.env.enable = true;
-  elevate.system.fonts.enable = true;
-  elevate.system.locale.enable = true;
-
   virtualisation.docker.enable = true;
   # boot.binfmt.emulatedSystems = [ "riscv64-linux" "mipsel-linux" ];
 
   services.printing.enable = true;
   services.printing.drivers = [ pkgs.hplip ];
-
-  nixpkgs.config.allowUnfree = true;
-
-  nix.gc.automatic = true;
-  nix.gc.options = "--delete-older-than 7d";
-  nix.gc.dates = "weekly";
 
   /* services.mullvad-vpn.enable = true; */
 
@@ -78,4 +61,16 @@
   elevate.compilers.python.enable = true;
   elevate.compilers.rust.enable = true;
   elevate.security.yubikey.enable = true;
+  elevate.system.env.enable = true;
+  elevate.system.fonts.enable = true;
+  elevate.system.locale.enable = true;
+  elevate.system.nix.enable = true;
+
+  elevate.user = {
+    enable = true;
+    name = "mathias";
+    email = "mathias@magnusson.space";
+    description = "Mathias";
+    groups = [ "networkmanager" "docker" "dialout" "libvirtd" ];
+  };
 }
