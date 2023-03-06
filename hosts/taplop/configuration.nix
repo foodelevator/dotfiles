@@ -8,8 +8,6 @@
   imports =
     [
       ./hardware-configuration.nix
-      # ../../de/i3/configuration.nix
-      # ../../de/kde/configuration.nix
       ../../de/gnome/configuration.nix
     ];
 
@@ -41,47 +39,9 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   time.timeZone = "Europe/Stockholm";
 
-  hardware.pulseaudio.enable = false;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-  };
-
-  services.xserver = {
-    enable = true;
-    layout = "us";
-    xkbVariant = "altgr-intl";
-    xkbOptions = "caps:escape";
-    libinput = {
-      enable = true;
-      touchpad = {
-        naturalScrolling = true;
-        clickMethod = "clickfinger";
-      };
-      mouse = {
-        accelProfile = "flat";
-      };
-    };
-    excludePackages = [ pkgs.xterm ];
-  };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  hardware.pulseaudio.enable = false; # TODO: why do i have both pulseaudio and pipewire?
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -97,10 +57,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.05"; # Did you read the comment?
-
-  nix.package = pkgs.nixFlakes;
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-  '';
 }
 

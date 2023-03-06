@@ -1,18 +1,22 @@
 { config, pkgs, ... }:
 {
+  services.openssh.enable = true;
+  services.openssh.settings.PasswordAuthentication = false;
+
   imports =
     [
       ./hardware-configuration.nix
-      ../../programs/openrgb
       ../../programs/adb
       ../../programs/flatpak
       ../../de/i3/configuration.nix
     ];
 
+  elevate.apps.openrgb.enable = true;
+  elevate.apps.obs.enable = true;
+
   elevate.archetypes.workstation.enable = true;
 
   environment.systemPackages = with pkgs; [
-    openrgb
     lutris
   ];
 
@@ -23,59 +27,22 @@
 
   boot.supportedFilesystems = [ "ntfs" ];
 
-  boot.extraModulePackages = with config.boot.kernelPackages; [
-    v4l2loopback
-  ];
-
   networking.hostName = "chonk";
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   time.timeZone = "Europe/Stockholm";
 
-  hardware.i2c.enable = true;
-  hardware.opengl.enable = true;
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-  };
-
   services.xserver = {
-    enable = true;
-    layout = "us";
-    xkbVariant = "altgr-intl";
     videoDrivers = [ "nvidia" ];
-      displayManager = {
+    displayManager = {
       lightdm.enable = true;
       setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr " +
                         "--output HDMI-1         --mode 1920x1080 --rate 60  --pos 0x0 " +
                         "--output DP-0 --primary --mode 1920x1080 --rate 166 --pos 1920x0 " +
                         "--output DP-2           --mode 1920x1080 --rate 144 --pos 3840x0";
     };
-    libinput = {
-      enable = true;
-      mouse = {
-        accelProfile = "flat";
-      };
-    };
-    excludePackages = [ pkgs.xterm ]; # 'tis ugly af
   };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -91,8 +58,4 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.05"; # Did you read the comment?
 
-  nix.package = pkgs.nixFlakes;
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-  '';
 }

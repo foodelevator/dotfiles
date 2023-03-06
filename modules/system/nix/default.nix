@@ -16,5 +16,10 @@ in
     nix.gc.automatic = true;
     nix.gc.options = "--delete-older-than 7d";
     nix.gc.dates = "weekly";
+
+    nix.package = pkgs.nixFlakes;
+    nix.extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
   };
 }
