@@ -7,12 +7,12 @@ let
       dir = readDir path;
       traverse = name: type:
         if name == "default.nix" then
-          ["${path}/${name}"]
+          [ "${path}/${name}" ]
         else if type == "directory" then
           getAllDefaultDotNix "${path}/${name}"
-        else [];
+        else [ ];
     in
-      concatLists (mapAttrsToList traverse dir);
+    concatLists (mapAttrsToList traverse dir);
 in
 {
   modules = getAllDefaultDotNix ./modules;

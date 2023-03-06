@@ -1,5 +1,5 @@
 {
-  description = "System config";
+  description = "Configuration for my NixOS systems";
 
   inputs = {
     nixpkgs.url = github:nixos/nixpkgs/nixos-unstable;
@@ -8,29 +8,30 @@
   };
 
   outputs = { self, nixpkgs, mixpkgs } @ inputs:
-  let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-      overlays = [
-        (self: super: {
-          binary-ninja = mixpkgs.packages.${system}.binary-ninja;
-        })
-      ];
-    };
-    lib = import ./lib.nix { inherit pkgs; };
-  in
-  {
-    nixosConfigurations = {
-      chonk = nixpkgs.lib.nixosSystem {
-        inherit system pkgs;
-        modules = [ { _module.args = { inherit inputs; }; } (./hosts + "/chonk/configuration.nix") ] ++ lib.modules;
+    let
+      lib = import ./lib.nix { inherit pkgs; };
+
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+        overlays = [
+          (self: super: {
+            binary-ninja = mixpkgs.packages.${system}.binary-ninja;
+          })
+        ];
       };
-      taplop = nixpkgs.lib.nixosSystem {
+      mkSystem = name: nixpkgs.lib.nixosSystem {
         inherit system pkgs;
-        modules = [ { _module.args = { inherit inputs; }; } (./hosts + "/taplop/configuration.nix") ] ++ lib.modules;
+        modules = [
+          { _module.args = { inherit inputs; }; }
+          (./hosts + "/${name}/configuration.nix")
+        ] ++ lib.modules;
       };
+    in
+    {
+      nixosConfigurations = builtins.mapAttrs
+        (name: _: mkSystem name)
+        (builtins.readDir ./hosts);
     };
-  };
 }
