@@ -11,8 +11,6 @@ in
   config = mkIf cfg.enable {
     nix.registry.nixpkgs.flake = inputs.nixpkgs;
 
-    nixpkgs.config.allowUnfree = true;
-
     nix.gc.automatic = true;
     nix.gc.options = "--delete-older-than 7d";
     nix.gc.dates = "weekly";
