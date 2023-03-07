@@ -5,7 +5,6 @@
 
   imports =
     [
-      ../../programs/adb
       ../../programs/flatpak
       ../../de/i3/configuration.nix
     ];
