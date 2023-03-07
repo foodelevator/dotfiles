@@ -7,7 +7,6 @@
 {
   imports =
     [
-      ./hardware-configuration.nix
       ../../de/gnome/configuration.nix
     ];
 
@@ -31,8 +30,6 @@
   # Enable swap on luks
   boot.initrd.luks.devices."luks-60b63ab5-ed00-450a-8ad1-13c2572dcfd6".device = "/dev/disk/by-uuid/60b63ab5-ed00-450a-8ad1-13c2572dcfd6";
   boot.initrd.luks.devices."luks-60b63ab5-ed00-450a-8ad1-13c2572dcfd6".keyFile = "/crypto_keyfile.bin";
-
-  networking.hostName = "taplop";
 
   hardware.system76.enableAll = true;
 

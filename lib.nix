@@ -1,7 +1,8 @@
-{ pkgs }:
+{ pkgs, inputs }:
 let
   inherit (builtins) concatLists readDir;
   inherit (pkgs.lib) mapAttrsToList;
+
   getAllDefaultDotNix = path:
     let
       dir = readDir path;
@@ -15,5 +16,10 @@ let
     concatLists (mapAttrsToList traverse dir);
 in
 {
-  modules = getAllDefaultDotNix ./modules;
+  getModules = name: [
+    (./hosts + "/${name}/configuration.nix")
+    (./hosts + "/${name}/hardware-configuration.nix")
+    { _module.args = { inherit inputs; }; }
+    ({ lib, ... }: { networking.hostName = lib.mkDefault name; })
+  ] ++ getAllDefaultDotNix ./modules;
 }

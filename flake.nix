@@ -2,14 +2,14 @@
   description = "Configuration for my NixOS systems";
 
   inputs = {
-    nixpkgs.url = github:nixos/nixpkgs/nixos-unstable;
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    mixpkgs.url = github:mathiasmagnusson/mixpkgs;
+    mixpkgs.url = "github:mathiasmagnusson/mixpkgs";
   };
 
   outputs = { self, nixpkgs, mixpkgs } @ inputs:
     let
-      lib = import ./lib.nix { inherit pkgs; };
+      lib = import ./lib.nix { inherit pkgs inputs; };
 
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -21,17 +21,13 @@
           })
         ];
       };
-      mkSystem = name: nixpkgs.lib.nixosSystem {
-        inherit system pkgs;
-        modules = [
-          { _module.args = { inherit inputs; }; }
-          (./hosts + "/${name}/configuration.nix")
-        ] ++ lib.modules;
-      };
     in
     {
       nixosConfigurations = builtins.mapAttrs
-        (name: _: mkSystem name)
+        (name: _: nixpkgs.lib.nixosSystem {
+          inherit system pkgs;
+          modules = lib.getModules name;
+        })
         (builtins.readDir ./hosts);
     };
 }
