@@ -22,5 +22,7 @@ in
       syncthing-icon
       gsconnect
     ]);
+
+    networking.firewall.allowedTCPPortRanges = [ { from = 1716; to = 1764; } ];
   };
 }

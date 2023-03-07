@@ -5,7 +5,7 @@ let
 in
 {
   options.elevate.sets.programming = {
-    enable = mkEnableOption "programs for programming programs";
+    enable = mkEnableOption "programs for programming programs and ports for development";
   };
 
   config = mkIf cfg.enable {
@@ -30,5 +30,8 @@ in
       python.enable = true;
       rust.enable = true;
     };
+
+    networking.firewall.allowedTCPPorts = [ 80 1234 3000 5000 8000 8080 ];
+    networking.firewall.allowedUDPPorts = [ 1234 ];
   };
 }
