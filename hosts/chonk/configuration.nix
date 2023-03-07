@@ -3,14 +3,10 @@
   services.openssh.enable = true;
   services.openssh.settings.PasswordAuthentication = false;
 
-  imports =
-    [
-      ../../de/i3/configuration.nix
-    ];
-
   elevate.apps.openrgb.enable = true;
   elevate.apps.obs.enable = true;
 
+  elevate.desktops.i3.enable = true;
   elevate.archetypes.workstation.enable = true;
 
   environment.systemPackages = with pkgs; [
