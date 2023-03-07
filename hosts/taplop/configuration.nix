@@ -10,6 +10,7 @@
       ../../de/gnome/configuration.nix
     ];
 
+  elevate.desktops.gnome.enable = true;
   elevate.archetypes.workstation.enable = true;
 
   environment.systemPackages = with pkgs; [
