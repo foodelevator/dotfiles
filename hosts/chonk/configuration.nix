@@ -5,7 +5,6 @@
 
   imports =
     [
-      ../../programs/flatpak
       ../../de/i3/configuration.nix
     ];
 
