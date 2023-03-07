@@ -5,11 +5,6 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ../../de/gnome/configuration.nix
-    ];
-
   elevate.desktops.gnome.enable = true;
   elevate.archetypes.workstation.enable = true;
 
@@ -37,9 +32,7 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
-  time.timeZone = "Europe/Stockholm";
-
-  hardware.pulseaudio.enable = false; # TODO: why do i have both pulseaudio and pipewire?
+  # hardware.pulseaudio.enable = false; # TODO: why do i have both pulseaudio and pipewire?
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

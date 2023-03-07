@@ -26,8 +26,6 @@
 
   boot.supportedFilesystems = [ "ntfs" ];
 
-  time.timeZone = "Europe/Stockholm";
-
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 
   services.xserver = {

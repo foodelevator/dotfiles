@@ -5,7 +5,7 @@ let
 in
 {
   options.elevate.system.locale = {
-    enable = mkEnableOption "setup locale";
+    enable = mkEnableOption "setup locale and time";
   };
 
   config = mkIf cfg.enable {
@@ -21,5 +21,7 @@ in
       LC_TELEPHONE = "sv_SE.utf8";
       LC_TIME = "sv_SE.utf8";
     };
+
+    time.timeZone = "Europe/Stockholm";
   };
 }
