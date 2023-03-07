@@ -10,6 +10,7 @@ in
 
   config = mkIf cfg.enable {
     virtualisation.libvirtd.enable = true;
+    virtualisation.spiceUSBRedirection.enable = true;
 
     environment.systemPackages = with pkgs; [
       virt-manager
