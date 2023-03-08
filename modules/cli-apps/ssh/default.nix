@@ -5,7 +5,7 @@ let
 in
 {
   options.elevate.cli-apps.ssh = {
-    enable = mkEnableOption "configured ssh";
+    enable = mkEnableOption "configured ssh client";
   };
 
   config = mkIf cfg.enable {

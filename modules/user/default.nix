@@ -23,14 +23,22 @@ in
       type = types.str;
       description = "The description of the user to create.";
     };
+    sshKeys = mkOption {
+      type = types.listOf types.str;
+      description = "SSH keys to be authorized.";
+    };
+    shell = mkOption {
+      type = types.package;
+      description = "The login shell";
+    };
   };
 
   config = mkIf cfg.enable {
     users.users.${cfg.name} = {
+      inherit (cfg) shell description;
       isNormalUser = true;
       extraGroups = [ "wheel" ] ++ cfg.groups;
-      shell = pkgs.fish;
-      description = cfg.description;
+      openssh.authorizedKeys.keys = cfg.sshKeys;
     };
   };
 }

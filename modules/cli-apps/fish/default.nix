@@ -14,5 +14,7 @@ in
 
       shellInit = builtins.readFile ./config.fish;
     };
+
+    elevate.user.shell = pkgs.fish;
   };
 }

@@ -3,11 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
     mixpkgs.url = "github:mathiasmagnusson/mixpkgs";
+    fakturamaskinen.url = "git+ssh://git@github.com/mathiasmagnusson/fakturamaskinen.git";
   };
 
-  outputs = { self, nixpkgs, mixpkgs } @ inputs:
+  outputs = { self, nixpkgs, mixpkgs, fakturamaskinen } @ inputs:
     let
       lib = import ./lib.nix { inherit pkgs inputs; };
 

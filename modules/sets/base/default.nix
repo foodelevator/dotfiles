@@ -22,7 +22,6 @@ in
 
     elevate.cli-apps.fish.enable = true;
     elevate.cli-apps.git.enable = true;
-    elevate.cli-apps.ssh.enable = true;
     elevate.system.env.enable = true;
     elevate.system.locale.enable = true;
     elevate.system.nix.enable = true;

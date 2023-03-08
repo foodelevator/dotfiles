@@ -1,8 +1,26 @@
 {
   "nodes": {
-    "mixpkgs": {
+    "fakturamaskinen": {
       "inputs": {
         "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1678286686,
+        "narHash": "sha256-cXHvJRrpS/NKYtkLFd4/9MaSPYE6LzW10z/BnDTlOjs=",
+        "ref": "refs/heads/master",
+        "rev": "6da0b84e1855d37a8fab40bc286fc7ad5a1460a4",
+        "revCount": 44,
+        "type": "git",
+        "url": "ssh://git@github.com/mathiasmagnusson/fakturamaskinen.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/mathiasmagnusson/fakturamaskinen.git"
+      }
+    },
+    "mixpkgs": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1677494360,
@@ -20,6 +38,22 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1678201391,
+        "narHash": "sha256-dX4z2oSJ5UKzY5wb5HX2VaPP08DPWZ6B7EHzOJfP7GM=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "c707238dc262923da5a53a5a11914117caac07a2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1677341534,
         "narHash": "sha256-zqaJuOTnKzg5AubC4rzzJ/IS5kU5n4U7vxosv1Fv8Ug=",
         "owner": "nixos",
@@ -34,7 +68,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1677932085,
         "narHash": "sha256-+AB4dYllWig8iO6vAiGGYl0NEgmMgGHpy9gzWJ3322g=",
@@ -52,8 +86,9 @@
     },
     "root": {
       "inputs": {
+        "fakturamaskinen": "fakturamaskinen",
         "mixpkgs": "mixpkgs",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_3"
       }
     }
   },
