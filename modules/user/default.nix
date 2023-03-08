@@ -25,6 +25,7 @@ in
     };
     sshKeys = mkOption {
       type = types.listOf types.str;
+      default = [];
       description = "SSH keys to be authorized.";
     };
     shell = mkOption {
