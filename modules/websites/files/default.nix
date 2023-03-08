@@ -10,14 +10,15 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.nginx.virtualHosts."files.magnusson.space" = nginxCfg.virtualHostsDefaults // {
-      root = "/var/www/files.magnusson.space";
-      extraConfig = ''
-        autoindex on;
-        location ~ /\. {
-          autoindex off;
-        }
-      '';
-    };
+    services.nginx.virtualHosts."files.magnusson.space" =
+      nginxCfg.virtualHostsDefaults // {
+        root = "/var/www/files.magnusson.space";
+        extraConfig = ''
+          autoindex on;
+          location ~ /\. {
+            autoindex off;
+          }
+        '';
+      };
   };
 }

@@ -10,11 +10,12 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.nginx.virtualHosts."rr.magnusson.space" = nginxCfg.virtualHostsDefaults // {
-      root = "/var/www/rr.magnusson.space";
-      locations."/" = {
-        index = "index.mp4";
+    services.nginx.virtualHosts."rr.magnusson.space" =
+      nginxCfg.virtualHostsDefaults // {
+        root = "/var/www/rr.magnusson.space";
+        locations."/" = {
+          index = "index.mp4";
+        };
       };
-    };
   };
 }

@@ -18,11 +18,12 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.nginx.virtualHosts."faktura.magnusson.space" = nginxCfg.virtualHostsDefaults // {
-      locations."/" = {
-        proxyPass = "http://localhost:${toString cfg.port}";
+    services.nginx.virtualHosts."faktura.magnusson.space" =
+      nginxCfg.virtualHostsDefaults // {
+        locations."/" = {
+          proxyPass = "http://localhost:${toString cfg.port}";
+        };
       };
-    };
 
     systemd.services."faktura.magnusson.space" = {
       description = "Fakturamaskinen";

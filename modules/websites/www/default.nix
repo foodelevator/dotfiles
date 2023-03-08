@@ -10,14 +10,15 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.nginx.virtualHosts."magnusson.space" = nginxCfg.virtualHostsDefaults // {
-      default = true;
-      serverAliases = [ "www.magnusson.space" ];
+    services.nginx.virtualHosts."magnusson.space" =
+      nginxCfg.virtualHostsDefaults // {
+        default = true;
+        serverAliases = [ "www.magnusson.space" ];
 
-      root = "/var/www/www.magnusson.space";
-      locations."/" = {
-        index = "index.html";
+        root = "/var/www/www.magnusson.space";
+        locations."/" = {
+          index = "index.html";
+        };
       };
-    };
   };
 }
