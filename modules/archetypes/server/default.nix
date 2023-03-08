@@ -15,14 +15,15 @@ in
     elevate.services.nginx.enable = true;
     elevate.services.sshd.enable = true;
 
-    networking.nameservers = [ "1.1.1.1" ];
     # TODO: do i need this? lego started working at
     # the same time as when i added this i think
+    networking.nameservers = [ "1.1.1.1" ];
 
-    security.sudo.wheelNeedsPassword = false;
     # TODO: do i really need this?
     # currently used to deploy
+    security.sudo.wheelNeedsPassword = false;
 
+    # NOTE: needed to deploy system from another machine
     nix.settings.trusted-users = [ config.elevate.user.name ];
   };
 }

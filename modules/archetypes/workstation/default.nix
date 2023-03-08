@@ -17,6 +17,7 @@ in
 
     environment.systemPackages = with pkgs; [
       ffmpeg
+      deploy-rs
     ];
 
     elevate.apps.syncthing.enable = true;
