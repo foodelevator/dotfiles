@@ -48,7 +48,7 @@
           self.nixosConfigurations);
 
       checks = builtins.mapAttrs
-        (system: deployLib: deployLib.deployChecks self.deploy)
+        (_: deployLib: deployLib.deployChecks self.deploy)
         deploy-rs.lib;
     };
 }

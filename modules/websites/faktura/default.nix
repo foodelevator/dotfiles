@@ -12,8 +12,9 @@ in
       default = 7000;
     };
     package = mkOption {
-      type = types.package;
-      default = inputs.fakturamaskinen.packages.${pkgs.system}.fakturamaskinen;
+      type = with types; either package str;
+      # default = inputs.fakturamaskinen.packages.${pkgs.system}.fakturamaskinen;
+      default = "/nix/var/nix/profiles/per-user/mathias/fakturamaskinen";
     };
   };
 
