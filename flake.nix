@@ -15,8 +15,6 @@
 
   outputs = { self, nixpkgs, mixpkgs, fakturamaskinen, deploy-rs } @ inputs:
     let
-      lib = import ./lib.nix { inherit pkgs inputs; };
-
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
@@ -24,10 +22,12 @@
         overlays = [
           (self: super: {
             binary-ninja = mixpkgs.packages.${system}.binary-ninja;
-            deploy-rs = deploy-rs.packages.${system}.deploy-rs;
+            inherit (deploy-rs.packages.${system}) deploy-rs;
           })
         ];
       };
+
+      lib = import ./lib.nix { inherit pkgs inputs; };
     in
     {
       nixosConfigurations = builtins.mapAttrs
