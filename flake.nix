@@ -3,8 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    mixpkgs.url = "github:mathiasmagnusson/mixpkgs";
+    stable.url = "github:nixos/nixpkgs/nixos-22.11";
 
     fakturamaskinen.url = "git+ssh://git@github.com/mathiasmagnusson/fakturamaskinen.git";
     fakturamaskinen.inputs.nixpkgs.follows = "nixpkgs";
@@ -13,7 +12,7 @@
     deploy-rs.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, mixpkgs, fakturamaskinen, deploy-rs } @ inputs:
+  outputs = { self, nixpkgs, stable, fakturamaskinen, deploy-rs } @ inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -21,7 +20,9 @@
         config.allowUnfree = true;
         overlays = [
           (self: super: {
-            binary-ninja = mixpkgs.packages.${system}.binary-ninja;
+            binary-ninja = stable.legacyPackages.${system}.callPackage
+              ./packages/binary-ninja
+              { };
             inherit (deploy-rs.packages.${system}) deploy-rs;
           })
         ];
