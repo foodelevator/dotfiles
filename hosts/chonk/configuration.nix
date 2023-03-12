@@ -1,8 +1,5 @@
 { config, pkgs, ... }:
 {
-  services.openssh.enable = true;
-  services.openssh.settings.PasswordAuthentication = false;
-
   elevate.apps.openrgb.enable = true;
   elevate.apps.obs.enable = true;
 
