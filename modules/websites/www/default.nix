@@ -2,7 +2,6 @@
 with lib;
 let
   cfg = config.elevate.websites.www;
-  nginxCfg = config.elevate.services.nginx;
 in
 {
   options.elevate.websites.www = {
@@ -10,8 +9,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.nginx.virtualHosts."magnusson.space" =
-      nginxCfg.virtualHostsDefaults // {
+    services.nginx.virtualHosts."magnusson.space" = {
+        forceSSL = true;
+        useACMEHost = "magnusson.space";
+
         default = true;
         serverAliases = [ "www.magnusson.space" ];
 

@@ -6,13 +6,6 @@ in
 {
   options.elevate.services.nginx = {
     enable = mkEnableOption "http file server";
-    virtualHostsDefaults = mkOption {
-      type = options.services.nginx.virtualHosts.type.nestedTypes.elemType;
-      default = {
-        forceSSL = true;
-        useACMEHost = "magnusson.space";
-      };
-    };
   };
 
   config = mkIf cfg.enable {
