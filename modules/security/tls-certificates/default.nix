@@ -23,6 +23,9 @@ in
       "magnusson.space" = {
         extraDomainNames = [ "*.magnusson.space" ];
       };
+      "xn--srskildakommandorrelsegruppen-0pc88c.se" = {
+        extraDomainNames = [ "*.xn--srskildakommandorrelsegruppen-0pc88c.se" ];
+      };
     };
 
     users.users.nginx.extraGroups = [ "acme" ];

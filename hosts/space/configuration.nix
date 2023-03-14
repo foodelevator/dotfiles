@@ -4,6 +4,7 @@
   elevate.websites.www.enable = true;
   elevate.websites.rr.enable = true;
   elevate.websites.files.enable = true;
+  elevate.websites.srg.enable = true;
 
   elevate.archetypes.server.enable = true;
 
