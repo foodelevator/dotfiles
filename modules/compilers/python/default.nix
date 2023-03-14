@@ -3,7 +3,9 @@ with lib;
 let
   cfg = config.elevate.compilers.python;
 
+  # is it possible to not add these packageses scripts to PATH?
   python = (pkgs.python3.withPackages (p: with p; [
+    virtualenv
     pycryptodome
     numpy
     matplotlib
