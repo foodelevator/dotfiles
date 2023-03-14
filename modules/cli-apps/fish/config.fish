@@ -1,25 +1,26 @@
 function fish_prompt
-    set s $status
-    if [ $s != "0" ]
-        set_color normal
-        printf "["
+    set -l dur $CMD_DURATION
+    if [ $dur -ge 1000 ]
         set_color red
-        printf "$s"
-        set_color normal
-        printf "] "
+        printf "took %.0fs " (math $dur / 1000)
     end
-	set_color green
-	printf "%s" (whoami)
-	set_color normal
-	printf "@"
-	set_color cyan
-	printf "%s " (cat /etc/hostname)
-	set_color yellow
-	printf "%s " (prompt_pwd)
+
+    set_color brcyan
+    printf "%s " (date +"%H:%M:%S")
+
+    set cwd (pwd)
+    if [ "$cwd" = "$HOME" ]
+        set cwd "~"
+    else
+        set cwd (basename $cwd)
+    end
+    set_color yellow
+    printf "%s " $cwd
+
 	set_color bryellow
-	printf "%s" (git branch 2>/dev/null | sed -rn '/\* /s/(\* )(.*)/(\2)/p')
-	set_color normal
-	printf "\n\$ "
+	printf "%s" (git branch 2>/dev/null | sed -rn '/\* /s/(\* )(.*)/(\2) /p')
+
+    set_color normal
 end
 
 function fish_greeting
