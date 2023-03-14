@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, helpers, ... }:
 with lib;
 let
   cfg = config.elevate.websites.faktura;
@@ -39,5 +39,7 @@ in
       wantedBy = [ "multi-user.target" ];
       after = [ "network.target" ];
     };
+
+    security.acme.certs = helpers.mkWildcardCert "magnusson.space";
   };
 }

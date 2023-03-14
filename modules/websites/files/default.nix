@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, helpers, ... }:
 with lib;
 let
   cfg = config.elevate.websites.files;
@@ -21,5 +21,7 @@ in
         }
       '';
     };
+
+    security.acme.certs = helpers.mkWildcardCert "magnusson.space";
   };
 }

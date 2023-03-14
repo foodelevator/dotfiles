@@ -14,12 +14,21 @@ let
         else [ ];
     in
     concatLists (mapAttrsToList traverse dir);
+
+  # TODO: It would be nice to extend `lib` instead
+  helpers = {
+    mkWildcardCert = domain: {
+      ${domain} = {
+        extraDomainNames = [ "*.${domain}" ];
+      };
+    };
+  };
 in
 {
   getModules = name: [
     (./hosts + "/${name}/configuration.nix")
     (./hosts + "/${name}/hardware-configuration.nix")
-    { _module.args = { inherit inputs; }; }
+    { _module.args = { inherit inputs helpers; }; }
     ({ lib, ... }: { networking.hostName = lib.mkDefault name; })
   ] ++ getAllDefaultDotNix ./modules;
 }

@@ -1,7 +1,9 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, helpers, ... }:
 with lib;
 let
   cfg = config.elevate.websites.srg;
+
+  domainName = "xn--srskildakommandorrelsegruppen-0pc88c.se";
 in
 {
   options.elevate.websites.srg = {
@@ -11,13 +13,16 @@ in
   config = mkIf cfg.enable {
     services.nginx.virtualHosts."särskildakommandorörelsegruppen.se" = {
       forceSSL = true;
-      useACMEHost = "xn--srskildakommandorrelsegruppen-0pc88c.se";
-      serverName = "xn--srskildakommandorrelsegruppen-0pc88c.se";
+      useACMEHost = domainName;
+      serverName = domainName;
 
       root = "/var/www/särskildakommandorörelsegruppen.se";
       locations."/" = {
         index = "index.html";
       };
+
     };
+
+    security.acme.certs = helpers.mkWildcardCert domainName;
   };
 }

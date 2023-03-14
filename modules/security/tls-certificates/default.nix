@@ -5,8 +5,6 @@ let
   cfg = config.elevate.security.tls-certificates;
 in
 {
-  # TODO: make domain names configurable per server
-
   options.elevate.security.tls-certificates = {
     enable = mkEnableOption "Automatically get TLS certificates";
   };
@@ -17,15 +15,6 @@ in
       dnsProvider = "linode";
       email = "mathias@magnusson.space";
       credentialsFile = "/var/lib/secrets/linode-dns-api-key.ini";
-    };
-
-    security.acme.certs = {
-      "magnusson.space" = {
-        extraDomainNames = [ "*.magnusson.space" ];
-      };
-      "xn--srskildakommandorrelsegruppen-0pc88c.se" = {
-        extraDomainNames = [ "*.xn--srskildakommandorrelsegruppen-0pc88c.se" ];
-      };
     };
 
     users.users.nginx.extraGroups = [ "acme" ];
