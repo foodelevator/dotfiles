@@ -15,15 +15,20 @@
   outputs = { self, nixpkgs, stable, fakturamaskinen, deploy-rs } @ inputs:
     let
       system = "x86_64-linux";
+
+      stablePkgs = import stable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
         overlays = [
           (self: super: {
-            binary-ninja = stable.legacyPackages.${system}.callPackage
-              ./packages/binary-ninja
-              { };
             inherit (deploy-rs.packages.${system}) deploy-rs;
+            binary-ninja = stablePkgs.callPackage ./packages/binary-ninja { };
+            dyalog = super.callPackage ./packages/dyalog { };
           })
         ];
       };
@@ -37,6 +42,10 @@
           modules = lib.getModules name;
         })
         (builtins.readDir ./hosts);
+
+      packages.${system} = {
+        inherit (pkgs) binary-ninja dyalog;
+      };
 
       deploy.nodes = builtins.mapAttrs
         (hostname: cfg: {
