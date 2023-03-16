@@ -1,4 +1,14 @@
 function fish_prompt
+    set s $status
+    if [ $s != "0" ]
+        set_color normal
+        printf "["
+        set_color red
+        printf "$s"
+        set_color normal
+        printf "] "
+    end
+
     set -l dur $CMD_DURATION
     if [ $dur -ge 1000 ]
         set_color red
