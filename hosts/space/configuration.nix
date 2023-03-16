@@ -5,6 +5,7 @@
   elevate.websites.rr.enable = true;
   elevate.websites.files.enable = true;
   elevate.websites.srg.enable = true;
+  elevate.websites.dinlugnastund.enable = true;
 
   elevate.archetypes.server.enable = true;
 
