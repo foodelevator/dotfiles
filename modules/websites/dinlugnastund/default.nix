@@ -17,9 +17,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.nginx.virtualHosts."dinlugnastund.magnusson.space" = {
+    services.nginx.virtualHosts."new.dinlugnastund.se" = {
       forceSSL = true;
-      useACMEHost = "magnusson.space";
+      enableACME = true;
 
       locations."/" = {
         proxyPass = "http://localhost:${toString cfg.port}";
