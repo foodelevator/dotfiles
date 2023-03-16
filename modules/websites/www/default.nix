@@ -22,6 +22,15 @@ in
       };
     };
 
-    security.acme.certs = helpers.mkWildcardCert "magnusson.space";
+    security.acme.certs."magnusson.space" = {
+      extraDomainNames = [
+        # TODO: switch back to *.magnusson.space when that's no longer rate limited (:
+        "www.magnusson.space"
+        "files.magnusson.space"
+        "faktura.magnusson.space"
+        "dinlugnastund.magnusson.space"
+        "rr.magnusson.space"
+      ];
+    };
   };
 }

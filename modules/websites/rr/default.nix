@@ -18,7 +18,5 @@ in
         index = "index.mp4";
       };
     };
-
-    security.acme.certs = helpers.mkWildcardCert "magnusson.space";
   };
 }

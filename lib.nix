@@ -16,13 +16,7 @@ let
     concatLists (mapAttrsToList traverse dir);
 
   # TODO: It would be nice to extend `lib` instead
-  helpers = {
-    mkWildcardCert = domain: {
-      ${domain} = {
-        extraDomainNames = [ "*.${domain}" ];
-      };
-    };
-  };
+  helpers = { };
 in
 {
   getModules = name: [

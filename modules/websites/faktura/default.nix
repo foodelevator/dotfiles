@@ -39,7 +39,5 @@ in
       wantedBy = [ "multi-user.target" ];
       after = [ "network.target" ];
     };
-
-    security.acme.certs = helpers.mkWildcardCert "magnusson.space";
   };
 }

@@ -21,7 +21,5 @@ in
         }
       '';
     };
-
-    security.acme.certs = helpers.mkWildcardCert "magnusson.space";
   };
 }

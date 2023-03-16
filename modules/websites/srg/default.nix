@@ -23,6 +23,8 @@ in
 
     };
 
-    security.acme.certs = helpers.mkWildcardCert domainName;
+    security.acme.certs.${domainName} = {
+      extraDomainNames = [ "*.${domainName}" ];
+    };
   };
 }
