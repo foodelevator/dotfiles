@@ -16,7 +16,11 @@ in
       useACMEHost = domainName;
       serverName = domainName;
 
-      root = "/var/www/särskildakommandorörelsegruppen.se";
+      root = pkgs.writeTextFile {
+        name = "srg static files";
+        destination = "/index.html";
+        text = builtins.readFile ./index.html;
+      };
       locations."/" = {
         index = "index.html";
       };
