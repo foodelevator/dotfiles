@@ -17,8 +17,7 @@ in
       npm_config_prefix = prefix;
       npm_config_cache = "$HOME/.cache/npm";
       NODE_REPL_HISTORY = "$HOME/.local/share/node/history";
+      PATH = [ "${prefix}/bin" ];
     };
-
-    elevate.path = [ "${prefix}/bin" ];
   };
 }

@@ -15,8 +15,7 @@ in
 
     environment.variables = {
       inherit GOPATH;
+      PATH = [ "${GOPATH}/bin" ];
     };
-
-    elevate.path = [ "${GOPATH}/bin" ];
   };
 }

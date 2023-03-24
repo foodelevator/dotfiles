@@ -13,8 +13,7 @@ in
   config = mkIf cfg.enable {
     environment.variables = {
       inherit ENCORE_INSTALL;
+      PATH = [ "${ENCORE_INSTALL}/bin" ];
     };
-
-    elevate.path = [ "${ENCORE_INSTALL}/bin" ];
   };
 }
