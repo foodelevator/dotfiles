@@ -10,7 +10,7 @@ in
 
   config = mkIf cfg.enable {
     services.xserver = {
-      displayManager.sddm.enable = true;
+      displayManager.lightdm.enable = true;
       windowManager.i3 = {
         enable = true;
         package = pkgs.i3-gaps;
