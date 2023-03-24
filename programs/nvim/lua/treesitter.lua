@@ -10,6 +10,7 @@ require "nvim-treesitter.configs".setup {
         "astro", "tsx",
         "markdown",
         "haskell",
+        "zig",
     },
     sync_install = false,
 
