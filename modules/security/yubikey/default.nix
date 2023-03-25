@@ -19,6 +19,9 @@ in
     environment.systemPackages = with pkgs; [
       yubioath-flutter
       pam_u2f
+
+      age
+      age-plugin-yubikey
     ];
   };
 }
