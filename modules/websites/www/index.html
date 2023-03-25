@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>magnusson.space</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin-top: 5rem;
+    background-color: #1d2021;
+    color: #ebdbb2;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+section {
+    padding: 1rem;
+    width: 80%;
+    margin: 1rem auto;
+}
+
+.wrapper {
+    background-color: #282828;
+    padding: 1rem;
+    border-radius: 3px;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+}
+
+h2 {
+    margin-bottom: 0.5rem;
+}
+
+a {
+    color: #689d6a;
+    text-decoration: none;
+}
+
+.card {
+    padding: 0.5rem;
+    transition: color 0.2s, background-color 0.2s;
+    border-radius: 3px;
+}
+
+.card:hover {
+    color: #8ec07c;
+    background-color: #fff1;
+}
+
+a:not(.card):hover {
+    text-decoration: underline;
+}
+
+code {
+    overflow-wrap: anywhere;
+}
+
+button {
+    background: none;
+    border: none;
+    color: #689d6a;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+button:hover {
+    color: #8ec07c;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Mathias Magnusson</h1>
+    <section>
+        <h2>Sidor</h2>
+        <div class="wrapper grid">
+            <a class="card" href="https://raytracer.magnusson.space">Raytracer</a>
+            <a class="card" href="https://särskildakommandorörelsegruppen.se">
+                Särskilda kommandorörelsegruppen
+            </a>
+        </div>
+    </section>
+    <section>
+        <h2>Kontaktinfo</h2>
+        <div class="wrapper">
+            <p>
+                e-post: <a href="mailto:mathias@magnusson.space">mathias@magnusson.space</a>
+            </p>
+            <p style="display: flex; align-items: center; flex-wrap: wrap">
+                <a href="https://github.com/FiloSottile/age">age</a>-nyckel:
+                <code style="margin: 0 1ch">age1yubikey1qtppenqpqjtll78q0tfcgnm4dczy7nakmj5l2z3syyqfcq27kqx32hh72rt</code>
+                <button onclick="copy()" style="width: 1em; height: 1em; position: relative;
+                    flex-shrink: 0">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: -10%;
+                        left: 0" width="120%" height="120%" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+                        <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                        <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                    </svg>
+                </button>
+            </p>
+        </div>
+    </section>
+
+    <script>
+        let showinfo = false;
+        async function copy() {
+            if (showinfo) return;
+
+            const button = document.querySelector("button");
+            const key = document.querySelector("code");
+            const content = button.innerHTML;
+            await navigator.clipboard.writeText(key.textContent);
+
+            showinfo = true;
+            button.textContent = "Kopierad!";
+            setTimeout(() => {
+                button.innerHTML = content;
+                showinfo = false;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

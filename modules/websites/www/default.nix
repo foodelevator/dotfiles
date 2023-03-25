@@ -16,7 +16,11 @@ in
       default = true;
       serverAliases = [ "www.magnusson.space" ];
 
-      root = "/var/www/www.magnusson.space";
+      root = pkgs.writeTextFile {
+        name = "www static files";
+        destination = "/index.html";
+        text = builtins.readFile ./index.html;
+      };
       locations."/" = {
         index = "index.html";
       };
