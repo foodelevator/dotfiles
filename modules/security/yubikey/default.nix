@@ -15,10 +15,13 @@ in
     };
 
     services.pcscd.enable = true;
+    # TODO: make this little service work like a good little service
+    # services.yubikey-agent.enable = true;
 
     environment.systemPackages = with pkgs; [
-      yubioath-flutter
       pam_u2f
+      yubikey-manager
+      yubioath-flutter
 
       age
       age-plugin-yubikey
