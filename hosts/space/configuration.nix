@@ -11,6 +11,10 @@
 
   elevate.archetypes.server.enable = true;
 
+  security.acme.certs."magnusson.space" = {
+    extraDomainNames = [ "*.magnusson.space" ];
+  };
+
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;

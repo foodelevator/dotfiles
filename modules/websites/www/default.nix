@@ -25,9 +25,5 @@ in
         index = "index.html";
       };
     };
-
-    security.acme.certs."magnusson.space" = {
-      extraDomainNames = [ "*.magnusson.space" ];
-    };
   };
 }
