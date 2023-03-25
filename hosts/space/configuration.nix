@@ -1,11 +1,13 @@
 { config, pkgs, ... }:
 {
-  elevate.websites.faktura.enable = true;
-  elevate.websites.www.enable = true;
-  elevate.websites.rr.enable = true;
-  elevate.websites.files.enable = true;
-  elevate.websites.srg.enable = true;
   elevate.websites.dinlugnastund.enable = true;
+
+  elevate.websites.faktura.enable = true;
+  elevate.websites.files.enable = true;
+  elevate.websites.raytracer.enable = true;
+  elevate.websites.rr.enable = true;
+  elevate.websites.srg.enable = true;
+  elevate.websites.www.enable = true;
 
   elevate.archetypes.server.enable = true;
 
