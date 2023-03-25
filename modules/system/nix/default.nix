@@ -10,6 +10,7 @@ in
 
   config = mkIf cfg.enable {
     nix.registry.nixpkgs.flake = inputs.nixpkgs;
+    nix.registry.stable.flake = inputs.stable;
 
     nix.gc.automatic = true;
     nix.gc.options = "--delete-older-than 7d";
