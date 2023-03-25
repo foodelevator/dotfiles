@@ -37,8 +37,9 @@ server("rust_analyzer", { "rustup", "run", "nightly", "rust-analyzer" })
 server("gopls")
 server("rnix")
 server("java_language_server", { "java-language-server" })
-server("astro")
-server("tailwindcss")
-server("tsserver")
+server("astro") -- npm i -g @astrojs/language-server
+server("tailwindcss") -- npm i -g @tailwindcss/language-server
+server("tsserver") -- npm i -g typescript typescript-language-server
 server("hls", nil, { haskell = { formattingProvider = "fourmolu" } })
 server("prismals")
+server("emmet_ls") -- npm i -g emmet-ls
