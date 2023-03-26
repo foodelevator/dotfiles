@@ -11,6 +11,7 @@ require "nvim-treesitter.configs".setup {
         "markdown",
         "haskell",
         "zig",
+        "prisma",
     },
     sync_install = false,
 
