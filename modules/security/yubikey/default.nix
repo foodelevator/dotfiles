@@ -16,7 +16,7 @@ in
 
     services.pcscd.enable = true;
     # TODO: make this little service work like a good little service
-    # services.yubikey-agent.enable = true;
+    services.yubikey-agent.enable = true;
 
     environment.systemPackages = with pkgs; [
       pam_u2f

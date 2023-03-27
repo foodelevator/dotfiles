@@ -13,6 +13,7 @@ in
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
     };
+    services.gnome.gnome-keyring.enable = mkForce false;
 
     environment.systemPackages = with pkgs; [
       xwayland
