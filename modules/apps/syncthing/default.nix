@@ -24,6 +24,7 @@ in
       };
 
       folders = pkgs.lib.genAttrs [
+        "Desktop"
         "Documents"
         "Memes"
         "Music"
