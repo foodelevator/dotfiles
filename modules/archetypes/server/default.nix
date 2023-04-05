@@ -29,6 +29,7 @@ in
       group = "deploy";
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPO4K+TH/92mNXJ1w5yDO5wQSbhb2nj+wGvfXel/NjQT deploy@magnusson.space"
+        # Private key at https://files.magnusson.space/.keys/deploy-key-space.age
       ];
       shell = pkgs.bashInteractive;
     };
