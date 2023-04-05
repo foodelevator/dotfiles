@@ -19,11 +19,27 @@ in
     # the same time as when i added this i think
     networking.nameservers = [ "1.1.1.1" ];
 
-    # TODO: do i really need this?
-    # currently used to deploy
+    # NOTE: Needed to deploy with deploy-rs
     security.sudo.wheelNeedsPassword = false;
+    nix.settings.trusted-users = [ config.elevate.user.name "deploy" ];
 
-    # NOTE: needed to deploy system from another machine
-    nix.settings.trusted-users = [ config.elevate.user.name ];
+    # User used by github actions to deploy websites
+    users.users.deploy = {
+      isSystemUser = true;
+      group = "deploy";
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPO4K+TH/92mNXJ1w5yDO5wQSbhb2nj+wGvfXel/NjQT deploy@magnusson.space"
+      ];
+      shell = pkgs.bashInteractive;
+    };
+    users.groups.deploy = {};
+    security.sudo.extraRules = [{
+      groups = [ "deploy" ];
+      commands = [{ command = "/run/current-system/sw/bin/systemctl restart *"; options = [ "NOPASSWD" ]; }];
+    } {
+      groups = [ "deploy" ];
+      runAs = "mathias"; # TODO: this isn't very good, should use website specific accounts
+      commands = [{ command = "ALL"; options = [ "NOPASSWD" ]; }];
+    }];
   };
 }

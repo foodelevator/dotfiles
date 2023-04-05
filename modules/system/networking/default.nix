@@ -13,8 +13,6 @@ in
 
     networking.networkmanager.enable = true;
 
-    elevate.user = {
-      groups = [ "networkmanager" ];
-    };
+    elevate.user.groups = [ "networkmanager" ];
   };
 }
