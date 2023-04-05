@@ -37,13 +37,14 @@ nmap("<leader>a", "<Plug>(EasyAlign)")
 nmap("<leader>f", telescope_builtin.find_files)
 nmap("<leader>w", telescope_builtin.lsp_workspace_symbols)
 nmap("<leader>/", telescope_builtin.live_grep)
+nmap("<leader>d", telescope_builtin.diagnostics)
 nmap("<leader>tb", telescope_builtin.buffers)
 nmap("<leader>tt", telescope_builtin.builtin)
 
 nmap("<leader>g", toggle_term.toggle_lazygit)
 
-nmap("<leader>d", function() require("duck").hatch("ඞ", 0.5) end)
-nmap("<leader>c", function() require("duck").cook("ඞ") end)
+nmap("<leader>c", function() require("duck").hatch("ඞ", 0.5) end)
+nmap("<leader>C", function() require("duck").cook("ඞ") end)
 
 function lsp_enabled(b)
     local opts = { buffer = b }
