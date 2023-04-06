@@ -2,24 +2,18 @@
   description = "Configuration for my NixOS systems";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    stable.url = "github:nixos/nixpkgs/nixos-22.11";
-
-    fakturamaskinen.url = "git+ssh://git@github.com/mathiasmagnusson/fakturamaskinen.git";
-    fakturamaskinen.inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     deploy-rs.url = "github:serokell/deploy-rs";
     deploy-rs.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, stable, fakturamaskinen, deploy-rs } @ inputs:
+  outputs = { self, nixpkgs, unstable, deploy-rs } @ inputs:
     let
       system = "x86_64-linux";
 
-      stablePkgs = import stable {
-        inherit system;
-        config.allowUnfree = true;
-      };
+      unstablePkgs = import unstable { inherit system; };
 
       pkgs = import nixpkgs {
         inherit system;
@@ -27,7 +21,9 @@
         overlays = [
           (self: super: {
             inherit (deploy-rs.packages.${system}) deploy-rs;
-            binary-ninja = stablePkgs.callPackage ./packages/binary-ninja { };
+            inherit (unstablePkgs) yubioath-flutter;
+
+            binary-ninja = super.callPackage ./packages/binary-ninja { };
             dyalog = super.callPackage ./packages/dyalog { };
           })
         ];

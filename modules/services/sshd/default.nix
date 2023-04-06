@@ -16,8 +16,8 @@ in
     ];
     services.openssh = {
       enable = true;
-      settings.PermitRootLogin = "no";
-      settings.PasswordAuthentication = false;
+      permitRootLogin = "no";
+      passwordAuthentication = false;
       ports = [ 69 ];
     };
   };
