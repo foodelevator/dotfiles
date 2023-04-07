@@ -18,7 +18,6 @@ in
       jdk java-language-server
       swiProlog
       rnix-lsp
-      dyalog
     ];
 
     elevate.cli-apps.helix.enable = true;
