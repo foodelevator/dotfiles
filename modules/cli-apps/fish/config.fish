@@ -40,3 +40,5 @@ function fish_greeting
 end
 
 alias e nvim
+
+direnv hook fish | source
