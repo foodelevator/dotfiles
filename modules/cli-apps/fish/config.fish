@@ -13,6 +13,9 @@ function fish_prompt
     if [ $dur -ge 1000 ]
         set_color red
         printf "took %.0fs " (math $dur / 1000)
+    else if [ $dur -ge 100 ]
+        set_color yellow
+        printf "took %.0fms " (math $dur)
     end
 
     set_color brcyan
