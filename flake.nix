@@ -19,12 +19,12 @@
         inherit system;
         config.allowUnfree = true;
         overlays = [
-          (self: super: {
+          (final: prev: {
             inherit (deploy-rs.packages.${system}) deploy-rs;
             inherit (unstablePkgs) yubioath-flutter;
 
-            binary-ninja = super.callPackage ./packages/binary-ninja { };
-            dyalog = super.callPackage ./packages/dyalog { };
+            binary-ninja = prev.callPackage ./packages/binary-ninja { };
+            dyalog = prev.callPackage ./packages/dyalog { };
           })
         ];
       };
