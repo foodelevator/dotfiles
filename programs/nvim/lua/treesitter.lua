@@ -12,7 +12,7 @@ require "nvim-treesitter.configs".setup {
         "haskell",
         "zig",
         "prisma",
-        "fish",
+        "fish", "bash",
     },
     sync_install = false,
 
