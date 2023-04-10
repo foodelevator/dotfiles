@@ -4,14 +4,26 @@ local M = {}
 
 cmp.setup {
     completion = { autocomplete = false },
-    mapping = cmp.mapping.preset.insert({
+    mapping = {
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-e>'] = cmp.mapping.abort(),
         ['<C-l>'] = cmp.mapping.confirm({ select = true }),
-        ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-        ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-    }),
+        ['<C-n>'] = function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item({ })
+            else
+                fallback()
+            end
+        end,
+        ['<C-p>'] = function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item({ })
+            else
+                fallback()
+            end
+        end,
+    },
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'vsnip' },
