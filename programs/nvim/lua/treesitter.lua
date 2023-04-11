@@ -13,6 +13,7 @@ require "nvim-treesitter.configs".setup {
         "zig",
         "prisma",
         "fish", "bash",
+        "python",
     },
     sync_install = false,
 
