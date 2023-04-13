@@ -59,5 +59,4 @@ require "tele"
 require "toggle-term"
 require "treesitter"
 
-require("which-key").setup { }
 require('leap').add_default_mappings()
