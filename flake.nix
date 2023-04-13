@@ -21,7 +21,7 @@
         overlays = [
           (final: prev: {
             inherit (deploy-rs.packages.${system}) deploy-rs;
-            inherit (unstablePkgs) yubioath-flutter;
+            inherit (unstablePkgs) yubioath-flutter typst typst-lsp;
 
             binary-ninja = prev.callPackage ./packages/binary-ninja { };
             dyalog = prev.callPackage ./packages/dyalog { };

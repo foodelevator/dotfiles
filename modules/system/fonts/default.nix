@@ -11,6 +11,7 @@ in
   config = mkIf cfg.enable {
     fonts.fonts = with pkgs; [
       (nerdfonts.override { fonts = [ "FiraCode" ]; })
+      noto-fonts
     ];
   };
 }

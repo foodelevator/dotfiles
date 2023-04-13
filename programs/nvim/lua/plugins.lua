@@ -27,6 +27,7 @@ require "paq" {
     "hrsh7th/nvim-cmp",
     "hrsh7th/vim-vsnip",
     "junegunn/vim-easy-align",
+    "kaarmu/typst.vim",
     "kyazdani42/nvim-web-devicons",
     "morhetz/gruvbox",
     "neovim/nvim-lspconfig",

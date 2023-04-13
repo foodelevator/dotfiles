@@ -43,4 +43,4 @@ server("tsserver") -- npm i -g typescript typescript-language-server
 server("hls", nil, { haskell = { formattingProvider = "fourmolu" } })
 server("prismals")
 server("emmet_ls") -- npm i -g emmet-ls
-server("typst_lsp", { "/home/mathias/.cache/target/release/typst-lsp" })
+server("typst_lsp")

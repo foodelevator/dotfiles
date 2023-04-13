@@ -22,6 +22,7 @@ in
 
     elevate.apps.syncthing.enable = true;
     elevate.cli-apps.ssh.enable = true;
+    elevate.cli-apps.typst.enable = true;
     elevate.security.yubikey.enable = true;
     elevate.system.networking.enable = true;
     elevate.system.printing.enable = true;
