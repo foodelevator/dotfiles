@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, helpers, ... }:
+{ config, pkgs, lib, inputs, ... }:
 with lib;
 let
   cfg = config.elevate.websites.dinlugnastund;
