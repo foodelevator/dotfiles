@@ -18,7 +18,6 @@ in
       jdk java-language-server
       swiProlog
       rnix-lsp
-      julia-bin
     ];
 
     elevate.cli-apps.helix.enable = true;
@@ -27,6 +26,7 @@ in
       encore.enable = true;
       go.enable = true;
       haskell.enable = true;
+      julia.enable = true;
       node.enable = true;
       python.enable = true;
       rust.enable = true;
