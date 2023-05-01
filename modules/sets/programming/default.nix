@@ -12,6 +12,7 @@ in
     environment.systemPackages = with pkgs; [
       lazygit
       pgcli
+      man-pages
 
       zig
       gcc gnumake
