@@ -19,13 +19,8 @@ in
     # the same time as when i added this i think
     networking.nameservers = [ "1.1.1.1" ];
 
-    # NOTE: Needed for deploys
-    users.groups.deploy = {};
-    security.sudo.extraRules = [{
-      groups = [ "deploy" ];
-      commands = [{ command = "/run/current-system/sw/bin/systemctl restart *"; options = [ "NOPASSWD" ]; }];
-    }];
-    nix.settings.trusted-users = [ "@deploy" config.elevate.user.name ];
+    # NOTE: Needed for deploying system
+    nix.settings.trusted-users = [ config.elevate.user.name ];
     security.sudo.wheelNeedsPassword = false;
   };
 }

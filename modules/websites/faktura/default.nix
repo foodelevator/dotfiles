@@ -40,19 +40,9 @@ in
       after = [ "network.target" ];
     };
 
-    users.users.faktura = {
-      isSystemUser = true;
-      group = "faktura";
-    };
-    users.groups.faktura = {};
-    users.users.deploy-faktura = {
-      isSystemUser = true;
-      group = "deploy";
-      openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPO4K+TH/92mNXJ1w5yDO5wQSbhb2nj+wGvfXel/NjQT deploy-faktura@magnusson.space"
-        # Private key at https://files.magnusson.space/.keys/deploy-faktura-key.age
-      ];
-      shell = pkgs.bashInteractive;
-    };
+    elevate.deploy-user.faktura.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPO4K+TH/92mNXJ1w5yDO5wQSbhb2nj+wGvfXel/NjQT deploy-faktura@magnusson.space"
+      # Private key at https://files.magnusson.space/.keys/deploy-faktura-key.age
+    ];
   };
 }
