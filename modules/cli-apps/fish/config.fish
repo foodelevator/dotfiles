@@ -40,5 +40,6 @@ function fish_greeting
 end
 
 alias e nvim
+alias lg lazygit
 
 direnv hook fish | source
