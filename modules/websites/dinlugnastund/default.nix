@@ -12,7 +12,7 @@ in
     };
     package = mkOption {
       type = with types; either package str;
-      default = "/nix/var/nix/profiles/per-user/mathias/dinlugnastund";
+      default = "/nix/var/nix/profiles/per-user/deploy-dinlugnastund/dinlugnastund";
     };
   };
 
@@ -28,18 +28,21 @@ in
       };
     };
 
-    systemd.services."dinlugnastund.se" = {
-      description = "dinlugnastund.se";
+    systemd.services."dinlugnastund" = {
+      description = "dinlugnastund";
       serviceConfig = {
         Type = "simple";
         Restart = "always";
         RestartSec = 10;
         Environment = "PORT=${toString cfg.port}";
         ExecStart = "${cfg.package}/bin/dinlugnastund";
-        WorkingDirectory = "/var/www/dinlugnastund.se";
+        WorkingDirectory = "/tmp";
+        User = "dinlugnastund";
       };
       wantedBy = [ "multi-user.target" ];
       after = [ "network.target" ];
     };
+
+    elevate.deploy-user.dinlugnastund = { };
   };
 }
