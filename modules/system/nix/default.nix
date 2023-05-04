@@ -16,6 +16,8 @@ in
       "unstable=${inputs.unstable}"
     ];
 
+    nix.settings.trusted-users = [ config.elevate.user.name ];
+
     nix.gc.automatic = true;
     nix.gc.options = "--delete-older-than 7d";
     nix.gc.dates = "weekly";
