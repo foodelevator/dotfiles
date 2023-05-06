@@ -40,6 +40,7 @@ nmap("<leader>/", telescope_builtin.live_grep)
 nmap("<leader>d", telescope_builtin.diagnostics)
 nmap("<leader>tb", telescope_builtin.buffers)
 nmap("<leader>tt", telescope_builtin.builtin)
+nmap("<leader>tr", telescope_builtin.resume)
 
 nmap("<leader>g", toggle_term.toggle_lazygit)
 
