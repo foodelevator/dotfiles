@@ -34,7 +34,12 @@ function server(name, cmd, settings)
 end
 
 server("rust_analyzer", { "rustup", "run", "nightly", "rust-analyzer" })
-server("gopls")
+server("gopls", nil, {
+    gopls = {
+        usePlaceholders = true,
+        analyses = { unusedparams = true },
+    },
+})
 server("rnix")
 server("java_language_server", { "java-language-server" })
 server("astro") -- npm i -g @astrojs/language-server
