@@ -8,6 +8,7 @@
   elevate.websites.rr.enable = true;
   elevate.websites.srg.enable = true;
   elevate.websites.www.enable = true;
+  elevate.websites.faeltkullen.enable = true;
 
   elevate.archetypes.server.enable = true;
 
