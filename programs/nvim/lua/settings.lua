@@ -26,6 +26,10 @@ local opts = {
     updatetime = "1000",
 }
 
+-- This plugin thinks it's reasonable to overwrite <left>, <right>, and <C-c> in insert mode,
+-- which is totally whack.
+vim.g.omni_sql_no_default_maps = 1337
+
 for key, val in pairs(opts) do
     if type(key) == "string" then
         vim.cmd("set "..key.."="..val)
