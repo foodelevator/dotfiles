@@ -33,7 +33,17 @@ function server(name, cmd, settings)
     lspconfig[name].setup(arg)
 end
 
-server("rust_analyzer", { "rustup", "run", "nightly", "rust-analyzer" })
+server("rust_analyzer", { "rustup", "run", "nightly", "rust-analyzer" }, {
+    ["rust-analyzer"] = {
+        cargo = {
+            allFeatures = true,
+        },
+        check = { command = "clippy" },
+        diagnostics = {
+            disabled = { "inactive-code" },
+        },
+    },
+})
 server("gopls", nil, {
     gopls = {
         usePlaceholders = true,
