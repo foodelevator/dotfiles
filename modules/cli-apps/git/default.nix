@@ -11,7 +11,7 @@ in
   config = mkIf cfg.enable {
     programs.git.enable = true;
     programs.git.config = {
-      user.name = "mathiasmagnusson";
+      user.name = "Mathias Magnusson";
       user.email = "mathias@magnusson.space";
 
       alias = {
