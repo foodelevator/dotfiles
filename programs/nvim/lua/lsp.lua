@@ -53,7 +53,7 @@ server("gopls", nil, {
         analyses = { unusedparams = true },
     },
 })
-server("rnix")
+server("nil_ls", nil, { ["nil"] = { formatting = { command = {"nixpkgs-fmt"} } } })
 server("java_language_server", { "java-language-server" })
 server("astro") -- npm i -g @astrojs/language-server
 server("tailwindcss", nil, nil, { "rust" }) -- npm i -g @tailwindcss/language-server

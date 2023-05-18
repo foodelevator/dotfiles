@@ -18,7 +18,7 @@ in
       gcc gnumake
       jdk java-language-server
       swiProlog
-      rnix-lsp
+      nil nixpkgs-fmt
     ];
 
     elevate.cli-apps.helix.enable = true;
