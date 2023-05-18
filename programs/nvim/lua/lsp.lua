@@ -22,13 +22,16 @@ end
 
 local lspconfig = require("lspconfig")
 
-function server(name, cmd, settings)
+function server(name, cmd, settings, filetypes)
     arg = { on_attach = on_attach, capabilities = completion.capabilities }
     if cmd ~= nil then
         arg.cmd = cmd
     end
     if settings ~= nil then
         arg.settings = settings
+    end
+    if filetypes ~= nil then
+        arg.filetypes = filetypes
     end
     lspconfig[name].setup(arg)
 end
@@ -53,7 +56,7 @@ server("gopls", nil, {
 server("rnix")
 server("java_language_server", { "java-language-server" })
 server("astro") -- npm i -g @astrojs/language-server
-server("tailwindcss") -- npm i -g @tailwindcss/language-server
+server("tailwindcss", nil, nil, { "rust" }) -- npm i -g @tailwindcss/language-server
 server("tsserver") -- npm i -g typescript typescript-language-server
 server("hls", nil, { haskell = { formattingProvider = "fourmolu" } })
 server("prismals")
