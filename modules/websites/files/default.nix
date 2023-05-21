@@ -15,6 +15,7 @@ in
 
       root = "/var/www/files.magnusson.space";
       extraConfig = ''
+        add_header X-Robots-Tag "noindex";
         autoindex on;
         location ~ /\. {
           autoindex off;
