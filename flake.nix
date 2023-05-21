@@ -25,6 +25,10 @@
 
             binary-ninja = prev.callPackage ./packages/binary-ninja { };
             dyalog = prev.callPackage ./packages/dyalog { };
+
+            # TODO: remove this when obsidian in nixpkgs is updated to use a newer electron, which
+            # should be in 23.05
+            obsidian = prev.obsidian.override (_: { electron = final.electron_23; });
           })
         ];
       };
