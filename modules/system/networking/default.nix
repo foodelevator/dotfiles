@@ -11,6 +11,10 @@ in
   config = mkIf cfg.enable {
     networking.nameservers = [ "1.1.1.1" ];
 
+    # networking.hosts = {
+    #   "127.0.0.1" = [ "login.datasektionen.se" ];
+    # };
+
     networking.networkmanager.enable = true;
 
     elevate.user.groups = [ "networkmanager" ];
