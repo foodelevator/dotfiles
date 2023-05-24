@@ -42,4 +42,12 @@ end
 alias e nvim
 alias lg lazygit
 
+function ns
+    nix shell nixpkgs#$argv
+end
+
+function nsu
+    nix shell unstable#$argv
+end
+
 direnv hook fish | source
