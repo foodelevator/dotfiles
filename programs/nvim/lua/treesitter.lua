@@ -14,6 +14,7 @@ require "nvim-treesitter.configs".setup {
         "prisma",
         "fish", "bash",
         "python",
+        "terraform",
     },
     sync_install = false,
 
