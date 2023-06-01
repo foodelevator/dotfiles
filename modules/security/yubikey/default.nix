@@ -14,8 +14,6 @@ in
       sudo.u2fAuth = true;
     };
 
-    services.pcscd.enable = true;
-    # TODO: make this little service work like a good little service
     services.yubikey-agent.enable = true;
 
     environment.systemPackages = with pkgs; [
