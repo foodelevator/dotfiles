@@ -17,7 +17,6 @@ in
       zig
       gcc gnumake
       jdk java-language-server
-      swiProlog
       nil nixpkgs-fmt
     ];
 

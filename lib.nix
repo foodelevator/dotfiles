@@ -14,15 +14,12 @@ let
         else [ ];
     in
     concatLists (mapAttrsToList traverse dir);
-
-  # TODO: It would be nice to extend `lib` instead
-  helpers = { };
 in
 {
   getModules = name: [
     (./hosts + "/${name}/configuration.nix")
     (./hosts + "/${name}/hardware-configuration.nix")
-    { _module.args = { inherit inputs helpers; }; }
+    { _module.args = { inherit inputs; }; }
     ({ lib, ... }: { networking.hostName = lib.mkDefault name; })
   ] ++ getAllDefaultDotNix ./modules;
 }

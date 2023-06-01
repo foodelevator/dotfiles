@@ -19,8 +19,7 @@ in
 
   config = mkIf cfg.enable {
     environment.variables = {
-      # TODO: remove surrounding "${}" on next release
-      PYTHONSTARTUP = "${pkgs.writeText "pythonstartup.py" (builtins.readFile ./pythonstartup.py)}";
+      PYTHONSTARTUP = pkgs.writeText "pythonstartup.py" (builtins.readFile ./pythonstartup.py);
     };
 
     environment.systemPackages = [ python ];
