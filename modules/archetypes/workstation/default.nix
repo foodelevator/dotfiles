@@ -30,6 +30,8 @@ in
     elevate.virtualisation.docker.enable = true;
     elevate.virtualisation.virt-manager.enable = true;
 
+    services.mullvad-vpn.enable = true;
+
     elevate.user = {
       groups = [ "dialout" ];
     };
