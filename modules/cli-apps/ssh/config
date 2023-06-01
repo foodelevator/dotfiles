@@ -7,6 +7,8 @@ Host space
     Port 69
     User mathias
 
+# Datasektionen:
+
 Host medusa
     Hostname medusa.datasektionen.se
     User mathm
@@ -15,14 +17,20 @@ Host sips
     Hostname sips.datasektionen.se
     User mathm
 
-Host 34.240.255.211
+Host hermes
+    Hostname hermes.datasektionen.se
     User mathm
 
-Host dojo.pwn.college
-    User hacker
+Host mjukglass
+    Hostname mjukglass.datasektionen.se
+    User mathm
 
-Host dinlugnastund.se
-    User root
+Host kerberos
+    Hostname kerberos.datasektionen.se
+    User mathm
+
+Host 34.240.255.211
+    User mathm
 
 Host *
     IdentityFile ~/.ssh/id_ed25519
