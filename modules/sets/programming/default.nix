@@ -34,5 +34,16 @@ in
 
     networking.firewall.allowedTCPPorts = [ 80 1234 3000 5000 8000 8080 ];
     networking.firewall.allowedUDPPorts = [ 1234 ];
+
+    services.postgresql = {
+      enable = true;
+      package = pkgs.postgresql_15;
+      enableJIT = true;
+      ensureUsers = [{
+        inherit (config.elevate.user) name;
+        ensureClauses.superuser = true;
+        ensureClauses.login = true;
+      }];
+    };
   };
 }
