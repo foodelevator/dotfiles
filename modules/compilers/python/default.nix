@@ -10,6 +10,7 @@ let
     numpy
     matplotlib
     gmpy2
+    requests
   ]));
 in
 {
