@@ -2,6 +2,8 @@
 with lib;
 let
   cfg = config.elevate.security.yubikey;
+
+  dir = "$HOME/.local/share/passage";
 in
 {
   options.elevate.security.yubikey = {
@@ -23,6 +25,14 @@ in
 
       age
       age-plugin-yubikey
+
+      passage
     ];
+
+    environment.variables = {
+      PASSAGE_DIR = "${dir}/store";
+      PASSAGE_IDENTITIES_FILE = "${dir}/identities";
+      PASSAGE_EXTENSIONS_DIR = "${dir}/extensions";
+    };
   };
 }
