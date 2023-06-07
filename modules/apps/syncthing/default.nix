@@ -32,9 +32,14 @@ in
         "Videos"
         "Pictures"
       ] (name: {
-        path = "/${homeDir}/${name}";
+        path = "${homeDir}/${name}";
         devices = ["chonk" "taplop"];
-      });
+      }) // {
+        Passage = {
+          devices = ["chonk" "taplop"];
+          path = "/home/mathias/.local/share/passage";
+        };
+      };
     };
   };
 }
