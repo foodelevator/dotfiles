@@ -21,6 +21,7 @@ in
     ];
 
     elevate.apps.syncthing.enable = true;
+    elevate.apps.syncthing.homeDirs = true;
     elevate.cli-apps.ssh.enable = true;
     elevate.cli-apps.typst.enable = true;
     elevate.security.yubikey.enable = true;

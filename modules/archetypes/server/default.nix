@@ -11,6 +11,7 @@ in
   config = mkIf cfg.enable {
     elevate.sets.base.enable = true;
 
+    elevate.apps.syncthing.enable = true;
     elevate.security.tls-certificates.enable = true;
     elevate.services.nginx.enable = true;
     elevate.services.sshd.enable = true;
