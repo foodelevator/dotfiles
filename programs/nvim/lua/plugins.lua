@@ -60,3 +60,4 @@ require "toggle-term"
 require "treesitter"
 
 require('leap').add_default_mappings()
+vim.g.copilot_enabled = false
