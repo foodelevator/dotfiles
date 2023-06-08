@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+AGE="${PASSAGE_AGE:-age}"
+
+PREFIX="${PASSAGE_DIR:-$HOME/.passage/store}"
+IDENTITIES_FILE="${PASSAGE_IDENTITIES_FILE:-$HOME/.passage/identities}"
+
+set_age_recipients() {
+	AGE_RECIPIENT_ARGS=( )
+
+
+	if [[ -n $PASSAGE_RECIPIENTS_FILE ]]; then
+		AGE_RECIPIENT_ARGS+=( "-R" "$PASSAGE_RECIPIENTS_FILE" )
+		return
+	fi
+
+	if [[ -n $PASSAGE_RECIPIENTS ]]; then
+		for age_recipient in $PASSAGE_RECIPIENTS; do
+			AGE_RECIPIENT_ARGS+=( "-r" "$age_recipient" )
+		done
+		return
+	fi
+
+	local current="$PREFIX/$1"
+	while [[ $current != "$PREFIX" && ! -f $current/.age-recipients ]]; do
+		current="${current%/*}"
+	done
+	current="$current/.age-recipients"
+
+	if [[ ! -f $current ]]; then
+		AGE_RECIPIENT_ARGS+=( "-i" "$IDENTITIES_FILE" )
+		return
+	fi
+
+	AGE_RECIPIENT_ARGS+=( "-R" "$current" )
+}
+
+reencrypt_path() {
+    local passfile
+    while read -r -d "" passfile; do
+        [[ -L $passfile ]] && continue
+        passfile_dir="${passfile%/*}"
+        passfile_dir="${passfile_dir#$PREFIX}"
+        passfile_dir="${passfile_dir#/}"
+        passfile_display="${passfile#$PREFIX/}"
+        passfile_display="${passfile_display%.age}"
+        passfile_temp="${passfile}.tmp.${RANDOM}.${RANDOM}.${RANDOM}.${RANDOM}.--"
+
+        set_age_recipients "$passfile_dir"
+        echo "$passfile_display: reencrypting with: age ${AGE_RECIPIENT_ARGS[@]}"
+        age -d -i "$IDENTITIES_FILE" "$passfile" | age -e "${AGE_RECIPIENT_ARGS[@]}" -o "$passfile_temp" &&
+        mv "$passfile_temp" "$passfile" || rm -f "$passfile_temp"
+    done < <(find "$1" -path '*/.git' -prune -o -iname '*.age' -print0)
+}
+
+while read -& id "" file; do
+    reencrypt_path $file
+done < (find "$PREFIX" -iname '*.age')
