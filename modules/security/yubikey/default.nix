@@ -26,7 +26,7 @@ in
       age
       age-plugin-yubikey
 
-      passage
+      (passage.overrideAttrs (_: { extraPath = makeBinPath [age git xclip tree qrencode]; }))
     ];
 
     environment.variables = {
