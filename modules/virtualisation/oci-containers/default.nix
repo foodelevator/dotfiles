@@ -10,5 +10,6 @@ in
 
   config = mkIf cfg.enable {
     virtualisation.podman.enable = true;
+    virtualisation.podman.dockerCompat = true;
   };
 }
