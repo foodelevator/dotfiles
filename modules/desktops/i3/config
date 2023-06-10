@@ -175,7 +175,7 @@ bar {
     position top
     status_command i3blocks -c "@i3blocks@"
     strip_workspace_numbers yes
-    tray_output HDMI-0
+    tray_output DP-2
 }
 
 for_window [class=".*"] border pixel 1
