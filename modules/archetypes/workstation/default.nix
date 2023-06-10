@@ -17,7 +17,7 @@ in
 
     environment.systemPackages = with pkgs; [
       ffmpeg
-      deploy-rs terraform # todo: `elevate.sets.devops`?
+      deploy-rs terraform awscli2 # todo: `elevate.sets.devops`?
     ];
 
     elevate.apps.syncthing.enable = true;
