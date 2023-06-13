@@ -11,9 +11,11 @@ in
   config = mkIf cfg.enable {
     virtualisation.libvirtd.enable = true;
     virtualisation.spiceUSBRedirection.enable = true;
+    virtualisation.libvirtd.qemu.swtpm.enable = true;
 
     environment.systemPackages = with pkgs; [
       virt-manager
+      virtiofsd
     ];
 
     elevate.user.groups = [ "libvirtd" ];
