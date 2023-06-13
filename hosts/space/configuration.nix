@@ -10,6 +10,7 @@
   elevate.websites.www.enable = true;
   elevate.websites.faeltkullen.enable = true;
   elevate.websites.f.enable = true;
+  elevate.websites.keys.enable = true;
 
   elevate.archetypes.server.enable = true;
 
