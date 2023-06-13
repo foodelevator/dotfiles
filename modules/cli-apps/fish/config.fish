@@ -50,4 +50,9 @@ function nsu
     nix shell unstable#$argv
 end
 
+function fhs
+    nix run --impure --expr \
+        "let pkgs = import <nixpkgs> {}; in pkgs.buildFHSUserEnv { name = ''fhs-user-env''; targetPkgs = p: with p; [fish $argv]; runScript = ''fish''; }"
+end
+
 direnv hook fish | source
