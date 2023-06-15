@@ -22,8 +22,8 @@
   services.xserver = {
     videoDrivers = [ "nvidia" ];
     displayManager.setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr " +
-      "--output DP-2 --mode 1920x1080 --rate 144 --pos 0x0 " +
-      "--output DP-0 --mode 1920x1080 --rate 144 --pos 1920x0 --primary";
+      "--output DP-0 --mode 1920x1080 --rate 144 --pos 0x0 " +
+      "--output DP-2 --mode 1920x1080 --rate 144 --pos 1920x0 --primary";
   };
 
   # Open ports in the firewall.
