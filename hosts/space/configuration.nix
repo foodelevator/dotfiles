@@ -18,6 +18,8 @@
     extraDomainNames = [ "*.magnusson.space" ];
   };
 
+  networking.firewall.allowedTCPPorts = [ 1337 ];
+
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "nodev";
