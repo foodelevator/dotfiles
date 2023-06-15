@@ -26,6 +26,8 @@
   boot.initrd.luks.devices."luks-60b63ab5-ed00-450a-8ad1-13c2572dcfd6".device = "/dev/disk/by-uuid/60b63ab5-ed00-450a-8ad1-13c2572dcfd6";
   boot.initrd.luks.devices."luks-60b63ab5-ed00-450a-8ad1-13c2572dcfd6".keyFile = "/crypto_keyfile.bin";
 
+  hardware.opengl.extraPackages = [ pkgs.intel-ocl ];
+
   hardware.system76.enableAll = true;
 
   hardware.bluetooth.enable = true;
