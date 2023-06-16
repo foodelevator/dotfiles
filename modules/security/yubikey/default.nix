@@ -22,6 +22,16 @@ let
     passage -c "$password" >$out 2>$out || rofi -e "$(cat $out)"
     rm $out
   '';
+
+  # xdg-desktop-menu refuses if the name doesn't contain a -
+  yubioath = pkgs.symlinkJoin {
+    name = "yubioath";
+    paths = [ pkgs.yubioath-flutter ];
+    postBuild = ''
+      cp "$out/share/applications/com.yubico.authenticator.desktop" \
+        "$out/share/applications/yubico-authenticator.desktop"
+    '';
+  };
 in
 {
   options.elevate.security.yubikey = {
@@ -39,7 +49,7 @@ in
     environment.systemPackages = with pkgs; [
       pam_u2f
       yubikey-manager
-      yubioath-flutter
+      yubioath
 
       age
       age-plugin-yubikey
