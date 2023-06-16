@@ -12,12 +12,13 @@ in
     elevate.sets.base.enable = true;
     elevate.sets.ctf.enable = true;
     elevate.sets.desktop.enable = true;
+    elevate.sets.devops.enable = true;
     elevate.sets.gaming.enable = true;
     elevate.sets.programming.enable = true;
 
     environment.systemPackages = with pkgs; [
       ffmpeg
-      deploy-rs terraform awscli2 # todo: `elevate.sets.devops`?
+      man-pages
     ];
 
     elevate.apps.syncthing.enable = true;

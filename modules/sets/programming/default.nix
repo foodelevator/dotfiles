@@ -12,7 +12,6 @@ in
     environment.systemPackages = with pkgs; [
       lazygit
       pgcli
-      man-pages
 
       zig
       gcc gnumake
@@ -32,8 +31,8 @@ in
       rust.enable = true;
     };
 
-    networking.firewall.allowedTCPPorts = [ 80 1234 3000 5000 8000 8080 ];
-    networking.firewall.allowedUDPPorts = [ 1234 ];
+    networking.firewall.allowedTCPPorts = [ 80 443 1337 3000 5000 8000 8080 ];
+    networking.firewall.allowedUDPPorts = [ 1337 ];
 
     services.postgresql = {
       enable = true;
