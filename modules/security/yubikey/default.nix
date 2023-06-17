@@ -19,7 +19,9 @@ let
     [[ -n $password ]] || exit
 
     out=$(mktemp)
-    passage -c "$password" >$out 2>$out || rofi -e "$(cat $out)"
+    passage -c "$password" >$out 2>$out \
+      && ${pkgs.libnotify}/bin/notify-send -t 2000 "$(cat $out)" \
+      || rofi -e "$(cat $out)"
     rm $out
   '';
 
