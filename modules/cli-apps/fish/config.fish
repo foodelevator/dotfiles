@@ -18,7 +18,11 @@ function fish_prompt
         printf "took %.0fms " (math $dur)
     end
 
-    set_color brcyan
+    if [ -n "$hacking" ]
+        set_color brred
+    else
+        set_color brcyan
+    end
     printf "%s " (date +"%H:%M:%S")
 
     set cwd (pwd)
