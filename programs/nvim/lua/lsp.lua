@@ -62,3 +62,4 @@ server("hls", nil, { haskell = { formattingProvider = "fourmolu" } })
 server("prismals")
 server("emmet_ls") -- npm i -g emmet-ls
 server("typst_lsp")
+server("terraformls")
