@@ -28,7 +28,7 @@ let
     name = "yubioath";
     paths = [ pkgs.yubioath-flutter ];
     postBuild = ''
-      cp "$out/share/applications/com.yubico.authenticator.desktop" \
+      mv "$out/share/applications/com.yubico.authenticator.desktop" \
         "$out/share/applications/yubico-authenticator.desktop"
     '';
   };
