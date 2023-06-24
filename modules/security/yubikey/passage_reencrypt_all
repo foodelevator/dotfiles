@@ -53,6 +53,6 @@ reencrypt_path() {
     done < <(find "$1" -path '*/.git' -prune -o -iname '*.age' -print0)
 }
 
-while read -& id "" file; do
+find "$PREFIX" -iname '*.age' | while read -r file; do
     reencrypt_path $file
-done < (find "$PREFIX" -iname '*.age')
+done
