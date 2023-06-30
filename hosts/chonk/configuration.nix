@@ -2,6 +2,7 @@
 {
   elevate.apps.openrgb.enable = true;
   elevate.apps.obs.enable = true;
+  elevate.services.sshd.enable = true;
 
   elevate.desktops.i3.enable = true;
   elevate.archetypes.workstation.enable = true;
