@@ -10,7 +10,6 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      deploy-rs
       terraform terraform-ls
       awscli2
     ];
