@@ -56,7 +56,7 @@ server("gopls", nil, {
 server("nil_ls", nil, { ["nil"] = { formatting = { command = {"nixpkgs-fmt"} } } })
 server("java_language_server", { "java-language-server" })
 server("astro") -- npm i -g @astrojs/language-server
-server("tailwindcss", nil, nil, { "rust" }) -- npm i -g @tailwindcss/language-server
+server("tailwindcss", nil, nil, { "astro", "rust" }) -- npm i -g @tailwindcss/language-server
 server("tsserver") -- npm i -g typescript typescript-language-server
 server("hls", nil, { haskell = { formattingProvider = "fourmolu" } })
 server("prismals")
