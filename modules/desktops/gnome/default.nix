@@ -21,7 +21,6 @@ in
     ] ++ (with pkgs.gnomeExtensions; [
       tray-icons-reloaded
       syncthing-icon
-      gsconnect
     ]);
 
     networking.firewall.allowedTCPPortRanges = [ { from = 1716; to = 1764; } ];
