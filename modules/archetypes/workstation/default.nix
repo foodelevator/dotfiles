@@ -33,9 +33,8 @@ in
     elevate.virtualisation.virt-manager.enable = true;
 
     services.mullvad-vpn.enable = true;
+    hardware.flipperzero.enable = true;
 
-    elevate.user = {
-      groups = [ "dialout" ];
-    };
+    elevate.user.groups = [ "dialout" ];
   };
 }
