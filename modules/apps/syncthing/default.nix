@@ -39,7 +39,7 @@ in
         devices = ["chonk" "taplop"];
       })) // {
         Passage = {
-          devices = ["chonk" "taplop"];
+          devices = ["chonk" "taplop" "space"];
           path = "${homeDir}/.local/share/passage";
         };
       };
