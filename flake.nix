@@ -13,7 +13,7 @@
     let
       system = "x86_64-linux";
 
-      # unstablePkgs = import unstable { inherit system; };
+      unstablePkgs = import unstable { inherit system; };
 
       pkgs = import nixpkgs {
         inherit system;
@@ -21,7 +21,7 @@
         overlays = [
           (final: prev: {
             inherit (deploy-rs.packages.${system}) deploy-rs;
-            # inherit (unstablePkgs) some-package;
+            inherit (unstablePkgs) nomad;
 
             binary-ninja = prev.callPackage ./packages/binary-ninja { };
             dyalog = prev.callPackage ./packages/dyalog { };

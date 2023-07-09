@@ -10,8 +10,10 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      terraform terraform-ls
+      terraform
+      terraform-ls
       awscli2
+      nomad
     ];
   };
 }
