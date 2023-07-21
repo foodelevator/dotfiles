@@ -10,7 +10,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      firefox ungoogled-chromium slack spotify obsidian zoom-us gimp
+      firefox ungoogled-chromium slack spotify obsidian zoom-us gimp signal-desktop
       (discord.override { nss = nss_latest; }) # override needed to open links
     ];
 
