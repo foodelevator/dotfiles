@@ -20,7 +20,6 @@
         config.allowUnfree = true;
         overlays = [
           (final: prev: {
-            inherit (deploy-rs.packages.${system}) deploy-rs;
             inherit (unstablePkgs) nomad;
 
             binary-ninja = prev.callPackage ./packages/binary-ninja { };
@@ -41,6 +40,7 @@
 
       packages.${system} = {
         inherit (pkgs) binary-ninja dyalog;
+        inherit (deploy-rs.packages.${system}) deploy-rs;
       };
 
       deploy.nodes = builtins.mapAttrs
