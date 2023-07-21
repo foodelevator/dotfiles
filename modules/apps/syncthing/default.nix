@@ -24,7 +24,7 @@ in
         taplop.id = "JOOVGP7-BNR6OTA-H5W53FT-EUY6O3T-KZSP5MT-EFZR7QL-WOZA6RT-ANKZOQ3";
         pixel.id = "BZ7Q34Y-TXCKZQR-IB775RW-PZVB6I2-R22BWY3-EWZ4JKT-UFIWMXC-2Y3KIAS";
         space.id = "L4Q2WEZ-BGZSB3W-L4NZ22I-PP4T4AT-II6H6EB-N2YNW24-LNOGG6M-XUOLCAE";
-        space.addresses = [ "tcp://magnusson.space" ];
+        space.addresses = [ "tcp://magnusson.space" "tcp://139.162.175.166" ];
       };
 
       folders = lib.optionalAttrs cfg.homeDirs (pkgs.lib.genAttrs [
