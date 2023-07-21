@@ -40,7 +40,7 @@ in
       })) // {
         Passage = {
           devices = ["chonk" "taplop" "space"];
-          path = "${homeDir}/.local/share/passage";
+          path = "${homeDir}/.local/share/passage/store";
         };
       };
     };
