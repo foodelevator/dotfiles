@@ -9,6 +9,8 @@
 
   environment.systemPackages = with pkgs; [
     lutris
+    nvtop
+    cudatoolkit
   ];
 
   # Bootloader.
