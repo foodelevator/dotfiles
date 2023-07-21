@@ -11,10 +11,10 @@ let
     targetPkgs = pkgs: with pkgs; [
       binwalk
       exiftool
-      wireshark
 
       nmap
       gobuster
+      aircrack-ng
 
       hashcat
 
@@ -43,7 +43,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      ghidra binary-ninja
+      ghidra binary-ninja wireshark
       ctf-env
     ];
   };
