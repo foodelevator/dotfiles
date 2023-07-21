@@ -20,6 +20,7 @@ exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
 exec --no-startup-id openrgb --startminimized
 exec --no-startup-id discord --start-minimized
+exec --no-startup-id signal-desktop --start-in-tray
 exec --no-startup-id slack -u
 exec --no-startup-id kdeconnect-indicator
 
