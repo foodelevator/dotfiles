@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, ... }:
 with lib;
 let
   cfg = config.elevate.services.sshd;
@@ -18,6 +18,7 @@ in
     services.openssh = {
       enable = true;
       ports = [ 69 ];
+      listenAddresses = [{ addr = "0.0.0.0"; }];
       settings.PermitRootLogin = "no";
       settings.PasswordAuthentication = false;
     };
