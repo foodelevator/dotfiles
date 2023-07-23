@@ -52,9 +52,5 @@
         (pkgs.lib.filterAttrs
           (_: { config, ... }: config.elevate.archetypes.server.enable)
           self.nixosConfigurations);
-
-      checks = builtins.mapAttrs
-        (_: deployLib: deployLib.deployChecks self.deploy)
-        deploy-rs.lib;
     };
 }

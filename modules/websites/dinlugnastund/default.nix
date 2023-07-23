@@ -17,11 +17,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.nginx.virtualHosts."dinlugnastund.se" = {
+    services.nginx.virtualHosts.".dinlugnastund.se" = {
       forceSSL = true;
-      enableACME = true;
-
-      serverAliases = [ "www.dinlugnastund.se" ];
+      useACMEHost = "dinlugnastund.se";
 
       locations."/" = {
         proxyPass = "http://localhost:${toString cfg.port}";
@@ -44,5 +42,9 @@ in
     };
 
     elevate.deploy-user.dinlugnastund = { };
+
+    security.acme.certs."dinlugnastund.se" = {
+      extraDomainNames = [ "www.dinlugnastund.se" ];
+    };
   };
 }
