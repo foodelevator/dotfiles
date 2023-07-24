@@ -15,5 +15,11 @@ in
       awscli2
       nomad
     ];
+
+    environment.variables = {
+      TF_CLI_CONFIG_FILE = pkgs.writeText "terraform.tfrc" ''
+        disable_checkpoint = true
+      '';
+    };
   };
 }
