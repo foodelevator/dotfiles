@@ -19,6 +19,13 @@ in
       nil nixpkgs-fmt
     ];
 
+    environment.variables = {
+      LG_CONFIG_FILE = pkgs.writeText "lazygit.yaml" ''
+        git:
+          autoFetch: false
+      '';
+    };
+
     elevate.cli-apps.helix.enable = true;
 
     elevate.compilers = {
