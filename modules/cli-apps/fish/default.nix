@@ -27,8 +27,6 @@ in
       shellInit = (builtins.readFile ./config.fish) + notFoundHandler;
     };
 
-    environment.systemPackages = [ pkgs.direnv ];
-
     programs.command-not-found.enable = false;
 
     elevate.user.shell = pkgs.fish;
