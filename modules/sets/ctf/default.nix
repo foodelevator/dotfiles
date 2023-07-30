@@ -35,6 +35,27 @@ let
       gdb
     ];
   };
+
+  burpsuite = pkgs.symlinkJoin {
+    name = "burpsuite";
+    paths = [
+      (pkgs.writeTextFile {
+        name = "burpsuite.desktop";
+        destination = "/share/applications/burpsuite.desktop";
+        text = ''
+          [Desktop Entry]
+          Categories=Development;Security;System
+          Comment=An integrated platform for performing security testing of web applications
+          Exec=env _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true' burpsuite
+          Icon=burpsuite
+          Name=Burp Suite Community Edition
+          Type=Application
+          Version=1.4
+        '';
+      })
+      pkgs.burpsuite
+    ];
+  };
 in
 {
   options.elevate.sets.ctf = {
@@ -43,7 +64,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      ghidra binary-ninja wireshark
+      ghidra binary-ninja wireshark burpsuite
       ctf-env
     ];
   };
