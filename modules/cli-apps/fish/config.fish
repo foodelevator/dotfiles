@@ -67,4 +67,4 @@ function fhs
         "let pkgs = import <nixpkgs> {}; in pkgs.buildFHSUserEnv { name = ''fhs-user-env''; targetPkgs = p: with p; [fish $argv]; runScript = ''fish''; }"
 end
 
-direnv hook fish | source
+command -v direnv && direnv hook fish | source
