@@ -10,5 +10,6 @@ in
 
   config = mkIf cfg.enable {
     elevate.apps.steam.enable = true;
+    environment.systemPackages = with pkgs; [ prismlauncher ];
   };
 }
