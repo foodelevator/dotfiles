@@ -41,6 +41,13 @@ function fish_prompt
 end
 
 function fish_greeting
+    set last (date +%s -r ~/.cache/tldlist 2>/dev/null || echo 0)
+    if [ (math "$(date +%s)" - $last) -gt 3600 ]
+        curl https://data.iana.org/TLD/tlds-alpha-by-domain.txt -o ~/.cache/tldlist.tmp -s || return
+        mv ~/.cache/tldlist.tmp ~/.cache/tldlist
+    end
+
+    awk 'tolower($0)~/^on$|^son$|^sson$/{print "TLD:n ."$0" finns!!!"}' ~/.cache/tldlist
 end
 
 alias e nvim
