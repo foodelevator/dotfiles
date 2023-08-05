@@ -9,13 +9,12 @@
   elevate.websites.srg.enable = true;
   elevate.websites.www.enable = true;
   elevate.websites.faeltkullen.enable = true;
-  elevate.websites.f.enable = true;
   elevate.websites.keys.enable = true;
 
   elevate.archetypes.server.enable = true;
 
   security.acme.certs."magnusson.space" = {
-    extraDomainNames = [ "*.magnusson.space" ];
+    extraDomainNames = [ "*.magnusson.space" "magnusson.wiki" "*.magnusson.wiki" ];
   };
 
   networking.firewall.allowedTCPPorts = [ 1337 ];
