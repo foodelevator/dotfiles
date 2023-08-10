@@ -11,9 +11,9 @@ in
   config = mkIf cfg.enable {
     networking.nameservers = [ "1.1.1.1" ];
 
-    # networking.hosts = {
-    #   "127.0.0.1" = [ "login.datasektionen.se" ];
-    # };
+    networking.hosts = {
+      # "52.213.59.75" = [ "pax.datasektionen.se" ];
+    };
 
     networking.networkmanager.enable = true;
 
