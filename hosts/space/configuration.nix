@@ -10,10 +10,15 @@
   elevate.websites.www.enable = true;
   elevate.websites.faeltkullen.enable = true;
   elevate.websites.keys.enable = true;
+  elevate.websites.transfer-zip.enable = true;
 
   elevate.archetypes.server.enable = true;
 
   security.acme.certs."magnusson.space" = {
+    dnsProvider = "linode";
+    credentialsFile = "/var/lib/secrets/linode-dns-api-key.ini";
+    webroot = null;
+
     extraDomainNames = [ "*.magnusson.space" "magnusson.wiki" "*.magnusson.wiki" ];
   };
 

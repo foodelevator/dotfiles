@@ -12,9 +12,8 @@ in
   config = mkIf cfg.enable {
     security.acme.acceptTerms = true;
     security.acme.defaults = {
-      dnsProvider = "linode";
+      webroot = "/var/lib/acme/acme-challenge";
       email = "mathias@magnusson.space";
-      credentialsFile = "/var/lib/secrets/linode-dns-api-key.ini";
     };
 
     users.users.nginx.extraGroups = [ "acme" ];
