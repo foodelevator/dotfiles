@@ -19,8 +19,10 @@ in
       enable = true;
       ports = [ 69 ];
       listenAddresses = [{ addr = "0.0.0.0"; }];
-      settings.PermitRootLogin = "no";
-      settings.PasswordAuthentication = false;
+      settings = {
+        PermitRootLogin = "no";
+        PasswordAuthentication = false;
+      };
     };
   };
 }
