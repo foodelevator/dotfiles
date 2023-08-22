@@ -17,7 +17,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.nginx.virtualHosts."faktura.magnusson.space" = {
+    services.nginx.virtualHosts."gammal-faktura.magnusson.space" = {
       forceSSL = true;
       useACMEHost = "magnusson.space";
 
