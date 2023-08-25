@@ -45,7 +45,7 @@
 
       deploy.nodes = builtins.mapAttrs
         (hostname: cfg: {
-          inherit hostname;
+          hostname = "old";
           profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos cfg;
           profiles.system.user = "root";
         })

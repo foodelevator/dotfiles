@@ -2,9 +2,13 @@
 
 AddKeysToAgent yes
 
+Host old
+    Hostname 139.162.175.166
+    Port 69
+    User mathias
+
 Host space
     Hostname magnusson.space
-    Port 69
     User mathias
 
 # Datasektionen:
