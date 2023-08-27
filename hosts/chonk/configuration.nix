@@ -1,4 +1,5 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
+with lib;
 {
   elevate.apps.openrgb.enable = true;
   elevate.apps.obs.enable = true;
@@ -6,6 +7,12 @@
 
   elevate.desktops.i3.enable = true;
   elevate.archetypes.workstation.enable = true;
+
+  elevate.virtualisation.virt-manager.gpu-passthrough = mkDefault true;
+  specialisation.no-gpu-passthrough.configuration = {
+    boot.loader.grub.configurationName = "No GPU Passthrough";
+    elevate.virtualisation.virt-manager.gpu-passthrough = false;
+  };
 
   environment.systemPackages = with pkgs; [
     lutris
