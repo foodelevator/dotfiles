@@ -8,10 +8,10 @@ with lib;
   elevate.desktops.i3.enable = true;
   elevate.archetypes.workstation.enable = true;
 
-  elevate.virtualisation.virt-manager.gpu-passthrough = mkDefault true;
+  elevate.virtualisation.virt-manager.vfio = true;
   specialisation.no-gpu-passthrough.configuration = {
-    boot.loader.grub.configurationName = "No GPU Passthrough";
-    elevate.virtualisation.virt-manager.gpu-passthrough = false;
+    boot.loader.grub.configurationName = "Disable GPU passthrough";
+    elevate.virtualisation.virt-manager.vfio = mkForce false;
   };
 
   environment.systemPackages = with pkgs; [
