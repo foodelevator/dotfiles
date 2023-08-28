@@ -11,6 +11,7 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       neovim /* dependencies for some plugins: */ tree-sitter ripgrep fd
+      pciutils usbutils
 
       xclip killall file jq unzip xxd
     ];
