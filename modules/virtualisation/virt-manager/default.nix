@@ -22,6 +22,10 @@ in
         virtiofsd
       ];
 
+      environment.variables = {
+        LIBVIRT_DEFAULT_URI = "qemu:///system";
+      };
+
       elevate.user.groups = [ "libvirtd" ];
     })
 

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+case "$1" in
+    "detach"|"attach") ;;
+    *) exit 1;;
+esac
+
+virsh "$1-device" win10-2 \
+    --file ~/dotfiles/modules/virtualisation/virt-manager/mouse.xml \
+    --current

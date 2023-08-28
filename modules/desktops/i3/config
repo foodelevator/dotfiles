@@ -40,6 +40,9 @@ bindsym XF86AudioNext exec --no-startup-id dbus-send --print-reply=literal --des
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
+bindsym $mod+i exec --no-startup-id ~/dotfiles/bin/vmmouse attach
+bindsym $mod+o exec --no-startup-id ~/dotfiles/bin/vmmouse detach
+
 focus_follows_mouse no
 
 bindsym Print exec --no-startup-id ~/dotfiles/bin/screenshot
