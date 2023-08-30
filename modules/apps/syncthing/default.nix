@@ -18,6 +18,7 @@ in
       inherit user;
       dataDir = homeDir;
       configDir = "${homeDir}/.config/syncthing";
+      openDefaultPorts = true;
 
       devices = {
         chonk.id = "N6CY7HR-KBEBJY5-ZMS3U2B-TMJY4H7-MVW47VN-UK3YMWT-GLWR7PR-NJT5PQI";
@@ -41,6 +42,10 @@ in
         Passage = {
           devices = ["chonk" "taplop" "space"];
           path = "${homeDir}/.local/share/passage/store";
+        };
+        Obsidian = {
+          devices = ["chonk" "taplop" "space" "pixel"];
+          path = "${homeDir}/.local/share/obsidian-vault";
         };
       };
     };
