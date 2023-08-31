@@ -5,11 +5,13 @@ AddKeysToAgent yes
 Host old
     Hostname 139.162.175.166
     Port 69
-    User mathias
+
+Host chonk
+    Hostname 192.168.1.2
+    Port 60
 
 Host space
     Hostname magnusson.space
-    User mathias
 
 # Datasektionen:
 
