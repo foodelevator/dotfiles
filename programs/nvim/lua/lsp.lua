@@ -47,12 +47,7 @@ server("rust_analyzer", { "rustup", "run", "nightly", "rust-analyzer" }, {
         },
     },
 })
-server("gopls", nil, {
-    gopls = {
-        usePlaceholders = true,
-        analyses = { unusedparams = true },
-    },
-})
+server("gopls", nil, { gopls = { usePlaceholders = true } })
 server("nil_ls", nil, { ["nil"] = { formatting = { command = {"nixpkgs-fmt"} } } })
 server("java_language_server", { "java-language-server" })
 server("astro") -- npm i -g @astrojs/language-server
