@@ -15,6 +15,7 @@ require "nvim-treesitter.configs".setup {
         "fish", "bash",
         "python",
         "terraform", "hcl",
+        "sql",
     },
     sync_install = false,
 
