@@ -20,7 +20,7 @@
         config.allowUnfree = true;
         overlays = [
           (final: prev: {
-            inherit (unstablePkgs) nomad;
+            inherit (unstablePkgs) nomad zig;
 
             binary-ninja = prev.callPackage ./packages/binary-ninja { };
             dyalog = prev.callPackage ./packages/dyalog { };
