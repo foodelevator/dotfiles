@@ -27,7 +27,8 @@ in
       '';
     };
 
-    elevate.cli-apps.direnv.enable = true;
+    programs.direnv.enable = true;
+
     elevate.cli-apps.helix.enable = true;
 
     elevate.compilers = {

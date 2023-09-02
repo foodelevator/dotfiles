@@ -66,5 +66,3 @@ function fhs
     nix run --impure --expr \
         "let pkgs = import <nixpkgs> {}; in pkgs.buildFHSUserEnv { name = ''fhs-user-env''; targetPkgs = p: with p; [fish $argv]; runScript = ''fish''; }"
 end
-
-command -v direnv >/dev/null 2>&1 && direnv hook fish | source
