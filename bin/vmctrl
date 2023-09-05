@@ -12,3 +12,7 @@ virsh "$1-device" win10 \
 virsh "$1-device" win10 \
     --file ~/dotfiles/modules/virtualisation/virt-manager/keyboard.xml \
     --current
+
+virsh "$1-device" win10 \
+    --file ~/dotfiles/modules/virtualisation/virt-manager/headset.xml \
+    --current
