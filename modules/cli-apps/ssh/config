@@ -8,7 +8,7 @@ Host old
 
 Host chonk
     Hostname 192.168.1.2
-    Port 60
+    Port 69
 
 Host space
     Hostname magnusson.space
