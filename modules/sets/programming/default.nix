@@ -28,6 +28,11 @@ in
     };
 
     programs.direnv.enable = true;
+    environment.etc."direnv/direnv.toml".text = ''
+      [global]
+      load_dotenv = true
+      strict_env = true
+    '';
 
     elevate.cli-apps.helix.enable = true;
 
