@@ -10,7 +10,6 @@
   elevate.websites.www.enable = true;
   elevate.websites.faeltkullen.enable = true;
   elevate.websites.keys.enable = true;
-  elevate.websites.transfer-zip.enable = true;
 
   elevate.archetypes.server.enable = true;
 
