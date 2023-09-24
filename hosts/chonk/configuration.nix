@@ -5,7 +5,7 @@ with lib;
   elevate.apps.obs.enable = true;
   elevate.services.sshd.enable = true;
 
-  elevate.desktops.i3.enable = true;
+  elevate.desktops.gnome.enable = true;
   elevate.archetypes.workstation.enable = true;
 
   elevate.virtualisation.virt-manager.vfio = true;
