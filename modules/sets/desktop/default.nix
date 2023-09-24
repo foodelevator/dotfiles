@@ -12,6 +12,8 @@ in
     environment.systemPackages = with pkgs; [
       firefox ungoogled-chromium slack spotify obsidian zoom-us gimp signal-desktop
       (discord.override { nss = nss_latest; }) # override needed to open links
+
+      mpv feh
     ];
 
     programs.evince.enable = true;

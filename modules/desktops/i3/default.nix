@@ -23,7 +23,7 @@ in
       scrot htop
 
       # Graphical
-      pavucontrol mpv feh
+      pavucontrol
 
       # WM-related
       dunst i3blocks
