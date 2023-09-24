@@ -22,7 +22,5 @@ in
       tray-icons-reloaded
       syncthing-icon
     ]);
-
-    networking.firewall.allowedTCPPortRanges = [ { from = 1716; to = 1764; } ];
   };
 }
