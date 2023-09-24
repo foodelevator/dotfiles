@@ -13,14 +13,14 @@
     let
       system = "x86_64-linux";
 
-      unstablePkgs = import unstable { inherit system; };
+      unstablePkgs = import unstable { inherit system; config.allowUnfree = true; };
 
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
         overlays = [
           (final: prev: {
-            inherit (unstablePkgs) zig;
+            inherit (unstablePkgs) zig zoom-us;
             nomad = unstablePkgs.nomad_1_6;
 
             binary-ninja = prev.callPackage ./packages/binary-ninja { };
