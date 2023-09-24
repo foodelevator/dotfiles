@@ -7,11 +7,6 @@
   elevate.desktops.gnome.enable = true;
   elevate.archetypes.workstation.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    vscode
-    gnome.gnome-boxes
-  ];
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
