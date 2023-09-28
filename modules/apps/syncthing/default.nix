@@ -25,7 +25,9 @@ in
         taplop.id = "JOOVGP7-BNR6OTA-H5W53FT-EUY6O3T-KZSP5MT-EFZR7QL-WOZA6RT-ANKZOQ3";
         pixel.id = "UP3GOP5-FVUATIH-ZVKLRU7-WBK6XTB-LFRT6J3-KGZGJTQ-JD27LFA-XGX6QAA";
         space.id = "L4Q2WEZ-BGZSB3W-L4NZ22I-PP4T4AT-II6H6EB-N2YNW24-LNOGG6M-XUOLCAE";
-        space.addresses = [ "tcp://magnusson.space" "tcp://139.162.175.166" ];
+        space.addresses = [ "tcp://139.162.175.166" ];
+        newspace.id = "7ZNQWDC-TTSO2IY-POBKWWW-DZJSRD6-TKYF2LC-CWDPGEG-WPZC6JS-BKD2AQR";
+        newspace.addresses = [ "tcp://syncthing.magnusson.space" ];
       };
 
       folders = lib.optionalAttrs cfg.homeDirs (pkgs.lib.genAttrs [
@@ -40,11 +42,11 @@ in
         devices = ["chonk" "taplop"];
       })) // {
         Passage = {
-          devices = ["chonk" "taplop" "space"];
+          devices = ["chonk" "taplop" "space" "newspace"];
           path = "${homeDir}/.local/share/passage/store";
         };
         Obsidian = {
-          devices = ["chonk" "taplop" "space" "pixel"];
+          devices = ["chonk" "taplop" "space" "newspace"];
           path = "${homeDir}/.local/share/obsidian-vault";
         };
       };
