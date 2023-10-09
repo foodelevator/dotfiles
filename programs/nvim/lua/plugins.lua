@@ -20,6 +20,7 @@ require "paq" {
     "akinsho/toggleterm.nvim",
     "ap/vim-css-color",
     "bronson/vim-trailing-whitespace",
+    "datasektionen/dsekt.nvim",
     "ggandor/leap.nvim",
     "github/copilot.vim",
     "hrsh7th/cmp-nvim-lsp",

@@ -40,8 +40,8 @@ end
 
 vim.g.asmsyntax = "nasm"
 
-vim.cmd("colorscheme gruvbox")
-vim.api.nvim_set_hl(0, "Normal", { bg="#1d2021" })
+vim.cmd("colorscheme dsekt")
+-- vim.api.nvim_set_hl(0, "Normal", { bg="#1d2021" })
 
 u.au("settings", {
     {"TermOpen", "setlocal nonu nornu signcolumn=no"},
