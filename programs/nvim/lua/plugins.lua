@@ -22,7 +22,6 @@ require "paq" {
     "bronson/vim-trailing-whitespace",
     "datasektionen/dsekt.nvim",
     "ggandor/leap.nvim",
-    "github/copilot.vim",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-vsnip",
     "hrsh7th/nvim-cmp",
@@ -43,6 +42,7 @@ require "paq" {
     "tpope/vim-repeat",
     "tpope/vim-surround",
     "tpope/vim-unimpaired",
+    "vrischmann/tree-sitter-templ",
     "Wansmer/sibling-swap.nvim",
     "wsdjeg/vim-fetch",
 

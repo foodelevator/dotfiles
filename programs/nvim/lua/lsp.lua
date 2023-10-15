@@ -58,3 +58,4 @@ server("prismals")
 server("emmet_ls") -- npm i -g emmet-ls
 server("typst_lsp")
 server("terraformls")
+server("templ")
