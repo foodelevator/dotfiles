@@ -2,6 +2,10 @@
 
 AddKeysToAgent yes
 
+Host mc
+    Hostname mc.datasektionen.se
+    User mc
+
 Host old
     Hostname 139.162.175.166
     Port 69
