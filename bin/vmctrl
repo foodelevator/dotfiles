@@ -5,14 +5,20 @@ case "$1" in
     *) exit 1;;
 esac
 
+device="$2"
+[ -z "$device" ] && device="*"
+
+[[ mouse =~ "$device" ]] && \
 virsh "$1-device" win10 \
     --file ~/dotfiles/modules/virtualisation/virt-manager/mouse.xml \
     --current
 
+[[ keyboard =~ "$device" ]] && \
 virsh "$1-device" win10 \
     --file ~/dotfiles/modules/virtualisation/virt-manager/keyboard.xml \
     --current
 
+[[ headset =~ "$device" ]] && \
 virsh "$1-device" win10 \
     --file ~/dotfiles/modules/virtualisation/virt-manager/headset.xml \
     --current
