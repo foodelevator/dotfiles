@@ -54,7 +54,7 @@ server("astro") -- npm i -g @astrojs/language-server
 server("tailwindcss", nil, nil, { "astro", "rust" }) -- npm i -g @tailwindcss/language-server
 server("tsserver") -- npm i -g typescript typescript-language-server
 server("hls", nil, { haskell = { formattingProvider = "fourmolu" } })
-server("prismals")
+server("prismals") -- npm i -g @prisma/language-server
 server("emmet_ls") -- npm i -g emmet-ls
 server("typst_lsp")
 server("terraformls")
