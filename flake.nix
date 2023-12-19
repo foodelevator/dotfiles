@@ -15,6 +15,7 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
+        config.permittedInsecurePackages = ["electron-24.8.6"]; # for obsidian
         overlays = [
           (final: prev: {
             inherit (unstablePkgs) zig zoom-us;
