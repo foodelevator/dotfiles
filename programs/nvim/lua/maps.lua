@@ -47,6 +47,8 @@ nmap("<leader>g", toggle_term.toggle_lazygit)
 nmap("<leader>c", function() require("duck").hatch("ඞ", 0.5) end)
 nmap("<leader>C", function() require("duck").cook("ඞ") end)
 
+nmap("<leader>j", ":g/^/s/…/.../g<cr>:g/^/s/”/\"/g<cr>:g/^/s/“/\"/g<cr>:g/^/s/’/'/g<cr>")
+
 function lsp_enabled(b)
     local opts = { buffer = b }
 
