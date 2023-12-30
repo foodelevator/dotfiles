@@ -2,7 +2,7 @@
   description = "Configuration for my NixOS systems";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
@@ -15,7 +15,7 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        config.permittedInsecurePackages = ["electron-24.8.6"]; # for obsidian
+        config.permittedInsecurePackages = ["electron-25.9.0"]; # for obsidian
         overlays = [
           (final: prev: {
             inherit (unstablePkgs) zig zoom-us;

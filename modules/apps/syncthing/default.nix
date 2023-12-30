@@ -20,7 +20,7 @@ in
       configDir = "${homeDir}/.config/syncthing";
       openDefaultPorts = true;
 
-      devices = {
+      settings.devices = {
         chonk.id = "N6CY7HR-KBEBJY5-ZMS3U2B-TMJY4H7-MVW47VN-UK3YMWT-GLWR7PR-NJT5PQI";
         taplop.id = "JOOVGP7-BNR6OTA-H5W53FT-EUY6O3T-KZSP5MT-EFZR7QL-WOZA6RT-ANKZOQ3";
         pixel.id = "UP3GOP5-FVUATIH-ZVKLRU7-WBK6XTB-LFRT6J3-KGZGJTQ-JD27LFA-XGX6QAA";
@@ -28,7 +28,7 @@ in
         space.addresses = [ "tcp://syncthing.magnusson.space" ];
       };
 
-      folders = lib.optionalAttrs cfg.homeDirs (pkgs.lib.genAttrs [
+      settings.folders = lib.optionalAttrs cfg.homeDirs (pkgs.lib.genAttrs [
         "Desktop"
         "Documents"
         "Memes"

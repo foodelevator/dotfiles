@@ -17,8 +17,7 @@ in
     ];
     services.openssh = {
       enable = true;
-      ports = [ 69 ];
-      listenAddresses = [{ addr = "0.0.0.0"; }];
+      listenAddresses = [{ addr = "0.0.0.0"; port = 69; }];
       settings = {
         PermitRootLogin = "no";
         PasswordAuthentication = false;
