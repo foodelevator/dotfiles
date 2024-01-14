@@ -19,7 +19,6 @@ require "paq" {
     "akinsho/bufferline.nvim",
     "akinsho/toggleterm.nvim",
     "ap/vim-css-color",
-    "bronson/vim-trailing-whitespace",
     "datasektionen/dsekt.nvim",
     "ggandor/leap.nvim",
     "hrsh7th/cmp-nvim-lsp",

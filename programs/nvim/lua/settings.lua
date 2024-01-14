@@ -24,6 +24,7 @@ local opts = {
     "noshowmode",
     completeopt = "menu",
     updatetime = "1000",
+    "list",
 }
 
 -- This plugin thinks it's reasonable to overwrite <left>, <right>, and <C-c> in insert mode,
@@ -40,8 +41,8 @@ end
 
 vim.g.asmsyntax = "nasm"
 
+vim.g.gruvbox_contrast_dark = "hard"
 vim.cmd("colorscheme gruvbox")
-vim.api.nvim_set_hl(0, "Normal", { bg="#1d2021" })
 
 u.au("settings", {
     {"TermOpen", "setlocal nonu nornu signcolumn=no"},
