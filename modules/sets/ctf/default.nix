@@ -11,6 +11,7 @@ let
     targetPkgs = pkgs: with pkgs; [
       binwalk
       exiftool
+      one_gadget
 
       nmap
       gobuster
