@@ -11,7 +11,8 @@ in
   config = mkIf cfg.enable {
     virtualisation.podman.enable = true;
 
-    # Using podman as a docker daemon does not seem to work with nomad
-    virtualisation.docker.enable = true;
+    environment.systemPackages = with pkgs; [
+      docker-compose
+    ];
   };
 }
