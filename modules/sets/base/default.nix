@@ -13,7 +13,7 @@ in
       neovim /* dependencies for some plugins: */ tree-sitter ripgrep fd
       pciutils usbutils
 
-      xclip killall file jq unzip xxd
+      xclip killall file jq unzip xxd rlwrap xorg.xhost
     ];
 
     environment.variables = {
