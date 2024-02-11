@@ -10,7 +10,10 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      firefox ungoogled-chromium slack spotify obsidian zoom-us gimp signal-desktop zulip audacity
+      firefox ungoogled-chromium
+      spotify
+      slack zulip mattermost-desktop signal-desktop zoom-us
+      obsidian gimp audacity
       (discord.override { nss = nss_latest; }) # override needed to open links
 
       mpv feh
