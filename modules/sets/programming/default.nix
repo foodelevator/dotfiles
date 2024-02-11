@@ -12,6 +12,7 @@ in
     environment.systemPackages = with pkgs; [
       lazygit
       pgcli
+      (pgcli.override { keyring = null; })
       entr
 
       zig
