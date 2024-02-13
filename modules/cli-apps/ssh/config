@@ -42,6 +42,10 @@ Host kerberos
 Host 34.240.255.211
     User mathm
 
+Host meta-tv
+    Hostname 192.16.146.106
+    User tv
+
 Host *
     IdentityFile ~/.ssh/id_ed25519
     ServerAliveInterval 60
