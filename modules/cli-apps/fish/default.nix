@@ -27,6 +27,7 @@ in
       shellInit = (builtins.readFile ./config.fish) + notFoundHandler;
     };
 
+    programs.thefuck.enable = true;
     programs.command-not-found.enable = false;
 
     elevate.user.shell = pkgs.fish;
