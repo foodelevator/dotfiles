@@ -52,7 +52,6 @@ end
 
 alias e nvim
 alias lg lazygit
-alias c "passage -c"
 
 function ns
     nix shell nixpkgs#$argv
