@@ -52,6 +52,7 @@ end
 
 alias e nvim
 alias lg lazygit
+alias ip "ip -c"
 
 function ns
     nix shell nixpkgs#$argv
