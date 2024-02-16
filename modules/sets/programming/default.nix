@@ -16,8 +16,9 @@ in
 
       zig
       gcc gnumake
-      jdk java-language-server
+      jdk
       nil nixpkgs-fmt
+      lua-language-server
     ];
 
     environment.variables = {
