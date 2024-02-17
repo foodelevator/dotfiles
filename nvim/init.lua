@@ -104,7 +104,10 @@ local function setup_lsp()
     local capabilities = require "cmp_nvim_lsp".default_capabilities()
     lsp.gopls.setup {
         capabilities = capabilities,
-        settings = { gopls = { usePlaceholders = true } },
+        settings = { gopls = {
+            usePlaceholders = true,
+            semanticTokens = true,
+        } },
     }
     lsp.rust_analyzer.setup {
         capabilities = capabilities,
@@ -151,6 +154,8 @@ require("lazy").setup({
         init = function()
             vim.g.gruvbox_contrast_dark = "hard"
             vim.cmd.colorscheme("gruvbox")
+            vim.api.nvim_set_hl(0, "@lsp.type.parameter", { fg = "#bd85bf" })
+            vim.api.nvim_set_hl(0, "@lsp.typemod.variable.callable", { link = "@function" })
         end
     },
     {
