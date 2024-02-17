@@ -9,14 +9,50 @@ set.nu = true
 set.signcolumn = "yes"
 set.updatetime = 1000
 set.ignorecase = true
+set.smartcase = true
 set.backup = false
 set.undodir = vim.fn.stdpath("data") .. "/undodir"
 set.undofile = true
+set.splitright = true
+set.splitbelow = true
+set.breakindent = true
+set.termguicolors = true
+
+vim.g.omni_sql_no_default_maps = 1337
+vim.g.asmsyntax = "nasm"
+
+vim.api.nvim_create_autocmd("TermOpen", {
+    group = vim.api.nvim_create_augroup("TermNoNumbers", {}),
+    command = "setlocal nonu nornu signcolumn=no"
+})
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+    group = vim.api.nvim_create_augroup("HighlightYank", {}),
+    callback = vim.highlight.on_yank,
+})
 
 -- Keymaps
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>q", vim.cmd.bd)
+vim.keymap.set("n", "gp", vim.cmd.bp)
+vim.keymap.set("n", "gn", vim.cmd.bn)
 vim.keymap.set("n", "<leader>s", function() set.hls = not set.hls end)
+vim.keymap.set("t", "<c-l>", "<c-\\><c-n>")
+vim.keymap.set("n", "<space>", "<nop>", { silent = true })
+
+vim.api.nvim_create_user_command("Djul", function(opts)
+    local buf = vim.api.nvim_get_current_buf()
+    local lines = vim.api.nvim_buf_get_lines(buf, opts.line1 - 1, opts.line2, false)
+    for i, line in ipairs(lines) do
+        line = string.gsub(line, "…", "...")
+        line = string.gsub(line, "“", '"')
+        line = string.gsub(line, "”", '"')
+        line = string.gsub(line, "‘", "'")
+        line = string.gsub(line, "’", "'")
+        lines[i] = line
+    end
+    vim.api.nvim_buf_set_lines(buf, opts.line1 - 1, opts.line2, false, lines)
+end, { range = "%" })
 
 local function lsp_maps(buf)
     local telescope_builtin = require("telescope.builtin")
@@ -26,6 +62,7 @@ local function lsp_maps(buf)
     vim.keymap.set("n", "gr",        telescope_builtin.lsp_references,       opts)
     vim.keymap.set("n", "gi",        telescope_builtin.lsp_implementations,  opts)
     vim.keymap.set("n", "gy",        telescope_builtin.lsp_type_definitions, opts)
+    vim.keymap.set("n", "<leader>d", telescope_builtin.diagnostics,          opts)
     vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename,                     opts)
     vim.keymap.set("n", "[d",        vim.diagnostic.goto_prev,               opts)
     vim.keymap.set("n", "]d",        vim.diagnostic.goto_next,               opts)
@@ -42,7 +79,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
     callback = function(ev)
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
-        -- vim.bo[buf].omnifunc = vim.lsp.omnifunc
         lsp_maps(ev.buf)
 
         if client.server_capabilities.documentHighlightProvider then
@@ -115,7 +151,6 @@ require("lazy").setup({
         init = function()
             vim.g.gruvbox_contrast_dark = "hard"
             vim.cmd.colorscheme("gruvbox")
-            vim.o.termguicolors = true
         end
     },
     {
@@ -152,7 +187,9 @@ require("lazy").setup({
             { "<leader>f", function() require "telescope.builtin".find_files() end },
             { "<leader>/", function() require "telescope.builtin".live_grep() end },
             { "<leader>t", function() require "telescope.builtin".resume() end },
+            { "<leader><space>", function() require "telescope.builtin".buffers() end },
         },
+        build = ":TSUpdate",
     },
     {
         "neovim/nvim-lspconfig",
@@ -205,8 +242,22 @@ require("lazy").setup({
         lazy = false,
         keys = {
             { mode = "i", "<c-l>", function() require "cmp".complete() end },
-            { mode = {"i", "s"}, "<c-p>", function() require "luasnip".jump(-1) end },
-            { mode = {"i", "s"}, "<c-n>", function() require "luasnip".jump(1) end },
+            { mode = {"s"}, "<c-p>", function() require "luasnip".jump(-1) end },
+            { mode = {"s"}, "<c-n>", function() require "luasnip".jump(1) end },
         },
     },
+    { "wsdjeg/vim-fetch" },
+    {
+        "ggandor/leap.nvim",
+        keys = {
+            { "s", function() require "leap".leap {} end },
+            { "S", function() require "leap".leap { backward = true } end },
+        },
+    },
+    { "numToStr/Comment.nvim", config = true },
+    { "willothy/flatten.nvim", config = true, lazy = false },
 })
+
+-- TODO
+-- https://github.com/jamestthompson3/nvim-remote-containers
+-- https://github.com/kylechui/nvim-surround
