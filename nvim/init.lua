@@ -136,6 +136,13 @@ local function setup_lsp()
     lsp.templ.setup { capabilities = capabilities }
     lsp.emmet_ls.setup { capabilities = capabilities }
     lsp.tsserver.setup { capabilities = capabilities }
+    lsp.dockerls.setup { capabilities = capabilities }
+
+    lsp.docker_compose_language_service.setup { capabilities = capabilities }
+    vim.filetype.add({ filename = {
+        ["compose.yaml"] = "yaml.docker-compose",
+        ["docker-compose.yaml"] = "yaml.docker-compose",
+    } })
 end
 
 -- Plugins
@@ -155,6 +162,7 @@ require("lazy").setup({
             vim.g.gruvbox_contrast_dark = "hard"
             vim.cmd.colorscheme("gruvbox")
             vim.api.nvim_set_hl(0, "@lsp.type.parameter", { fg = "#bd85bf" })
+            vim.api.nvim_set_hl(0, "@lsp.type.parameter.dockerfile", {})
             vim.api.nvim_set_hl(0, "@lsp.typemod.variable.callable", { link = "@function" })
         end
     },

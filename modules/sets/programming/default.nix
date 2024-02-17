@@ -19,6 +19,7 @@ in
       jdk
       nil nixpkgs-fmt
       lua-language-server
+      dockerfile-language-server-nodejs docker-compose-language-service
     ];
 
     environment.variables = {
