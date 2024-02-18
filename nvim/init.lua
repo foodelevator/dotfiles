@@ -31,6 +31,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     callback = vim.highlight.on_yank,
 })
 
+vim.filetype.add({
+    filename = {
+        ["compose.yaml"] = "yaml.docker-compose",
+        ["docker-compose.yaml"] = "yaml.docker-compose",
+    },
+    extension = {
+        templ = "templ",
+    }
+})
+
 -- Keymaps
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>q", vim.cmd.bd)
@@ -139,10 +149,6 @@ local function setup_lsp()
     lsp.dockerls.setup { capabilities = capabilities }
 
     lsp.docker_compose_language_service.setup { capabilities = capabilities }
-    vim.filetype.add({ filename = {
-        ["compose.yaml"] = "yaml.docker-compose",
-        ["docker-compose.yaml"] = "yaml.docker-compose",
-    } })
 end
 
 -- Plugins
