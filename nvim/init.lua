@@ -170,6 +170,7 @@ require("lazy").setup({
             vim.api.nvim_set_hl(0, "@lsp.type.parameter", { fg = "#bd85bf" })
             vim.api.nvim_set_hl(0, "@lsp.type.parameter.dockerfile", {})
             vim.api.nvim_set_hl(0, "@lsp.typemod.variable.callable", { link = "@function" })
+            vim.api.nvim_set_hl(0, "@lsp.typemod.function.defaultLibrary.go", { link = "@function.builtin.go" })
         end
     },
     {
