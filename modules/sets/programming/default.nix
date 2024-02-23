@@ -11,7 +11,7 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       lazygit
-      (pgcli.override { keyring = null; })
+      ((pgcli.override { keyring = null; }).overrideAttrs { disabledTests = true; })
       entr
 
       zig
