@@ -11,7 +11,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ go gopls ];
+    environment.systemPackages = with pkgs; [ go_1_22 /* gopls (doesn't currently work with go 1.22.0) */ ];
 
     environment.variables = {
       inherit GOPATH;

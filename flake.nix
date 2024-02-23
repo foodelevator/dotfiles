@@ -18,7 +18,7 @@
         config.permittedInsecurePackages = ["electron-25.9.0"]; # for obsidian
         overlays = [
           (final: prev: {
-            inherit (unstablePkgs) zig zoom-us r2modman podman;
+            inherit (unstablePkgs) zig zoom-us r2modman podman go_1_22;
             nomad = unstablePkgs.nomad_1_6;
 
             binary-ninja = prev.callPackage ./packages/binary-ninja { };
