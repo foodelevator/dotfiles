@@ -276,8 +276,9 @@ require("lazy").setup({
     },
     { "numToStr/Comment.nvim", config = true },
     { "willothy/flatten.nvim", config = true, lazy = false },
+    { "folke/todo-comments.nvim", config = true },
 })
 
--- TODO
+-- TODO:
 -- https://github.com/jamestthompson3/nvim-remote-containers
 -- https://github.com/kylechui/nvim-surround
