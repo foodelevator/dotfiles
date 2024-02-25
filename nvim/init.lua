@@ -277,6 +277,13 @@ require("lazy").setup({
     { "numToStr/Comment.nvim", config = true },
     { "willothy/flatten.nvim", config = true, lazy = false },
     { "folke/todo-comments.nvim", config = true },
+    {
+        "kdheepak/lazygit.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        keys = {
+            { "<leader>g", vim.cmd.LazyGit },
+        },
+    },
 })
 
 -- TODO:
