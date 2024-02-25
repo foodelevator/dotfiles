@@ -167,6 +167,8 @@ require("lazy").setup({
         init = function()
             vim.g.gruvbox_contrast_dark = "hard"
             vim.cmd.colorscheme("gruvbox")
+            vim.api.nvim_set_hl(0, "@lsp.type.variable", {}) -- Already handled by treesitter but overrides colors of booleans in go
+            vim.api.nvim_set_hl(0, "@lsp.mod.readonly", { italic = true })
             vim.api.nvim_set_hl(0, "@lsp.type.parameter", { fg = "#bd85bf" })
             vim.api.nvim_set_hl(0, "@lsp.type.parameter.dockerfile", {})
             vim.api.nvim_set_hl(0, "@lsp.typemod.variable.callable", { link = "@function" })
