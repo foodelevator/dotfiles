@@ -99,10 +99,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
             local group = vim.api.nvim_create_augroup("CursorHoldHighlightReferences", {})
             vim.api.nvim_create_autocmd("CursorHold", {
                 group = group,
+                buffer = ev.buf,
                 callback = vim.lsp.buf.document_highlight,
             })
             vim.api.nvim_create_autocmd("CursorMoved", {
                 group = group,
+                buffer = ev.buf,
                 callback = vim.lsp.buf.clear_references,
             })
         end
