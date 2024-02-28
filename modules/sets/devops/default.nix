@@ -13,6 +13,7 @@ in
       terraform
       terraform-ls
       awscli2
+      hcloud
       nomad
     ];
 
