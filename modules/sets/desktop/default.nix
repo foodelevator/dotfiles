@@ -21,7 +21,7 @@ in
 
     programs.evince.enable = true;
 
-    elevate.apps.alacritty.enable = true;
+    elevate.apps.kitty.enable = true;
     elevate.system.fonts.enable = true;
 
     services.xserver = {
