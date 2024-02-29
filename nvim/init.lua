@@ -149,8 +149,9 @@ local function setup_lsp()
     lsp.emmet_ls.setup { capabilities = capabilities }
     lsp.tsserver.setup { capabilities = capabilities }
     lsp.dockerls.setup { capabilities = capabilities }
-
+    lsp.dockerls.setup { capabilities = capabilities }
     lsp.docker_compose_language_service.setup { capabilities = capabilities }
+    lsp.terraformls.setup { capabilities = capabilities }
 end
 
 -- Plugins
@@ -170,6 +171,8 @@ require("lazy").setup({
             vim.g.gruvbox_contrast_dark = "hard"
             vim.cmd.colorscheme("gruvbox")
             vim.api.nvim_set_hl(0, "@lsp.type.variable", {}) -- Already handled by treesitter but overrides colors of booleans in go
+            vim.api.nvim_set_hl(0, "@lsp.type.type.terraform", {}) -- Already handled by treesitter
+            vim.api.nvim_set_hl(0, "@lsp.type.enumMember.terraform", { italic = true }) -- Already handled by treesitter
             vim.api.nvim_set_hl(0, "@lsp.mod.readonly", { italic = true })
             vim.api.nvim_set_hl(0, "@lsp.type.parameter", { fg = "#bd85bf" })
             vim.api.nvim_set_hl(0, "@lsp.type.parameter.dockerfile", {})
