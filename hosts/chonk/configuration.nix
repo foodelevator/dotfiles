@@ -14,6 +14,8 @@ with lib;
     elevate.virtualisation.virt-manager.vfio = mkForce false;
   };
 
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   environment.systemPackages = with pkgs; [
     lutris
     nvtop
