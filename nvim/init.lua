@@ -291,6 +291,7 @@ require("lazy").setup({
             { "<leader>g", vim.cmd.LazyGit },
         },
     },
+    { "tpope/vim-sleuth" },
 })
 
 -- TODO:
