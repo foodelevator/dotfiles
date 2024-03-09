@@ -5,38 +5,6 @@ let
 
   shellInit = pkgs.writeText "fish-init" config.programs.fish.shellInit;
 
-  ctf-env = pkgs.buildFHSEnv {
-    name = "hack";
-    runScript = "fish -C 'set hacking 1 && source ${shellInit}'";
-    targetPkgs = pkgs: with pkgs; [
-      binwalk
-      exiftool
-      one_gadget
-
-      nmap
-      gobuster
-      aircrack-ng
-
-      hashcat
-
-      (python3.withPackages (p: with p; [
-        pwntools
-        tqdm
-        z3
-        requests
-        pycryptodome
-      ]))
-      (symlinkJoin {
-        name = "pwndbg-aliased";
-        paths = [ pwndbg ];
-        postBuild = ''
-          ln -s $out/bin/pwndbg $out/bin/gdb
-        '';
-      })
-      gdb
-    ];
-  };
-
   burpsuite = pkgs.symlinkJoin {
     name = "burpsuite";
     paths = [
@@ -64,9 +32,37 @@ in
   };
 
   config = mkIf cfg.enable {
+    environment.shellAliases.hack = "set -g hacking 1; set -gx PATH ${pkgs.buildEnv {
+      name = "hack";
+      paths = with pkgs; [
+        binwalk
+        exiftool
+        one_gadget
+
+        nmap
+        gobuster
+        aircrack-ng
+
+        hashcat
+
+        (python3.withPackages (p: with p; [
+          pwntools
+          tqdm
+          z3
+          requests
+          pycryptodome
+        ]))
+        (symlinkJoin {
+          name = "pwndbg-aliased";
+          paths = [ pwndbg ];
+          postBuild = ''
+            ln -s $out/bin/pwndbg $out/bin/gdb
+          '';
+        })
+      ];
+    }}/bin $PATH";
     environment.systemPackages = with pkgs; [
       ghidra binary-ninja wireshark burpsuite
-      ctf-env
     ];
   };
 }
