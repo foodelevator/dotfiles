@@ -41,15 +41,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    security.pam.services = {
-      login.u2fAuth = true;
-      sudo.u2fAuth = true;
-    };
-
     services.yubikey-agent.enable = true;
 
     environment.systemPackages = with pkgs; [
-      pam_u2f
       yubikey-manager
       yubioath
 
