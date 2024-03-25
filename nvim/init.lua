@@ -38,6 +38,7 @@ vim.filetype.add({
     },
     extension = {
         templ = "templ",
+        typ = "typst",
     }
 })
 
@@ -178,6 +179,8 @@ require("lazy").setup({
             vim.api.nvim_set_hl(0, "@lsp.type.parameter.dockerfile", {})
             vim.api.nvim_set_hl(0, "@lsp.typemod.variable.callable", { link = "@function" })
             vim.api.nvim_set_hl(0, "@lsp.typemod.function.defaultLibrary.go", { link = "@function.builtin.go" })
+            vim.api.nvim_set_hl(0, "@markup.strong", { bold = true })
+            vim.api.nvim_set_hl(0, "@markup.italic", { italic = true })
         end
     },
     {
@@ -197,7 +200,7 @@ require("lazy").setup({
                     "fish", "bash",
                     "typescript", "svelte", "javascript", "css", "astro", "tsx", "prisma",
                     "nix",
-                    "markdown",
+                    "markdown", "typst",
                     "terraform", "hcl",
                     "sql",
                     "templ",
