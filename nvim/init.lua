@@ -153,6 +153,12 @@ local function setup_lsp()
     lsp.dockerls.setup { capabilities = capabilities }
     lsp.docker_compose_language_service.setup { capabilities = capabilities }
     lsp.terraformls.setup { capabilities = capabilities }
+    lsp.nil_ls.setup {
+        capabilities = capabilities,
+        settings = { ["nil"] = {
+            formatting = { command = { "nixpkgs-fmt" } }
+        } },
+    }
 end
 
 -- Plugins
