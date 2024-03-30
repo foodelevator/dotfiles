@@ -20,6 +20,7 @@ in
       nil nixpkgs-fmt
       lua-language-server
       dockerfile-language-server-nodejs docker-compose-language-service
+      gdb
     ];
 
     environment.variables = {
@@ -53,6 +54,13 @@ in
       [global]
       load_dotenv = true
       strict_env = true
+    '';
+
+    environment.etc."gdb/gdbinit".text = ''
+      set disassembly-flavor intel
+      alias da = disassemble
+      set detach-on-fork off
+      set follow-fork-mode child
     '';
 
     elevate.cli-apps.helix.enable = true;
