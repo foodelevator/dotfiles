@@ -25,6 +25,11 @@ in
     elevate.apps.kitty.enable = true;
     elevate.system.fonts.enable = true;
 
+    elevate.services.tldcheck = {
+      enable = true;
+      tlds = [ "on" "son" "sson" ];
+    };
+
     services.xserver = {
       enable = true;
       layout = "us";
