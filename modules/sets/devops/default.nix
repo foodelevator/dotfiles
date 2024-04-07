@@ -10,7 +10,6 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      terraform
       terraform-ls
       awscli2
       hcloud
