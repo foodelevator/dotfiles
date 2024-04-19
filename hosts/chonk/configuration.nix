@@ -8,6 +8,8 @@ with lib;
   elevate.desktops.gnome.enable = true;
   elevate.archetypes.workstation.enable = true;
 
+  elevate.services.wireguard.enableServer = true;
+
   elevate.virtualisation.virt-manager.vfio = true;
   specialisation.no-gpu-passthrough.configuration = {
     boot.loader.grub.configurationName = "Disable GPU passthrough";

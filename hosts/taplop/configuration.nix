@@ -7,6 +7,8 @@
   elevate.desktops.gnome.enable = true;
   elevate.archetypes.workstation.enable = true;
 
+  elevate.services.wireguard.enableClient = true;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
