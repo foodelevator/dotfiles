@@ -1,19 +1,60 @@
-{ pkgs, inputs }:
+{ lib, inputs }:
 let
-  inherit (builtins) concatLists readDir;
-  inherit (pkgs.lib) mapAttrsToList;
+  # From https://github.com/divnix/digga/blob/baa54f8641ee9128cdda8b508553284c331fc9f1/src/importers.nix#L61-L114
+  rakeLeaves =
+    /*
+      Synopsis: rakeLeaves _path_
 
-  getAllDefaultDotNix = path:
+      Recursively collect the nix files of _path_ into attrs.
+
+      Output Format:
+      An attribute set where all `.nix` files and directories with `default.nix` in them
+      are mapped to keys that are either the file with .nix stripped or the folder name.
+      All other directories are recursed further into nested attribute sets with the same format.
+
+      Example file structure:
+      ```
+      ./core/default.nix
+      ./base.nix
+      ./main/dev.nix
+      ./main/os/default.nix
+      ```
+
+      Example output:
+      ```
+      {
+      core = ./core;
+      base = base.nix;
+      main = {
+        dev = ./main/dev.nix;
+        os = ./main/os;
+      };
+      }
+      ```
+    */
+    dirPath:
     let
-      dir = readDir path;
-      traverse = name: type:
-        if name == "default.nix" then
-          [ "${path}/${name}" ]
-        else if type == "directory" then
-          getAllDefaultDotNix "${path}/${name}"
-        else [ ];
+      seive = file: type:
+        # Only rake `.nix` files or directories
+        (type == "regular" && lib.hasSuffix ".nix" file) || (type == "directory");
+
+      collect = file: type: {
+        name = lib.removeSuffix ".nix" file;
+        value =
+          let
+            path = dirPath + "/${file}";
+          in
+          if
+            (type == "regular")
+            || (type == "directory" && builtins.pathExists (path + "/default.nix"))
+          then path
+          # recurse on directories that don't contain a `default.nix`
+          else rakeLeaves path;
+      };
+
+      files = lib.filterAttrs seive (builtins.readDir dirPath);
     in
-    concatLists (mapAttrsToList traverse dir);
+    lib.filterAttrs (n: v: v != { }) (lib.mapAttrs' collect files);
 in
 {
   getModules = name: [
@@ -21,5 +62,5 @@ in
     (./hosts + "/${name}/hardware-configuration.nix")
     { _module.args = { inherit inputs; }; }
     ({ lib, ... }: { networking.hostName = lib.mkDefault name; })
-  ] ++ getAllDefaultDotNix ./modules;
+  ] ++ (lib.collect builtins.isPath (rakeLeaves ./modules));
 }

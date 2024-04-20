@@ -27,7 +27,7 @@
         ];
       };
 
-      lib = import ./lib.nix { inherit pkgs inputs; };
+      lib = import ./lib.nix { inherit (nixpkgs) lib; inherit inputs; };
     in
     {
       nixosConfigurations = builtins.mapAttrs

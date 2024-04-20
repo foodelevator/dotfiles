@@ -25,5 +25,10 @@ in
       min-free = ${toString (100 * 1024 * 1024)}
       max-free = ${toString (1024 * 1024 * 1024)}
     '';
+
+    # programs.nh = {
+    #   enable = true;
+    #   flake = "${config.users.users.${config.elevate.user.name}.home}/dotfiles";
+    # };
   };
 }
