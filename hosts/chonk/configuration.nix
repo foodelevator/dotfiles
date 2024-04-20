@@ -1,5 +1,4 @@
 { config, pkgs, lib, profiles, ... }:
-with lib;
 {
   imports = with profiles; [
     apps.openrgb
@@ -9,14 +8,13 @@ with lib;
     archetypes.workstation
 
     services.wireguard.server
+    services.sshd
   ];
 
-  elevate.services.sshd.enable = true;
-
-  elevate.virtualisation.virt-manager.vfio = true;
+  elevate.virtualisation.vfio.enable = true;
   specialisation.no-gpu-passthrough.configuration = {
     boot.loader.grub.configurationName = "Disable GPU passthrough";
-    elevate.virtualisation.virt-manager.vfio = mkForce false;
+    elevate.virtualisation.vfio.enable = lib.mkForce false;
   };
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];

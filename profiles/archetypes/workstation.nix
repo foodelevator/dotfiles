@@ -1,11 +1,25 @@
-{ pkgs, ... }:
+{ pkgs, profiles, ... }:
 {
-  elevate.sets.base.enable = true;
-  elevate.sets.ctf.enable = true;
-  elevate.sets.desktop.enable = true;
-  elevate.sets.devops.enable = true;
-  elevate.sets.gaming.enable = true;
-  elevate.sets.programming.enable = true;
+  imports = with profiles; [
+    system.networking
+    system.printing
+    system.sound
+
+    sets.base
+    sets.desktop
+    sets.ctf
+    sets.devops
+    sets.gaming
+    sets.programming
+
+    cli-apps.ssh
+    cli-apps.typst
+
+    virtualisation.oci-containers
+    virtualisation.virt-manager
+
+    security.yubikey
+  ];
 
   environment.systemPackages = with pkgs; [
     ffmpeg
@@ -14,14 +28,6 @@
 
   elevate.apps.syncthing.enable = true;
   elevate.apps.syncthing.homeDirs = true;
-  elevate.cli-apps.ssh.enable = true;
-  elevate.cli-apps.typst.enable = true;
-  elevate.security.yubikey.enable = true;
-  elevate.system.networking.enable = true;
-  elevate.system.printing.enable = true;
-  elevate.system.sound.enable = true;
-  elevate.virtualisation.oci-containers.enable = true;
-  elevate.virtualisation.virt-manager.enable = true;
 
   services.mullvad-vpn.enable = true;
   hardware.flipperzero.enable = true;
