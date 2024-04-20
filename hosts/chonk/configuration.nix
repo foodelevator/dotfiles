@@ -1,14 +1,17 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, profiles, ... }:
 with lib;
 {
-  elevate.apps.openrgb.enable = true;
-  elevate.apps.obs.enable = true;
+  imports = with profiles; [
+    apps.openrgb
+    apps.obs
+
+    desktops.gnome
+    archetypes.workstation
+
+    services.wireguard.server
+  ];
+
   elevate.services.sshd.enable = true;
-
-  elevate.desktops.gnome.enable = true;
-  elevate.archetypes.workstation.enable = true;
-
-  elevate.services.wireguard.enableServer = true;
 
   elevate.virtualisation.virt-manager.vfio = true;
   specialisation.no-gpu-passthrough.configuration = {

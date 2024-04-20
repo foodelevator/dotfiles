@@ -35,6 +35,7 @@
           inherit system pkgs;
           specialArgs = {
             inherit inputs;
+            profiles = lib.rakeLeaves ./profiles;
           };
           modules = [
             (./hosts + "/${name}/configuration.nix")
