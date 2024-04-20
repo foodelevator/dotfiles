@@ -15,7 +15,7 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        config.permittedInsecurePackages = ["electron-25.9.0"]; # for obsidian
+        config.permittedInsecurePackages = [ "electron-25.9.0" ]; # for obsidian
         overlays = [
           (final: prev: {
             inherit (unstablePkgs) zig zoom-us r2modman podman go_1_22;
@@ -27,13 +27,20 @@
         ];
       };
 
-      lib = import ./lib.nix { inherit (nixpkgs) lib; inherit inputs; };
+      lib = import ./lib.nix { inherit (nixpkgs) lib; };
     in
     {
       nixosConfigurations = builtins.mapAttrs
         (name: _: nixpkgs.lib.nixosSystem {
           inherit system pkgs;
-          modules = lib.getModules name;
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            (./hosts + "/${name}/configuration.nix")
+            (./hosts + "/${name}/hardware-configuration.nix")
+            ({ ... }: { networking.hostName = name; })
+          ] ++ (nixpkgs.lib.collect builtins.isPath (lib.rakeLeaves ./modules));
         })
         (builtins.readDir ./hosts);
 

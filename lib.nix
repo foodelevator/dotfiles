@@ -1,5 +1,5 @@
-{ lib, inputs }:
-let
+{ lib }:
+rec {
   # From https://github.com/divnix/digga/blob/baa54f8641ee9128cdda8b508553284c331fc9f1/src/importers.nix#L61-L114
   rakeLeaves =
     /*
@@ -55,12 +55,4 @@ let
       files = lib.filterAttrs seive (builtins.readDir dirPath);
     in
     lib.filterAttrs (n: v: v != { }) (lib.mapAttrs' collect files);
-in
-{
-  getModules = name: [
-    (./hosts + "/${name}/configuration.nix")
-    (./hosts + "/${name}/hardware-configuration.nix")
-    { _module.args = { inherit inputs; }; }
-    ({ lib, ... }: { networking.hostName = lib.mkDefault name; })
-  ] ++ (lib.collect builtins.isPath (rakeLeaves ./modules));
 }
