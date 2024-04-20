@@ -1,6 +1,0 @@
-<hostdev mode='subsystem' type='usb' managed='yes'>
-    <source>
-        <vendor id='0x0951' />
-        <product id='0x16ea' />
-    </source>
-</hostdev>
