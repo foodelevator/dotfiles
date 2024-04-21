@@ -4,9 +4,12 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    nh.url = "github:viperML/nh/fe4a96a0b0b0662dba7c186b4a1746c70bbcad03";
+    nh.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, unstable } @ inputs:
+  outputs = { self, nixpkgs, unstable, ... } @ inputs:
     let
       system = "x86_64-linux";
 
