@@ -5,46 +5,57 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    systems.url = "github:nix-systems/default-linux"; # {aarch64,x86_64}-linux
+
     nh.url = "github:viperML/nh/fe4a96a0b0b0662dba7c186b4a1746c70bbcad03";
     nh.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, unstable, ... } @ inputs:
+  outputs = { self, systems, nixpkgs, unstable, ... } @ inputs:
     let
-      system = "x86_64-linux";
+      mapSystems = f: builtins.mapAttrs (system: _: f system) (nixpkgs.lib.genAttrs (import systems) (_: builtins.undefined));
 
-      unstablePkgs = import unstable { inherit system; config.allowUnfree = true; };
+      pkgs = mapSystems (system:
+        let
+          unstablePkgs = import unstable { inherit system; config.allowUnfree = true; };
+        in
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+          config.permittedInsecurePackages = [ "electron-25.9.0" ]; # for obsidian
+          overlays = [
+            (final: prev: {
+              inherit (unstablePkgs) zig zoom-us r2modman podman go_1_22 nomad_1_6;
 
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-        config.permittedInsecurePackages = [ "electron-25.9.0" ]; # for obsidian
-        overlays = [
-          (final: prev: {
-            inherit (unstablePkgs) zig zoom-us r2modman podman go_1_22;
-            nomad = unstablePkgs.nomad_1_6;
-
-            binary-ninja = prev.callPackage ./packages/binary-ninja { };
-          })
-        ];
-      };
+              binary-ninja = prev.callPackage ./packages/binary-ninja { };
+            })
+          ];
+        }
+      );
 
       lib = import ./lib.nix { inherit (nixpkgs) lib; };
     in
     {
       nixosConfigurations = builtins.mapAttrs
-        (name: _: nixpkgs.lib.nixosSystem {
-          inherit system pkgs;
-          specialArgs = {
-            inherit inputs;
-            profiles = lib.rakeLeaves ./profiles;
-          };
-          modules = [
-            (./hosts + "/${name}/configuration.nix")
-            (./hosts + "/${name}/hardware-configuration.nix")
-            ({ ... }: { networking.hostName = name; })
-          ] ++ (nixpkgs.lib.collect builtins.isPath (lib.rakeLeaves ./modules));
-        })
+        (name: _:
+          let
+            config = import (./hosts + "/${name}/configuration.nix");
+            system = (config (builtins.functionArgs config)).nixpkgs.hostPlatform;
+          in
+          nixpkgs.lib.nixosSystem
+            {
+              inherit system;
+              pkgs = pkgs.${system};
+              specialArgs = {
+                inherit inputs;
+                profiles = lib.rakeLeaves ./profiles;
+              };
+              modules = [
+                (./hosts + "/${name}/configuration.nix")
+                (./hosts + "/${name}/hardware-configuration.nix")
+                ({ ... }: { networking.hostName = name; })
+              ] ++ (nixpkgs.lib.collect builtins.isPath (lib.rakeLeaves ./modules));
+            })
         (builtins.readDir ./hosts);
     };
 }
