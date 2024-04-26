@@ -25,7 +25,6 @@
             nomad = unstablePkgs.nomad_1_6;
 
             binary-ninja = prev.callPackage ./packages/binary-ninja { };
-            dyalog = prev.callPackage ./packages/dyalog { };
           })
         ];
       };
@@ -47,9 +46,5 @@
           ] ++ (nixpkgs.lib.collect builtins.isPath (lib.rakeLeaves ./modules));
         })
         (builtins.readDir ./hosts);
-
-      packages.${system} = {
-        inherit (pkgs) binary-ninja dyalog;
-      };
     };
 }
