@@ -28,23 +28,25 @@ in
         space.addresses = [ "tcp://syncthing.magnusson.space" ];
       };
 
-      settings.folders = lib.optionalAttrs cfg.homeDirs (pkgs.lib.genAttrs [
-        "Desktop"
-        "Documents"
-        "Memes"
-        "Music"
-        "Videos"
-        "Pictures"
-      ] (name: {
-        path = "${homeDir}/${name}";
-        devices = ["chonk" "taplop"];
-      })) // {
+      settings.folders = lib.optionalAttrs cfg.homeDirs
+        (pkgs.lib.genAttrs [
+          "Desktop"
+          "Documents"
+          "Memes"
+          "Music"
+          "Videos"
+          "Pictures"
+        ]
+          (name: {
+            path = "${homeDir}/${name}";
+            devices = [ "chonk" "taplop" ];
+          })) // {
         Passage = {
-          devices = ["chonk" "taplop" "space"];
+          devices = [ "chonk" "taplop" "space" ];
           path = "${homeDir}/.local/share/passage/store";
         };
         Obsidian = {
-          devices = ["chonk" "taplop" "space"];
+          devices = [ "chonk" "taplop" "space" ];
           path = "${homeDir}/.local/share/obsidian-vault";
         };
       };

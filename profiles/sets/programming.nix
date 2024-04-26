@@ -17,11 +17,14 @@
     entr
 
     zig
-    gcc gnumake
+    gcc
+    gnumake
     jdk
-    nil nixpkgs-fmt
+    nil
+    nixpkgs-fmt
     lua-language-server
-    dockerfile-language-server-nodejs docker-compose-language-service
+    dockerfile-language-server-nodejs
+    docker-compose-language-service
     gdb
   ];
 

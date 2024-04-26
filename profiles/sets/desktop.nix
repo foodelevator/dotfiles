@@ -6,13 +6,22 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    firefox ungoogled-chromium
+    firefox
+    ungoogled-chromium
+
     spotify
-    slack zulip mattermost-desktop signal-desktop zoom-us
-    obsidian gimp audacity
+    slack
+    zulip
+    mattermost-desktop
+    signal-desktop
+    zoom-us
+    obsidian
+    gimp
+    audacity
     (discord.override { nss = nss_latest; }) # override needed to open links
 
-    mpv feh
+    mpv
+    feh
   ];
 
   programs.evince.enable = true;

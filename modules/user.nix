@@ -16,7 +16,7 @@ in
     };
     groups = mkOption {
       type = types.listOf types.str;
-      default = [];
+      default = [ ];
       description = "The groups the user should be a member of.";
     };
     description = mkOption {
@@ -25,7 +25,7 @@ in
     };
     sshKeys = mkOption {
       type = types.listOf types.str;
-      default = [];
+      default = [ ];
       description = "SSH keys to be authorized.";
     };
     shell = mkOption {

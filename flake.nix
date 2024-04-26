@@ -57,5 +57,7 @@
               ] ++ (nixpkgs.lib.collect builtins.isPath (lib.rakeLeaves ./modules));
             })
         (builtins.readDir ./hosts);
+
+      formatter = mapSystems (system: pkgs.${system}.nixpkgs-fmt);
     };
 }

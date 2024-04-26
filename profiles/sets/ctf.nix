@@ -52,6 +52,9 @@ in
     ];
   }}/bin $PATH";
   environment.systemPackages = with pkgs; [
-    ghidra binary-ninja wireshark burpsuite
+    ghidra
+    binary-ninja
+    wireshark
+    burpsuite
   ];
 }

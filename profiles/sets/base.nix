@@ -10,10 +10,22 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    neovim /* dependencies for some plugins: */ tree-sitter ripgrep fd
-    pciutils usbutils
+    neovim /* dependencies for some plugins: */
+    tree-sitter
+    ripgrep
+    fd
 
-    xclip killall file jq unzip xxd rlwrap xorg.xhost
+    pciutils
+    usbutils
+
+    xclip
+    killall
+    file
+    jq
+    unzip
+    xxd
+    rlwrap
+    xorg.xhost
   ];
 
   environment.variables = {
