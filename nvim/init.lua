@@ -201,6 +201,7 @@ require("lazy").setup({
         config = function()
             require("nvim-treesitter.configs").setup {
                 ensure_installed = {
+                    "vimdoc",
                     "rust", "go", "c", "zig",
                     "lua", "python", "haskell",
                     "fish", "bash",
