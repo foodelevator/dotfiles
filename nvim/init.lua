@@ -164,9 +164,22 @@ end
 -- Plugins
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
+    local lockfile = vim.fs.dirname(vim.fn.expand("$MYVIMRC")) .. "/lazy-lock.json"
+    local fd = vim.loop.fs_open(lockfile, "r", 0)
+    local stat = vim.loop.fs_fstat(fd)
+    local data = vim.loop.fs_read(fd, stat.size, 0)
+    vim.loop.fs_close(fd)
+    local plugins = vim.json.decode(data)
+
+    local commit = plugins["lazy.nvim"].commit
+
     vim.fn.system({
         "git", "clone", "--filter=blob:none", "--branch=stable",
         "https://github.com/folke/lazy.nvim.git", lazypath,
+    })
+
+    vim.fn.system({
+        "git", "-C", lazypath, "reset", "--hard", commit,
     })
 end
 vim.opt.rtp:prepend(lazypath)
