@@ -1,4 +1,4 @@
-{ profiles, ... }:
+{ pkgs, profiles, ... }:
 {
   imports = with profiles; [
     system.networking
@@ -6,4 +6,10 @@
     services.sshd
     services.wireguard
   ];
+
+  environment.systemPackages = with pkgs; [
+    htop
+  ];
+
+  environment.enableAllTerminfo = true;
 }
