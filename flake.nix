@@ -9,6 +9,9 @@
 
     nh.url = "github:viperML/nh/fe4a96a0b0b0662dba7c186b4a1746c70bbcad03";
     nh.inputs.nixpkgs.follows = "nixpkgs";
+
+    nix-rpi5.url = "gitlab:vriska/nix-rpi5";
+    nix-rpi5.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, systems, nixpkgs, unstable, ... } @ inputs:
@@ -28,7 +31,10 @@
               inherit (unstablePkgs) zig zoom-us r2modman podman go_1_22 nomad_1_6;
 
               binary-ninja = prev.callPackage ./packages/binary-ninja { };
-            })
+            } // (if system == "aarch64-linux" then {
+              makeModulesClosure = x: prev.makeModulesClosure (x // { allowMissing = true; });
+              inherit (inputs.nix-rpi5.legacyPackages.aarch64-linux) linuxPackages_rpi5;
+            } else { }))
           ];
         }
       );
