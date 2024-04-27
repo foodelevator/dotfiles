@@ -16,7 +16,7 @@
 
   outputs = { self, systems, nixpkgs, unstable, ... } @ inputs:
     let
-      mapSystems = f: builtins.mapAttrs (system: _: f system) (nixpkgs.lib.genAttrs (import systems) (_: builtins.undefined));
+      mapSystems = f: builtins.mapAttrs (system: _: f system) (nixpkgs.lib.genAttrs (import systems) (_: null));
 
       pkgs = mapSystems (system:
         let
