@@ -8,9 +8,15 @@ let
       address = { host = "home.magnusson.space"; port = 51800; };
     }
     {
+      hostname = "taplop";
       publicKey = "FqwkR+gKe/0JfFn3oXyyNDK8qh3LGMQw/t1pvGEHTBk=";
       privateAddr = "10.69.0.2";
-      hostname = "taplop";
+    }
+    {
+      hostname = "lagring";
+      publicKey = "mhGuL7fW63TnXHXNTTmT0Ij3hdEGMRCruxW5jbC5rC8=";
+      privateAddr = "10.69.0.3";
+      address = { host = "home.magnusson.space"; port = 51801; };
     }
   ];
 

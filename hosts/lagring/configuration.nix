@@ -1,13 +1,7 @@
-{ config, pkgs, lib, profiles, inputs, ... }:
-
+{ pkgs, profiles, ... }:
 {
   imports = with profiles; [
-    system.networking
-
-    sets.base
-
-    # TODO: services.wireguard
-    services.sshd
+    archetypes.server
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_rpi5;
