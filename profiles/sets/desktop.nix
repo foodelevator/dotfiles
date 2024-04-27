@@ -22,6 +22,8 @@
 
     mpv
     feh
+    xclip
+    xorg.xhost
   ];
 
   programs.evince.enable = true;

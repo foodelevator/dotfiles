@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   environment.variables = {
     XDG_CACHE_HOME = "$HOME/.cache";
@@ -10,5 +10,4 @@
     # XAUTHORITY = "$HOME/.local/state/Xauthority";
     GNUPG_HOME = "$HOME/.local/share/gnupg";
   };
-  environment.defaultPackages = with pkgs; [ rsync strace ]; # nano & perl removed
 }

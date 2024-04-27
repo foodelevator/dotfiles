@@ -18,15 +18,15 @@
     pciutils
     usbutils
 
-    xclip
     killall
     file
     jq
     unzip
     xxd
     rlwrap
-    xorg.xhost
   ];
+
+  environment.defaultPackages = with pkgs; [ rsync strace ]; # nano & perl removed
 
   environment.variables = {
     VISUAL = "nvim";
