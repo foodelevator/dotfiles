@@ -1,3 +1,14 @@
+function is_ssh_session
+    set pid $fish_pid
+    while test $pid -gt 1
+        set pid (string trim (ps o ppid= -p $pid))
+        set cmdline (awk -F'\x00' '{print $1}' "/proc/$pid/cmdline")
+        echo $cmdline | grep ssh >/dev/null && return 0
+        echo $cmdline | grep kitty >/dev/null && return 1
+    end
+    return 1
+end
+
 function fish_prompt
     set s $status
     if [ $s != "0" ]
@@ -16,6 +27,11 @@ function fish_prompt
     else if [ $dur -ge 100 ]
         set_color yellow
         printf "took %.0fms " (math $dur)
+    end
+
+    if is_ssh_session
+        set_color brred
+        printf "[%s] " (hostname)
     end
 
     if [ -n "$hacking" ]
