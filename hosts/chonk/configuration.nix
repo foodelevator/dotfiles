@@ -7,7 +7,7 @@
     desktops.gnome
     archetypes.workstation
 
-    services.wireguard.server
+    services.wireguard
     services.sshd
   ];
 

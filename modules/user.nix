@@ -32,6 +32,10 @@ in
       type = types.package;
       description = "The login shell";
     };
+    home = mkOption {
+      type = types.str;
+      default = config.users.users.${cfg.name}.home;
+    };
   };
 
   config = mkIf cfg.enable {

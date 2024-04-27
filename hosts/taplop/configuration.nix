@@ -3,7 +3,7 @@
   imports = with profiles; [
     desktops.gnome
     archetypes.workstation
-    services.wireguard.client
+    services.wireguard
   ];
 
   # Bootloader.
