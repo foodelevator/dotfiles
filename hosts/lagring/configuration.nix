@@ -2,6 +2,8 @@
 {
   imports = with profiles; [
     archetypes.server
+
+    ./nfs.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_rpi5;
