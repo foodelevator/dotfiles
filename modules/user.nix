@@ -34,7 +34,7 @@ in
     };
     home = mkOption {
       type = types.str;
-      default = config.users.users.${cfg.name}.home;
+      default = "/home/" + cfg.name;
     };
   };
 

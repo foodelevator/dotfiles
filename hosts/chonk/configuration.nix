@@ -11,6 +11,11 @@
     services.sshd
   ];
 
+  fileSystems."${config.elevate.user.home}/nfs" = {
+    device = "192.168.1.5:/export/mathias";
+    fsType = "nfs";
+  };
+
   elevate.virtualisation.vfio.enable = true;
   specialisation.no-gpu-passthrough.configuration = {
     boot.loader.grub.configurationName = "Disable GPU passthrough";

@@ -1,10 +1,16 @@
-{ pkgs, profiles, ... }:
+{ config, pkgs, profiles, ... }:
 {
   imports = with profiles; [
     desktops.gnome
     archetypes.workstation
     services.wireguard
   ];
+
+  fileSystems."${config.elevate.user.home}/nfs" = {
+    device = "10.69.0.3:/export/mathias";
+    fsType = "nfs";
+    options = [ "noauto" "x-systemd.automount" "x-systemd.idle-timeout=1min" ];
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
