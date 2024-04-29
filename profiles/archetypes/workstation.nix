@@ -26,9 +26,6 @@
     man-pages
   ];
 
-  elevate.apps.syncthing.enable = true;
-  elevate.apps.syncthing.homeDirs = true;
-
   services.mullvad-vpn.enable = true;
   hardware.flipperzero.enable = true;
 
