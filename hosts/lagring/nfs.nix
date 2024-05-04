@@ -12,7 +12,7 @@
     mountdPort = 4002;
     exports = ''
       /export/mathias -rw,sync,insecure 10.69.0.0/16 192.168.1.2
-      /export/lucas 192.168.1.0/24(rw,sync,insecure,all_squash)
+      /export/lucas 192.168.1.6(rw,sync,insecure,all_squash)
     '';
   };
 
