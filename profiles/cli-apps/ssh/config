@@ -2,22 +2,14 @@
 
 AddKeysToAgent yes
 
-Host mc
-    Hostname mc.datasektionen.se
-    User mc
-
-Host old
-    Hostname 139.162.175.166
-    Port 69
-
-Host chonk
-    Hostname 192.168.1.2
-    Port 69
-
 Host garm
     Hostname magnusson.space
 
 # Datasektionen:
+
+Host mc
+    Hostname mc.datasektionen.se
+    User mc
 
 Host medusa
     Hostname medusa.datasektionen.se
@@ -38,13 +30,6 @@ Host mjukglass
 Host kerberos
     Hostname kerberos.datasektionen.se
     User mathm
-
-Host 34.240.255.211
-    User mathm
-
-Host meta-tv
-    Hostname 192.16.146.106
-    User tv
 
 Host *
     IdentityFile ~/.ssh/id_ed25519
