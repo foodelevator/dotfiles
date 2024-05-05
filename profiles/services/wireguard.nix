@@ -1,16 +1,16 @@
 { config, lib, ... }:
 let
   nodes = {
-    chonk = {
+    ymer = {
       publicKey = "LEQ8lB86aK6tfKE2ppsz7raYs69Y1kZsc8O1hnatIms=";
       privateAddr = "10.69.0.1";
       address = { host = "home.magnusson.space"; port = 51800; };
     };
-    taplop = {
+    sleipner = {
       publicKey = "FqwkR+gKe/0JfFn3oXyyNDK8qh3LGMQw/t1pvGEHTBk=";
       privateAddr = "10.69.0.2";
     };
-    lagring = {
+    mimer = {
       publicKey = "mhGuL7fW63TnXHXNTTmT0Ij3hdEGMRCruxW5jbC5rC8=";
       privateAddr = "10.69.0.3";
       address = { host = "home.magnusson.space"; port = 51801; };
