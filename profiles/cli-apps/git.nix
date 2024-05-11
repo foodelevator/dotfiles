@@ -2,8 +2,10 @@
 {
   programs.git.enable = true;
   programs.git.config = {
-    user.name = "Mathias Magnusson";
-    user.email = "mathias@magnusson.space";
+    user = {
+      name = "Mathias Magnusson";
+      email = "mathias@magnusson.space";
+    };
 
     alias = {
       st = "status";
@@ -16,7 +18,7 @@
     };
 
     init.defaultBranch = "main";
-
     pull.rebase = true;
+    merge.conflictstyle = "diff3";
   };
 }
