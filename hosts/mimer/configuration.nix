@@ -4,6 +4,7 @@
     archetypes.server
 
     ./nfs.nix
+    ./backups.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_rpi5;
