@@ -7,6 +7,7 @@
 
     cli-apps.fish
     cli-apps.git
+    cli-apps.lazygit
   ];
 
   environment.systemPackages = with pkgs; [
