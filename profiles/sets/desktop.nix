@@ -11,7 +11,6 @@
 
     spotify
     slack
-    zulip
     mattermost-desktop
     signal-desktop
     zoom-us
