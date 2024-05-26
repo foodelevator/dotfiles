@@ -10,25 +10,32 @@ Host garm
 Host mc
     Hostname mc.datasektionen.se
     User mc
-
 Host medusa
     Hostname medusa.datasektionen.se
     User mathm
-
 Host sips
     Hostname sips.datasektionen.se
     User mathm
-
 Host hermes
     Hostname hermes.datasektionen.se
     User mathm
-
 Host mjukglass
     Hostname mjukglass.datasektionen.se
     User mathm
-
 Host kerberos
     Hostname kerberos.datasektionen.se
+    User mathm
+Host zeus
+    Hostname zeus.datasektionen.se
+    User mathm
+Host poseidon
+    Hostname poseidon.datasektionen.se
+    User mathm
+Host hades
+    Hostname hades.datasektionen.se
+    User mathm
+Host ares
+    Hostname ares.datasektionen.se
     User mathm
 
 Host *
