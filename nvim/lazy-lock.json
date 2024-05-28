@@ -11,6 +11,7 @@
   "leap.nvim": { "branch": "main", "commit": "25753d8a16b69fbbce5d392702c21dbc79d86bd1" },
   "nvim-cmp": { "branch": "main", "commit": "97dc716fc914c46577a4f254035ebef1aa72558a" },
   "nvim-lspconfig": { "branch": "master", "commit": "6e5c78ebc9936ca74add66bda22c566f951b6ee5" },
+  "nvim-surround": { "branch": "main", "commit": "79aaa42da1f698ed31bcbe7f83081f69dca7ba17" },
   "nvim-treesitter": { "branch": "master", "commit": "965f2e7239ab5e1c5f133d498591f1e70746410c" },
   "nvim-web-devicons": { "branch": "master", "commit": "6662f059bf78e6092ba90cd1929599625f448f55" },
   "oil.nvim": { "branch": "master", "commit": "e462a3446505185adf063566f5007771b69027a1" },

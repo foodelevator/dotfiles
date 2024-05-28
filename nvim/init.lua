@@ -320,8 +320,8 @@ require("lazy").setup({
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = { options = { diagnostics = "nvim_lsp" } },
     },
+    { "kylechui/nvim-surround", event = "VeryLazy", config = true },
 })
 
 -- TODO:
 -- https://github.com/jamestthompson3/nvim-remote-containers
--- https://github.com/kylechui/nvim-surround
