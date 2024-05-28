@@ -4,5 +4,9 @@
     apps.steam
   ];
 
-  environment.systemPackages = with pkgs; [ prismlauncher r2modman ];
+  environment.systemPackages = with pkgs; [
+    prismlauncher
+    r2modman
+    mangohud
+  ];
 }
