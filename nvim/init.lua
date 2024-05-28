@@ -266,17 +266,17 @@ require("lazy").setup({
                     expand = function(args) luasnip.lsp_expand(args.body) end,
                 },
                 mapping = {
-                    ["<c-l>"] = cmp.mapping.confirm({ select = true }),
+                    ["<c-y>"] = cmp.mapping.confirm({ select = true }),
                     ["<c-e>"] = cmp.mapping.abort(),
                     ["<c-b>"] = cmp.mapping.scroll_docs(-4),
                     ["<c-f>"] = cmp.mapping.scroll_docs(4),
-                    ["<c-n>"] = cmp.mapping(function(fallback)
+                    ["<c-n>"] = function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()
                         else
                             fallback()
                         end
-                    end),
+                    end,
                     ["<c-p>"] = function(fallback)
                         if cmp.visible() then
                             cmp.select_prev_item()
@@ -292,8 +292,8 @@ require("lazy").setup({
         lazy = false,
         keys = {
             { mode = "i", "<c-l>", function() require "cmp".complete() end },
-            { mode = {"s"}, "<c-p>", function() require "luasnip".jump(-1) end },
-            { mode = {"s"}, "<c-n>", function() require "luasnip".jump(1) end },
+            { mode = {"i", "s"}, "<c-h>", function() require "luasnip".jump(-1) end },
+            { mode = {"i", "s"}, "<c-e>", function() require "luasnip".jump(1) end },
         },
     },
     { "wsdjeg/vim-fetch" },
