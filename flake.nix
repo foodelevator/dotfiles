@@ -2,13 +2,10 @@
   description = "Configuration for my NixOS systems";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     systems.url = "github:nix-systems/default-linux"; # {aarch64,x86_64}-linux
-
-    nh.url = "github:viperML/nh/fe4a96a0b0b0662dba7c186b4a1746c70bbcad03";
-    nh.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-rpi5.url = "gitlab:vriska/nix-rpi5";
     nix-rpi5.inputs.nixpkgs.follows = "nixpkgs";
@@ -25,10 +22,10 @@
         import nixpkgs {
           inherit system;
           config.allowUnfree = true;
-          config.permittedInsecurePackages = [ "electron-25.9.0" ]; # for obsidian
+          # config.permittedInsecurePackages = [ "electron-25.9.0" ]; # for obsidian
           overlays = [
             (final: prev: {
-              inherit (unstablePkgs) zig zoom-us r2modman podman go_1_22 nomad_1_6;
+              inherit (unstablePkgs) zig;
 
               binary-ninja = prev.callPackage ./packages/binary-ninja { };
             } // (if system == "aarch64-linux" then {

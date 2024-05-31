@@ -4,7 +4,7 @@
     terraform-ls
     awscli2
     hcloud
-    nomad_1_6
+    nomad
   ];
 
   environment.variables = {

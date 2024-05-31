@@ -1,9 +1,5 @@
 { config, pkgs, inputs, ... }:
 {
-  imports = [
-    inputs.nh.nixosModules.default
-  ];
-
   nix.registry.nixpkgs.flake = inputs.nixpkgs;
   nix.registry.unstable.flake = inputs.unstable;
   nix.nixPath = [
@@ -21,7 +17,7 @@
     max-free = ${toString (1024 * 1024 * 1024)}
   '';
 
-  nh = {
+  programs.nh = {
     enable = true;
     flake = "${config.users.users.${config.elevate.user.name}.home}/dotfiles";
   };

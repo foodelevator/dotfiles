@@ -15,7 +15,7 @@ in
         "vfio-pci.ids=10de:1b83,10de:10f0"
         "rd.driver.pre=vfio-pci"
       ];
-      initrd.kernelModules = [ "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" ];
+      initrd.kernelModules = [ "vfio_pci" "vfio_iommu_type1" "vfio" ];
       # RTX 3060: 10de:2489,10de:228b
       # GTX 1060: 10de:1b83,10de:10f0
     };
