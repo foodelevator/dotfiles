@@ -266,7 +266,7 @@ require("lazy").setup({
                     expand = function(args) luasnip.lsp_expand(args.body) end,
                 },
                 mapping = {
-                    ["<c-y>"] = cmp.mapping.confirm({ select = true }),
+                    ["<c-l>"] = cmp.mapping.confirm({ select = true }),
                     ["<c-e>"] = cmp.mapping.abort(),
                     ["<c-b>"] = cmp.mapping.scroll_docs(-4),
                     ["<c-f>"] = cmp.mapping.scroll_docs(4),
