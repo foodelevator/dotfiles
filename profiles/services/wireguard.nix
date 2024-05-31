@@ -15,6 +15,10 @@ let
       privateAddr = "10.69.0.3";
       address = { host = "home.magnusson.space"; port = 51801; };
     };
+    lucas = {
+      publicKey = "Kzu4B/NoTD9o7ZnmPC/blwOEkxRZaxtjD1WYadJA9EE=";
+      privateAddr = "10.69.1.1";
+    };
   };
 
   thisNode = nodes.${config.networking.hostName};

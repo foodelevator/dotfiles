@@ -11,8 +11,8 @@
     lockdPort = 4001;
     mountdPort = 4002;
     exports = ''
-      /export/mathias -rw,sync,insecure 10.69.0.0/16 192.168.1.2
-      /export/lucas 192.168.1.6(rw,sync,insecure,all_squash)
+      /export/mathias -rw,sync,insecure 10.69.0.0/24 192.168.1.2
+      /export/lucas -rw,sync,insecure,all_squash 10.69.1.1
     '';
   };
 
