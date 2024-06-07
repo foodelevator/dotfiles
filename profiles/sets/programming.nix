@@ -46,12 +46,19 @@
 
   services.postgresql = {
     enable = true;
-    package = pkgs.postgresql_15;
+    package = pkgs.postgresql_16;
     enableJIT = true;
     ensureUsers = [{
       inherit (config.elevate.user) name;
       ensureClauses.superuser = true;
       ensureClauses.login = true;
     }];
+    authentication = ''
+      local all postgres peer
+      local all all      peer map=any
+    '';
+    identMap = ''
+      any ${config.elevate.user.name} all
+    '';
   };
 }
